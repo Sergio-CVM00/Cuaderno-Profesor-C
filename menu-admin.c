@@ -8,3 +8,27 @@
 
 
 void usuarios_alta()
+
+
+void AnadirUsuarios(usuario *vUsuario, int *nUsuario){
+
+
+     fflush(stdin);
+     printf("\nIntroduce el identificador del nuevo usuario\n");
+	 gets((vUsuario)[*nUsuario].id_usuario);
+	 fflush(stdin);
+     printf("\nIntroduce el nombre del nuevo usuario\n");
+	 gets((vUsuario)[*nUsuario].nombre);
+	 fflush(stdin);
+     printf("\nIntroduce el perfil del nuevo usuario\n");
+	 gets((vUsuario)[*nUsuario].Rol);
+	 fflush(stdin);
+     printf("\nIntroduce el nombre de USUARIO del nuevo usuario\n");
+	 gets((vUsuario)[*nUsuario].nick);
+	 fflush(stdin);
+     printf("\nIntroduce la contrasena del nuevo usuario\n");
+	 gets((vUsuario)[*nUsuario].contrasena);
+     (*nUsuario)++;
+     printf("Correctamente anadido\n");
+
+    }
