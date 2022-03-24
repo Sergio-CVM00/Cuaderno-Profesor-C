@@ -3,7 +3,14 @@
 #include <string.h>
 #include "usuario.h"
 
-
+//USUARIOS
+typedef struct{
+    int  id_usuario[2];
+    char nombre_usuario[19];
+    char perfil_usuario[29]; //administrador o profesor
+    char usuario[4]; // con el que accedemos al sistema
+    char contrasena[7];
+}usuario;
 
 int main()
 {
