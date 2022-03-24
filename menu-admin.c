@@ -11,7 +11,18 @@
 //#include <ctime>
 #include "menu-admin.h"
 
-void usuarios_alta()
+void usuarios_alta( ){
+{
+    *Vusuarios=realloc((equipo *)(*vEquipos),((*nEquipos)+1)*sizeof(equipo));
+
+    printf("INTRODUCE LA ID DE EQUIPO (2 caracteres numéricos):\n");
+    scanf(" %2s",(*vUsuarios)[*nUsuarios].id);
+
+    printf("INTRODUCE EL NOMBRE COMPLETO (40 caracteres max.):\n");
+    scanf(" %40s",(*vUsuarios)[*nUsuarios].nombre);
+
+    (*usuarios)++;
+}
 
 void alumnos_alta(alumno *vAlumno, int *nAlumno){
 int menuAnadir,i,j,auxiliar1,auxiliar2;
