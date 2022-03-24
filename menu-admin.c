@@ -5,3 +5,6 @@
 //Cuando quieras llevar los cambios de ese fichero a la rama MAIN.
 //Dentro de github desktop te colocas en la rama main, vas a la opcion de "branch/rama"
 //PULSAS "merge into current branch" seleccionas la rama de la cual quieras traer esos cambios.
+
+
+void usuarios_alta()
