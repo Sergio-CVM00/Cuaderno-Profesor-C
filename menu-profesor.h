@@ -9,7 +9,6 @@ Estos datos seran cargados desde los modulos datos-profesor...
 En el .C menu-profesor tendremos funciones que seran los menus del profesor con los que el opere en el sistema.
 En el .h menu-profesor tendremos las estructuras "struct" de los datos necesarios
 
-De esta forma, nos ahorramos llamar a todas las funciones de carga, solo se carga lo que se va a utilizar.
 */
 
 typedef struct{
