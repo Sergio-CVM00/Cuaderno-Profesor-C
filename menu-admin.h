@@ -10,8 +10,12 @@ El admin tiene que tener acceso a todos los datos
 En el .C menu-admin tendremos funciones que seran los menus del admin con los que el opere en el sistema.
 En el .h menu-admin tendremos las estructuras "struct" de los datos necesarios
 
+En el .C datos-admin  tendremos las funciones que guardan y cargan.
+En el .h datos-admin tendremos las estructuras "struct" de los datos necesarios
+
 De esta forma, nos ahorramos llamar a todas las funciones de carga, solo se carga lo que se va a utilizar.
 */
+
 
 //USUARIOS
 typedef struct{

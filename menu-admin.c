@@ -5,6 +5,8 @@
 //Cuando quieras llevar los cambios de ese fichero a la rama MAIN.
 //Dentro de github desktop te colocas en la rama main, vas a la opcion de "branch/rama"
 //PULSAS "merge into current branch" seleccionas la rama de la cual quieras traer esos cambios.
+
+//PULSAS "merge into current branch" seleccionas la rama de la cual quieras traer esos cambios.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,7 +14,6 @@
 #include "menu-admin.h"
 
 void usuarios_alta( ){
-{
     *Vusuarios=realloc((equipo *)(*vEquipos),((*nEquipos)+1)*sizeof(equipo));
 
     printf("INTRODUCE LA ID DE EQUIPO (2 caracteres numéricos):\n");
@@ -24,12 +25,15 @@ void usuarios_alta( ){
     (*usuarios)++;
 }
 
-void alumnos_alta(alumno *vAlumno, int *nAlumno){
+void alumnos_funciones(alumno *vAlumno, int *nAlumno){
 int menuAnadir,i,j,auxiliar1,auxiliar2;
+char eliminarA[2];
    do {
             printf("\nSeleccione una opcion:\n");
             printf("1: Dar de alta Alumno \n");
             printf("2: Dar de baja Alumno\n");
+            printf("3: Modificar Alumno\n");
+            printf("4: Listar Alumnos\n");
             fflush(stdin);
             scanf("%i", &menuAnadir);
               }while(menuAnadir<1 || menuAnadir>2);
@@ -77,8 +81,101 @@ int menuAnadir,i,j,auxiliar1,auxiliar2;
             (*nAlumno)--;
             printf("\nEl Alumno se elimino correctamente\n");
         }
+        case 3:
+            int i,d,correctoU=0;
+            char a[2], nuevo_idA[5],nuevo_nombreA[19],nueva_dirA[29],nueva_localA[29],nuevo_cursoA[29],nuevo_grupoA[9];
+            printf("Seleccione el identificador del alumno en el que quiere hacer cambios\n\n");
+
+            gets(a);
+
+            for(i=0;i<(*nAlumno);i++){
+                if(strcmp((vAlumno)[i].id_alum,a)==0)
+                correctoU=1;
+                do{
+                    printf("Seleccione una opcion\n");
+                    printf("1: Cambiar identificador del alumno\n");
+                    printf("2: Cambiar nombre del alumno\n");
+                    printf("3: Cambiar direccion del alumno\n");
+                    printf("4: Cambiar localidad de alumno\n");
+                    printf("5: Cambiar curso del alumno\n");
+                    printf("6: Cambiar grupo del alumno\n");
+                        fflush(stdin);
+                        scanf("%i",&d);
+                    }while(d<1 || d>5);
+
+                    switch(d){
+                    case 1:
+                        printf("Introduce el nuevo identificador del alumno\n");
+                        fflush(stdin);
+                        gets(nuevo_idA);
+                        strcpy((vAlumno)[i].id_alum,nuevo_idA);
+                        break;
+
+                    case 2:
+                        printf("Introduce el nuevo nombre del alumno\n");
+                        fflush(stdin);
+                        gets(nuevo_nombreA);
+                        strcpy((vAlumno)[i].nombre_alum,nuevo_nombreA);
+                        break;
+
+                    case 3:
+                        printf("Introduce la nueva direccion del alumno\n");
+                        fflush(stdin);
+                        gets(nueva_dirA);
+                        strcpy((vAlumno)[i].direc_alum,nueva_dirA);
+                        break;
+
+                    case 4:
+                        printf("Introduce la nueva localidad del alumno\n");
+                        fflush(stdin);
+                        gets(nueva_localA);
+                        strcpy((vAlumno)[i].local_alum,nueva_localA);
+                        break;
+
+                    case 5:
+                        printf("Introduce el nuevo curso del alumno\n");
+                        fflush(stdin);
+                        gets(nuevo_cursoA);
+                        strcpy((vAlumno)[i].curso,nuevo_cursoA);
+                        break;
+                    case 6:
+                        printf("Introduce el nuevo grupo del alumno\n");
+                        fflush(stdin);
+                        gets(nuevo_grupoA);
+                        strcpy((vAlumno)[i].grupo,nuevo_grupoA);
+                        break;
+
+                    }
+                   
+
+                    }
+               
+        case 4:
+            int i;
+            printf("Se mostraran todos los alumnos del sistema:\n\n");
+            puts("//////////////////////////////////////////////////////////////////////////////");
+            printf("Los alumnos y su informacion son: \n\n");
+            for(i=0;i<(*nAlumno);i++){
+
+            printf("Identificador del usuario: %s\n",(vAlumno)[i].id_alum);
+            printf("Nombre del alumno: %s\n",(vAlumno)[i].nombre_alum);
+            printf("Direccion del alumno: %s\n",(vAlumno)[i].direc_alum);
+            printf("Localidad del alumno: %s\n",(vAlumno)[i].local_alum);
+            printf("Curso del alumno: %s\n",(vAlumno)[i].curso);
+            printf("Grupo del alumno: %s\n",(vAlumno)[i].grupo);
+            puts("/////////////////////////////////////////////////////////////////////////////");
+
+                }
+
+            puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
+  }
+}
+/*Además, para un alumno seleccionado, se permitirá mostrar la lista de materias en las que se encuentra matriculado, 
+realizar cambios de matrícula a otras materias, eliminar matrícula en alguna materia y crear nuevas matrículas. */
+
+
             
      
     
 
-     }
+     
