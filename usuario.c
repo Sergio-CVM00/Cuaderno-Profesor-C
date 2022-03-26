@@ -110,7 +110,19 @@ void guardarHorarios(horario *vHorarios,int n){
 
 //CARGAR USUARIO//
 
-usuario* cargar usuarios(usuario *vUsuario, int *n){
+int cargar() {
+
+    cargarUsuarios(&vUsuarios, &nUsuarios);
+    cargarAlumnos(&Alumnos, &nAlumnos);
+    cargarMarerias(&vMaterias, &nMaaterias);
+    cargarCalificaciones(&vCalificaciones, &nCalificaciones);
+
+    return (0);
+}
+
+
+
+ int cargarUsuarios(usuario** vUsuarios, int *n){
     FILE*fichero;
     char linea[80];
     char*token;
@@ -118,7 +130,7 @@ usuario* cargar usuarios(usuario *vUsuario, int *n){
 
 
 
-    vUsuario=NULL;
+    *vUsuarios=NULL;
 
     fichero=fopen("Usuarios.txt","r");
 
@@ -127,44 +139,44 @@ usuario* cargar usuarios(usuario *vUsuario, int *n){
     }
     else{
 
-        while{
-            (fgets(linea,80,fichero))
-        {
+        do{
+            fgets(linea,80,fichero);
 
-            if(strcmp(linea,"/0"))
-            {
-              vUsuario=(usuario *)realloc(vUsuario,((*n)+1) * sizeof(usuario));
+            if(strcmp(linea,"/0")) {
+
+                *vUsuarios=realloc((usuario*)(*vUsuarios),((*n)+1) * sizeof(usuario));
 
                 token = strtok(linea, "-");
-                strcpy(vUsuario[*n].id_usuario, token);
+                strcpy(*vUsuarios[*n].id_usuario, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vUsuario[*n].nombre_usuario, token);
+                strcpy(*vUsuarios[*n].nombre_usuario, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vUsuario[*n].perfil_usuario, token);
+                strcpy(*vUsuarios[*n].perfil_usuario, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vUsuario[*n].usuario, token);
+                strcpy(*vUsuarios[*n].usuario, token);
 
                 token = strtok(NULL, "\n");
-                strcpy(vUsuario[*n].contrasena, token);
+                strcpy(*vUsuarios[*n].contrasena, token);
 
                 (*n)++;
+
         }
-       }
+
+
+       }while (!feof(fichero));
       }
 
     fclose(fichero);
-    return vUsuario;
+    return *vUsuarios;
 
     }
 
 
-    }
 
-
-    alumno* cargar alumnos(alumno*vAlumnos,int*n);{
+int cargarAlumnos(alumno** vAlumnos,int*n);{
     FILE*fichero;
     char linea[80];
     char*token;
@@ -172,7 +184,7 @@ usuario* cargar usuarios(usuario *vUsuario, int *n){
 
 
 
-    vAlumnos=NULL;
+    *vAlumnos=NULL;
 
     fichero=fopen("Alumnos.txt","r");
 
@@ -181,46 +193,45 @@ usuario* cargar usuarios(usuario *vUsuario, int *n){
     }
     else{
 
-        while{
-            (fgets(linea,80,fichero))
-        {
+        do{
+            fgets(linea,80,fichero);
 
             if(strcmp(linea,"/0"))
             {
-              vAlumnos=(alumno *)realloc(vAlumnos,((*n)+1) * sizeof(alumno));
+              *vAlumnos= realloc((alumno*)(*vAlumnos),((*n)+1) * sizeof(alumno));
 
-            token = strtok(linea, "-");
-                strcpy(vAlumnos[*n].id_alum, token);
-
-                token = strtok(NULL, "-");
-                strcpy(vAlumnos[*n].nombre_alum, token);
+                token = strtok(linea, "-");
+                strcpy(*vAlumnos[*n].id_alum, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vAlumnos[*n].direc_alum, token);
+                strcpy(*vAlumnos[*n].nombre_alum, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vAlumnos[*n].local_alum, token);
+                strcpy(*vAlumnos[*n].direc_alum, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vAlumnos[*n].curso, token);
+                strcpy(*vAlumnos[*n].local_alum, token);
+
+                token = strtok(NULL, "-");
+                strcpy(*vAlumnos[*n].curso, token);
 
                 token = strtok(NULL, "\n");
-                strcpy(vAlumnos[*n].grupo, token);
+                strcpy(*vAlumnos[*n].grupo, token);
 
                 (*n)++;
         }
-       }
+       }while(!feof(fichero));
       }
 
     fclose(fichero);
-    return vAlumnos
+    return *vAlumnos
     }
 
 
-    }
 
 
-     materia*cargar marerias(materia *vMaterias,int*n);{
+
+int cargarMarerias(materia** vMaterias,int*n);{
     FILE*fichero;
     char linea[80];
     char*token;
@@ -228,7 +239,7 @@ usuario* cargar usuarios(usuario *vUsuario, int *n){
 
 
 
-    vMaterias=NULL;
+    *vMaterias=NULL;
 
     fichero=fopen("Materias.txt","r");
 
@@ -237,47 +248,46 @@ usuario* cargar usuarios(usuario *vUsuario, int *n){
     }
     else{
 
-        while{
-            (fgets(linea,80,fichero))
-        {
+        do{
+            fgets(linea,80,fichero);
 
             if(strcmp(linea,"/0"))
             {
-              vMaterias=(materia *)realloc(vMaterias,((*n)+1) * sizeof(materia ));
+              *vMaterias=realloc((materia *)(*vMaterias),((*n)+1) * sizeof(materia ));
 
                 token = strtok(linea, "-");
-                strcpy(vMaterias[*n].id_materia, token);
+                strcpy(*vMaterias[*n].id_materia, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vMaterias[*n].nombre_materia, token);
+                strcpy(*vMaterias[*n].nombre_materia, token);
 
                 token = strtok(NULL, "\n");
-                strcpy(vMaterias[*n].abrev_materia, token);
+                strcpy(*vMaterias[*n].abrev_materia, token);
 
                 (*n)++;
 
-                          (*n)++;
+
         }
-       }
+       }while (!feof(fichero));
       }
 
     fclose(fichero);
-    return vMaterias;
+    return *vMaterias;
 
     }
 
 
-    }
 
-    calificacion*cargar calificaciones(calificacion *vCalificaciones, int*n);{
+
+int  cargarCalificaciones(calificacion** vCalificaciones, int*n);{
     FILE*fichero;
     char linea[80];
-    char*token;
+  	char*token;
     *n=0;
 
 
 
-   vCalificaciones=NULL;
+   *vCalificaciones=NULL;
 
     fichero=fopen("Calificaciones.txt","r");
 
@@ -286,39 +296,36 @@ usuario* cargar usuarios(usuario *vUsuario, int *n){
     }
     else{
 
-        while{
-            (fgets(linea,80,fichero))
-        {
+        do{
+            fgets(linea,80,fichero);
+
 
             if(strcmp(linea,"/0"))
             {
-              vCalificaciones=(calificacion *)realloc( vCalificaciones,((*n)+1) * sizeof(calificacion ));
+              *vCalificaciones=realloc((calificacion *)( *vCalificaciones),((*n)+1) * sizeof(calificacion ));
 
                  token = strtok(linea, "-");
-                strcpy(Calificaciones[*n].fecha_calif, token);
+                strcpy(*vCalificaciones[*n].fecha_calif, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vCalificaciones[*n].descrip_calif, token);
+                strcpy(*vCalificaciones[*n].descrip_calif, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vCalificaciones[*n].id_materia, token);
+                strcpy(*vCalificaciones[*n].id_materia, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vCalificaciones[*n].id_alum, token);
+                strcpy(*vCalificaciones[*n].id_alum, token);
 
                 token = strtok(NULL, "-");
-                strcpy(vCalificaciones[*n].valor_calif, token);
+                strcpy(*vCalificaciones[*n].valor_calif, token);
 
                                (*n)++;
         }
-       }
+       }while (!feof(fichero));
       }
 
     fclose(fichero);
-    return vCalificaciones;
-
-    }
-
+    return *vCalificaciones;
 
     }
 
