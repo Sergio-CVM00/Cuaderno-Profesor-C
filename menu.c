@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "usuario.h"
+#include "cargar-guardar.h"
 
-//USUARIOS
-typedef struct{
-    int  id_usuario[2];
-    char nombre_usuario[19];
-    char perfil_usuario[29]; //administrador o profesor
-    char usuario[4]; // con el que accedemos al sistema
-    char contrasena[7];
-}usuario;
 
+
+
+int main(){
+  //FUNCIONES DE CARGA, necesarias para el correcto uso de datos dentro del sistema.
+  int nUsuario; usuario *vUsuario = CargarUsuarios(vUsuario, &nUsuario);
+  printf("\nNumero de usuarios: %s\n", nUsuario);
+  return 0;
+}
+
+
+
+
+/*
 int main()
 {
 
@@ -33,48 +38,50 @@ int usuario
 
    if(op==1)
    registro(&vUsuario, &nUsuario);
-   /*if(op==2)
-    log_in(  );*/
+   if(op==2)
+    log_in(  );
+  
    if(op==3)
     exit(-1);
 
   }while( op>3);
 }
-
+*/
+/*
 void registro(usuario **vUsuario, int *nUsuario)
 {
-system("cls");
-char prof[]="profesor";
-	char num_char[3 + sizeof(char)];
-	typedef struct
+  system("cls");
+  char prof[] = "profesor";
+  char num_char[3 + sizeof(char)];
+  typedef struct
   {
     char nombre[20];
     char contrasena[9];
-	}provisional;
-	provisional provus;
+  } provisional;
+  provisional provus;
 
-		printf("Introduzca su nombre: ");
-        fflush(stdin);
-        gets(provus.nombre);
-        printf("\nIntroduzca su contrasena: ");
-        fflush(stdin);
-        gets(provus.contrasena);
-        printf("\nSu registro se ha realizado exito");
+  printf("Introduzca su nombre: ");
+  fflush(stdin);
+  gets(provus.nombre);
+  printf("\nIntroduzca su contrasena: ");
+  fflush(stdin);
+  gets(provus.contrasena);
+  printf("\nSu registro se ha realizado exito");
 
-        printf("\n Registro realizado con exito.");
-        printf("-%s",provus.nombre);
-        printf("-%d",*nUsuarios);
-        system("pause");
+  printf("\n Registro realizado con exito.");
+  printf("-%s", provus.nombre);
+  printf("-%d", *nUsuarios);
+  system("pause");
 
-        *vUsuario = (usuario *)realloc(*vUsuario, ((*nUsuarios) + 1) * sizeof(usuario));
+  *vUsuario = (usuario *)realloc(*vUsuario, ((*nUsuarios) + 1) * sizeof(usuario));
 
-        strcpy((*vUsuario)[*nUsuarios].nombre, provus.nombre);
-        strcpy((*vUsuario)[*nUsuarios].contrasena, provus.contrasena);
+  strcpy((*vUsuario)[*nUsuarios].nombre, provus.nombre);
+  strcpy((*vUsuario)[*nUsuarios].contrasena, provus.contrasena);
 
 
 
 }
-
+*/
 /*int log_in()
 {
 system("cls");

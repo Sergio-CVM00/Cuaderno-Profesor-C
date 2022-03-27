@@ -17,7 +17,7 @@ De esta forma, nos ahorramos llamar a todas las funciones de carga, solo se carg
 
 //USUARIOS
 typedef struct{
-    int id_usuario[2];
+    char id_usuario[2];
     char nombre_usuario[19];
     char perfil_usuario[29]; //administrador o profesor
     char usuario[4]; // con el que accedemos al sistema
@@ -70,14 +70,14 @@ typedef struct{
     char id_alum[5]; //debe coincidir con el id de algun alumno
 }matricula;
 
-int nUsuarios;
+int nUsuario;
 int nAlumno;
 int nCalificaciones;
 int nHorario;
 int nMateria;
 int nMatricula;
 
-usuario *v_usuarios;
+usuario *vUsuarios;
 alumno *v_alumnos;
 calificaciones *v_calificaciones;
 horario *v_horario;
@@ -85,6 +85,11 @@ materia *v_materias;
 matricula *v_matricula;
 
 //funciones de carga
+
+//Cabecera: usuario* CargarUsuarios(usuario *vUsuario, int *n);
+//Precondicion: fichero Usuarios.txt
+//Postcondicion: Devuelve el vector vUsuarios con el contenido del fichero usuarios
+usuario* CargarUsuarios(usuario *vUsuario, int *n);
 
 //funciones de guardar
 
