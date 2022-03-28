@@ -4,8 +4,6 @@
 #include "cargar-guardar.h"
 
 
-
-
 int main(){
   //FUNCIONES DE CARGA, necesarias para el correcto uso de datos dentro del sistema.
   int nUsuario; usuario *vUsuario = CargarUsuarios(vUsuario, &nUsuario);
