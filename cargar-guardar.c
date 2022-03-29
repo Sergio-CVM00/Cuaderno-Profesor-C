@@ -77,7 +77,7 @@ usuario* CargarUsuarios(usuario *vUsuario, int *n){
 	return vUsuario;
 }
 
-
+/*
 //
 //Horarios 
 //
@@ -212,3 +212,6 @@ void cargar_calificaciones(calificaciones **cf)
         fclose(f);
     }
 }
+
+
+*/
