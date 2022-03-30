@@ -81,20 +81,14 @@ int nHorario;
 int nMateria;
 int nMatricula;
 
-/*
-    usuario *vUsuarios;
-    alumno *v_alumnos;
-    calificaciones *vCalificaciones;
-    horario *vHorario;
-    materia *v_materias;
-    matricula *v_matricula;
-*/
-//funciones de carga
+usuario *vUsuarios;
+alumno *v_alumnos;
+calificaciones *vCalificaciones;
+horario *vHorario;
+materia *v_materias;
+matricula *v_matricula;
 
-//Cabecera: usuario* CargarUsuarios(usuario *vUsuario, int *n);
-//Precondicion: fichero Usuarios.txt
-//Postcondicion: Devuelve el vector vUsuarios con el contenido del fichero usuarios
-void cargar_usuarios(usuario **us)
+//funciones de carga
 
 //Cabecera: usuario* CargarUsuarios(usuario *vUsuario, int *n);
 //Precondicion: fichero Usuarios.txt

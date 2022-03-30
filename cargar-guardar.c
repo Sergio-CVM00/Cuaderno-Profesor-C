@@ -4,36 +4,64 @@
 #include <stdlib.h>
 #include <math.h>
 
-
 typedef struct{
-    int id_usuario;
+    int id_usuario[2];
     char nombre_usuario[19];
     char perfil_usuario[29]; //administrador o profesor
     char usuario[4]; // con el que accedemos al sistema
     char contrasena[7];
 }usuario;
 
-int nusuario;
+usuario* CargarUsuarios(usuario *vUsuario, int *n){
 
-int main(){
-    /*
-    int nUsuario; usuario *vUsuario = CargarUsuarios(vUsuario, &nUsuario);
-    printf("\nNumero de usuarios: %s\n", nUsuario);
-    printf("\n  vusuario: %i ",vUsuario[1].id_usuario );
-    printf("\n  vusuario: %c ",vUsuario[1].nombre_usuario );
-    */
+    FILE *fichero;
+    char linea[80]; //Cadena para guardar una linea entera
+    char *token;
+    *n=0;
+    
+    vUsuario = NULL;
+    fichero = fopen("Usuarios.txt", "r");
+    if (fichero == NULL)
+    {
+        puts("Error al abrir el fichero Usuarios.txt.");
+    }
+    else
+    {
+        while (fgets(linea, 80, fichero))
+        {
+            if (strcmp(linea, "\0"))
+            {
+                vUsuario = (usuario *) realloc(vUsuario,((*n)+1) * sizeof(usuario));
+                              
 
-   
-   usuario **us;
-   cargar_usuarios(us);
-   printf("\nNumero de usuarios: %i\n", nusuario);
-   printf("\n usuario: %i\n", (*us)[nusuario].id_usuario);
-   return 0;
-   
+                token = strtok(linea, "-");
+                *vUsuario[*n].id_usuario = atoi(token);  // hasta que encuentre un guion
+		
+                token = strtok(NULL, "-");
+                strcpy(vUsuario[*n].nombre_usuario, token);	   //borra lo anterior e imprime hasta que encuentre el proximo guion
+							
+                token = strtok(NULL, "-");
+                strcpy(vUsuario[*n].perfil_usuario, token);
+
+                token = strtok(NULL, "-");
+                strcpy(vUsuario[*n].usuario, token);
+                
+                token = strtok(NULL, "\n");
+                strcpy(vUsuario[*n].contrasena, token);
+				
+                (*n)++; 
+            }
+        }
+    }
+    fclose(fichero);
+	return vUsuario;
 }
 
+int main(){
+    int nUsuario; usuario *vUsuario = CargarUsuarios(vUsuario, &nUsuario);
+}
 
-
+/*
 void cargar_usuarios(usuario **us)
 {
 
@@ -94,9 +122,9 @@ void guardar_usuarios(usuario **us)
     fclose(f);
 }
 
+*/
 
 
-/*
 //
 //Usuarios 
 //
@@ -123,51 +151,8 @@ void GuardarUsuarios(usuario *vUsuario, int n){
     fclose(fichero);
 }
 
-usuario* CargarUsuarios(usuario *vUsuario, int *n){
 
-    FILE *fichero;
-    char linea[80]; //Cadena para guardar una linea entera
-    char *token;
-    *n=0;
-    
-    vUsuario = NULL;
-    fichero = fopen("Usuarios.txt", "r");
-    if (fichero == NULL)
-    {
-        puts("Error al abrir el fichero Usuarios.txt.");
-    }
-    else
-    {
-        while (fgets(linea, 80, fichero))
-        {
-            if (strcmp(linea, "\0"))
-            {
-                vUsuario = (usuario *) realloc(vUsuario,((*n)+1) * sizeof(usuario));
-                              
 
-                token = strtok(linea, "-");
-                *vUsuario[*n].id_usuario = atoi(token);  // hasta que encuentre un guion
-		
-                token = strtok(NULL, "-");
-                strcpy(vUsuario[*n].nombre_usuario, token);	   //borra lo anterior e imprime hasta que encuentre el proximo guion
-							
-                token = strtok(NULL, "-");
-                strcpy(vUsuario[*n].perfil_usuario, token);
-
-                token = strtok(NULL, "-");
-                strcpy(vUsuario[*n].usuario, token);
-                
-                token = strtok(NULL, "\n");
-                strcpy(vUsuario[*n].contrasena, token);
-				
-                (*n)++; 
-            }
-        }
-    }
-    fclose(fichero);
-	return vUsuario;
-}
-*/
 
 /*
 void guardarAlumnos(alumno *vAlumno,int n){
