@@ -1,5 +1,9 @@
 #ifndef _CARGAR_H_
 #define _CARGAR_H_
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
 /*
 El admin tiene que tener acceso a todos los datos
 -usuarios
@@ -70,31 +74,31 @@ typedef struct{
     char id_alum[5]; //debe coincidir con el id de algun alumno
 }matricula;
 
-int nUsuario;
+int nusuario;
 int nAlumno;
 int nCalificaciones;
 int nHorario;
 int nMateria;
 int nMatricula;
 
-usuario *vUsuarios;
-alumno *v_alumnos;
-calificaciones *vCalificaciones;
-horario *vHorario;
-materia *v_materias;
-matricula *v_matricula;
-
+/*
+    usuario *vUsuarios;
+    alumno *v_alumnos;
+    calificaciones *vCalificaciones;
+    horario *vHorario;
+    materia *v_materias;
+    matricula *v_matricula;
+*/
 //funciones de carga
 
 //Cabecera: usuario* CargarUsuarios(usuario *vUsuario, int *n);
 //Precondicion: fichero Usuarios.txt
 //Postcondicion: Devuelve el vector vUsuarios con el contenido del fichero usuarios
-usuario* CargarUsuarios(usuario *vUsuario, int *n);
+void cargar_usuarios(usuario **us)
 
 //Cabecera: usuario* CargarUsuarios(usuario *vUsuario, int *n);
 //Precondicion: fichero Usuarios.txt
 //Postcondicion: guarda los cambios en el .txt
-void GuardarUsuarios(usuario *vUsuario, int n);
 //funciones de guardar
 
 

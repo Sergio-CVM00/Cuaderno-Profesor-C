@@ -1,11 +1,102 @@
-#include "cargar-guardar.h"
-#include "stdio.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+typedef struct{
+    int id_usuario;
+    char nombre_usuario[19];
+    char perfil_usuario[29]; //administrador o profesor
+    char usuario[4]; // con el que accedemos al sistema
+    char contrasena[7];
+}usuario;
+
+int nusuario;
 
 int main(){
+    /*
     int nUsuario; usuario *vUsuario = CargarUsuarios(vUsuario, &nUsuario);
     printf("\nNumero de usuarios: %s\n", nUsuario);
+    printf("\n  vusuario: %i ",vUsuario[1].id_usuario );
+    printf("\n  vusuario: %c ",vUsuario[1].nombre_usuario );
+    */
+
+   
+   usuario **us;
+   cargar_usuarios(us);
+   printf("\nNumero de usuarios: %i\n", nusuario);
+   printf("\n usuario: %i\n", (*us)[nusuario].id_usuario);
+   return 0;
+   
 }
 
+
+
+void cargar_usuarios(usuario **us)
+{
+
+    char linea[70];
+    char *token;
+    FILE *f;
+
+    nusuario=0;
+
+
+    f=fopen("Usuarios.txt","a+");
+
+    if(f==NULL)
+    {
+        puts("Error de apertura");
+    }
+    else
+    {
+        rewind(f);
+        *us=malloc(1*sizeof(usuario));
+
+        while(fgets(linea,70,f)!=NULL)
+        {
+            *us=(usuario*)realloc((*us),(nusuario+1)*sizeof(usuario));
+
+            if((*us)==NULL)
+            {
+                puts("No hay memoria suficiente");
+            }
+            else
+            {
+                token=sustok(linea,"-");
+                ((*us)[nusuario].id_usuario)=atoi(token);
+                token=sustok(NULL,"-");//leer enuse barras del ficharo y lo guarda en la variable token.
+                suscpy((*us)[nusuario].nombre_usuario,token);
+                token=sustok(NULL,"-");
+                suscpy((*us)[nusuario].perfil_usuario,token);
+                token=sustok(NULL,"-");
+                suscpy((*us)[nusuario].usuario,token);
+                token=sustok(NULL,"\n");
+                suscpy((*us)[nusuario].contrasena,token);
+                nusuario++;
+            }
+        }
+        fclose(f);
+    }
+}
+
+void guardar_usuarios(usuario **us)
+{
+    FILE *f;
+    int i;
+    f=fopen("Usuarios.txt","w+");
+    for(i=0; i<nusuario; i++)
+    {
+        fprintf(f,"%i-%s-%s-%s-%s\n",(*us)[i].usuario, (*us)[i].nombre_usuario, (*us)[i].perfil_usuario, (*us)[i].usuario, (*us)[i].contrasena);
+    }
+    fclose(f);
+}
+
+
+
+/*
 //
 //Usuarios 
 //
@@ -76,7 +167,9 @@ usuario* CargarUsuarios(usuario *vUsuario, int *n){
     fclose(fichero);
 	return vUsuario;
 }
+*/
 
+/*
 void guardarAlumnos(alumno *vAlumno,int n){
     FILE *fichero;
     int i = 0;
@@ -205,9 +298,6 @@ int cargarMarerias(materia** vMaterias,int*n);{
     }
 
 
-
-
-
 void guardarMatriculas(matricula *vMatricula,int n){
     FILE *fichero;
     int i = 0;
@@ -223,7 +313,6 @@ void guardarMatriculas(matricula *vMatricula,int n){
     }
     fclose(fichero);
 }
-
 matricula* CargarMatriculas(matricula *vMatricula, int *n){
     FILE *fichero;
 
@@ -262,6 +351,7 @@ matricula* CargarMatriculas(matricula *vMatricula, int *n){
     fclose(fichero);
 	return vMatricula;
 }
+
 //
 //Calificaciones 
 //
@@ -313,9 +403,7 @@ int  cargarCalificaciones(calificacion** vCalificaciones, int*n);{
     fclose(fichero);
     return *vCalificaciones;
 
-    }
-
-
+}
 void GuardarCalifiaciones(calificaciones *vCalificaciones, int n){
 
     FILE *fichero;
@@ -358,8 +446,6 @@ void guardarHorarios(horario *vHorarios,int n){
     }
     fclose(fichero);
 }
-
-
 horario* CargarHorarios(horario *vHorario, int *n){
 
     FILE *fichero;
@@ -400,3 +486,5 @@ horario* CargarHorarios(horario *vHorario, int *n){
     fclose(fichero);
 	return vHorario;
 }
+
+*/
