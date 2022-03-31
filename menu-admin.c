@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 //#include <ctime>
-#include "menu-admin.h"
+#include "cargar-guardar.h"
 
 //USUARIOS
 /*
@@ -217,17 +217,17 @@ char eliminarA[2];
             existe = 0;
             pritnf("Introduce tu id de alumno");
             fflush(stdin);
-            fgets(id_alum_,5,stdin);ç
+            fgets(id_alum_,5,stdin);
             salto(id_alum_);
             existe = comprobar_id(*alum,id_alum_);
             if(existe==1){printf("Este usuario ya existe\n");}
        }while(existe==1);
-       strcpy((*alum)[nAlumno].id_alum,nick_);
+       trcpy((*alum)[nAlumno].id_alum,id_alum_);
 
         printf("Introduce tu nombre completo: ");
         fflush(stdin);
-        fgets((*jug)[Njugadores].nom_comp,40,stdin);
-        salto((*jug)[Njugadores].nom_comp);
+        fgets((*alum)[nAlumno].,40,stdin);
+        salto((*alum)[nAlumno].nom_comp);
         fflush(stdin);
 
         printf("Introduce una contrasenia: ");
@@ -262,7 +262,7 @@ char eliminarA[2];
     
     }
 
-            
+//         
 void salto(char *str){
 int tam;
     tam=strlen(str);
