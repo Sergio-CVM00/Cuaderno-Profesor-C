@@ -22,7 +22,35 @@ Modificar usuarios
 */
 
 void darAlta_Usuarios(usuario **usu){
-    
+
+}
+
+void darBaja_Usuarios(usuario **usu,int op){
+
+    if (op == Njugadores - 1)
+    {
+        Njugadores--;
+    }
+    else
+    {
+        strcpy((*jug)[op].nick, (*jug)[Njugadores - 1].nick);
+        strcpy((*jug)[op].nom_comp, (*jug)[Njugadores - 1].nom_comp);
+        (*jug)[op].nivel = (*jug)[Njugadores - 1].nivel;
+        (*jug)[op].vida = (*jug)[Njugadores - 1].vida;
+        (*jug)[op].escudo = (*jug)[Njugadores - 1].escudo;
+        strcpy((*jug)[op].estado, (*jug)[Njugadores - 1].estado);
+        (*jug)[op].cartera = (*jug)[Njugadores - 1].cartera;
+        (*jug)[op].p_jugadas = (*jug)[Njugadores - 1].p_jugadas;
+        (*jug)[op].p_ganadas = (*jug)[Njugadores - 1].p_ganadas;
+        strcpy((*jug)[op].perfil, (*jug)[Njugadores - 1].perfil);
+        strcpy((*jug)[op].contrasenia, (*jug)[Njugadores - 1].contrasenia);
+        Njugadores--;
+    }
+
+    guardar_jugador(*jug);
+    system("cls");
+    printf("\n            JUGADOR ELIMINADO\n");
+    mostrar_jugadores(*jug);
 }
 
 //HORARIOS
