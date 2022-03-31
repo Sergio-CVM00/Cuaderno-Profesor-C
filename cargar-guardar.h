@@ -1,5 +1,5 @@
-#ifndef _CARGAR_H_
-#define _CARGAR_H_
+#ifndef _CARGARYGUARDAR_H_
+#define _CARGARYGUARDAR_H_
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -21,18 +21,13 @@ De esta forma, nos ahorramos llamar a todas las funciones de carga, solo se carg
 
 //USUARIOS
 typedef struct{
-    int id_usuario[2];
+    int id_usuario;
     char nombre_usuario[19];
     char perfil_usuario[29]; //administrador o profesor
     char usuario[4]; // con el que accedemos al sistema
     char contrasena[7];
 }usuario;
 
-typedef struct{
-    int dia;
-    int mes;
-    int ano;
-}fecha;
 
 //ESTRUCTURA ALUMNO
 typedef struct{
@@ -74,25 +69,19 @@ typedef struct{
     char id_alum[5]; //debe coincidir con el id de algun alumno
 }matricula;
 
-int nusuario;
+int nUsuario;
 int nAlumno;
 int nCalificaciones;
 int nHorario;
 int nMateria;
 int nMatricula;
 
-usuario *vUsuarios;
-alumno *v_alumnos;
-calificaciones *vCalificaciones;
-horario *vHorario;
-materia *v_materias;
-matricula *v_matricula;
-
 //funciones de carga
 
 //Cabecera: usuario* CargarUsuarios(usuario *vUsuario, int *n);
 //Precondicion: fichero Usuarios.txt
-//Postcondicion: guarda los cambios en el .txt
+//Postcondicion: carga los datos de usuarios en el sistema.
+void cargar_usuarios(usuario **usu);
 //funciones de guardar
 
 

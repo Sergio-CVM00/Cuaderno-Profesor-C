@@ -6,28 +6,24 @@
 void registro(usuario **vUsuario,int *nUsuario);
 int log_in(usuario *vUsuario, int nUsuario, char *id_usr);
 
-int main()
+int menu_principal()
 {
-int nUsuario; usuario *vUsuario = CargarUsuarios(vUsuario, &nUsuario);
-int usuario;
-int op;
-char id_usr[2];  
+  int op;
+  char id_usr[2];
   do
   {
-  system("cls");
-  printf("!Bienvenido al cuaderno del profesor� \n 1.Registro \n 2.Log-In \n 3.Salir \n");
-  fflush(stdin);
-  scanf("%d",&op);
+    system("cls");
+    printf("!Bienvenido al cuaderno del profesor� \n 1.Registro \n 2.Log-In \n 3.Salir \n");
+    fflush(stdin);
+    scanf("%d", &op);
 
-   if(op==1)
-   registro(&vUsuario, &nUsuario);
-   if(op==2)
-    usuario=log_in(vUsuario, nUsuario, id_usr);
-   if(op==3)
-    exit(-1);
-  }while( op>3);
-
-
+    if (op == 1)
+      registro(&vUsuario, &nUsuario);
+    if (op == 2)
+      usuario = log_in(vUsuario, nUsuario, id_usr);
+    if (op == 3)
+      exit(-1);
+  } while (op > 3);
 
 //Aqui iran los menus de profesor y admin.
 
