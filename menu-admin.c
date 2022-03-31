@@ -177,121 +177,95 @@ char eliminarA[2];
 }
 
 
-/*MATERIAS*/
-void materias_funciones(materia *vMateria, int *nMateria){
-    int menuAnadir,i,j,auxiliar1,auxiliar2;
-char eliminarM[2];
+
+void MenuAlumno(alumno *alum,alumno **alum){
+int menuAnadir,i,j,auxiliar1,auxiliar2;
+char eliminarA[2];
    do {
             printf("\nSeleccione una opcion:\n");
-            printf("1: Dar de alta Materia \n");
-            printf("2: Dar de baja Materia\n");
-            printf("3: Modificar Materia\n");
-            printf("4: Listar Materia\n");
+            printf("1: Dar de alta Alumno \n");
+            printf("2: Dar de baja Alumno\n");
+            printf("3: Modificar Alumno\n");
+            printf("4: Listar Alumnos\n");
+            printf("5: Informacion de alumnos\n");
             fflush(stdin);
             scanf("%i", &menuAnadir);
-              }while(menuAnadir<1 || menuAnadir>4);
+              }while(menuAnadir<1 || menuAnadir>5);
     switch (menuAnadir){
 
         case 1:
-            fflush(stdin);
-            printf("\nIntroduce el identificador de la nueva materia\n");
-            gets((vMateria)[*nMateria].id_materia);
-            fflush(stdin);
-            printf("\nIntroduce el nombre del nuevo alumno\n");
-            gets((vMateria)[*nMateria].nombre_materia);
-            fflush(stdin);
-            printf("\nIntroduce la direccion del nuevo alumno\n");
-            gets((vMateria)[*nMateria].abrev_materia);
-            fflush(stdin);
-            (*nMateria)++;
-            printf("Correctamente anadida\n");
+            puts("Seleccionó dar de alta\n");
+		    dar_alta_alumno(&alum); break;
 
-        case 2:
-            printf("\nIntroduce el identificador de la materia que desea eliminar\n");
-            gets(eliminarM);
-            for(j=0;j<(*nMateria);j++){
-            if(strcmp((vMateria)[j].id_materia,eliminarM)==0){
-            auxiliar2=j;
-                }
-            }
 
-            for(j=auxiliar2;j+1<(*nMateria);j++){ ///////////////////////////////////////////////////////
-            strcpy((vMateria)[j].nombre_materia,(vMateria)[j+1].nombre_materia);
-            strcpy((vMateria)[j].abrev_materia,(vMateria)[j+1].abrev_materia);
-           //PARA ENTEROS (vAlumno)[j].precio=(vAlumno)[j+1].precio;
-            
+    }
 
-            (*nMateria)--;
-            printf("\nLa materia se elimino correctamente\n");
+    dar_alta_alumno(alumno **alum){
+        char id_alum_[5];
+        int existe;
+        *alum = (alumno*)realloc((*jug),(nAlumno+1)* sizeof(alumno));
+        do{
+            existe = 0;
+            pritnf("Introduce tu id de alumno");
+            fflush(stdin);
+            fgets(id_alum_,5,stdin);ç
+            salto(id_alum_);
+            existe = comprobar_id(*alum,id_alum_);
+            if(existe==1){printf("Este usuario ya existe\n");}
+       }while(existe==1);
+       strcpy((*alum)[nAlumno].id_alum,nick_);
+
+        printf("Introduce tu nombre completo: ");
+        fflush(stdin);
+        fgets((*jug)[Njugadores].nom_comp,40,stdin);
+        salto((*jug)[Njugadores].nom_comp);
+        fflush(stdin);
+
+        printf("Introduce una contrasenia: ");
+        fflush(stdin);
+        fgets((*jug)[Njugadores].contrasenia,20,stdin);
+        salto((*jug)[Njugadores].contrasenia);
+        fflush(stdin);
+
+        (*jug)[Njugadores].nivel=0;
+        (*jug)[Njugadores].vida=100;
+        (*jug)[Njugadores].escudo=0;
+        strcpy((*jug)[Njugadores].estado,"OFF");
+        (*jug)[Njugadores].cartera=0;
+        (*jug)[Njugadores].p_jugadas=0;
+        (*jug)[Njugadores].p_ganadas=0;
+        strcpy((*jug)[Njugadores].perfil,"JGD");
+        Njugadores++;
+
+        guardar_jugador(*jug);
+
+
+
+
+
+
+
+
+
         }
-        case 3:
-            int i,d,correctoU=0;
-            char a[2], nuevo_idM[3],nuevo_nombreM[49],nueva_abrevM[3];
-            printf("Seleccione el identificador de la materia en el que quiere hacer cambios\n\n");
-
-            gets(a);
-
-            for(i=0;i<(*nMateria);i++){
-                if(strcmp((vMateria)[i].id_materia,a)==0)
-                correctoU=1;
-                do{
-                    printf("Seleccione una opcion\n");
-                    printf("1: Cambiar identificador de la materia\n");
-                    printf("2: Cambiar nombre de la materia\n");
-                    printf("3: Cambiar abreviatura de la materia\n");
-                        fflush(stdin);
-                        scanf("%i",&d);
-                    }while(d<1 || d>3);
-
-                    switch(d){
-                    case 1:
-                        printf("Introduce el nuevo identificador del alumno\n");
-                        fflush(stdin);
-                        gets(nuevo_idM);
-                        strcpy((vMateria)[i].id_materia,nuevo_idM);
-                        break;
-
-                    case 2:
-                        printf("Introduce el nuevo nombre de la materia\n");
-                        fflush(stdin);
-                        gets(nuevo_nombreM);
-                        strcpy((vMateria)[i].nombre_materia,nuevo_nombreM);
-                        break;
-
-                    case 3:
-                        printf("Introduce la nueva abreviatura para la materia\n");
-                        fflush(stdin);
-                        gets(nueva_abrevM);
-                        strcpy((vMateria)[i].abrev_materia,nueva_abrevM);
-                        break;
-
-                    }
-                   
-
-                    }
-               
-        case 4:
-            int i;
-            printf("Se mostraran todos las materias del sistema:\n\n");
-            puts("//////////////////////////////////////////////////////////////////////////////");
-            printf("Los alumnos y su informacion son: \n\n");
-            for(i=0;i<(*nMateria);i++){
-
-            printf("Identificador de la materia: %d\n",(vMateria)[i].id_materia);
-            printf("Nombre de la materia: %s\n",(vMateria)[i].nombre_materia);
-            printf("Abreviatura de la materia: %s\n",(vMateria)[i].abrev_materia);
-            puts("/////////////////////////////////////////////////////////////////////////////");
-
-                }
-
-            puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
-  }
-
-
-
-}
-            
-     
     
+    
+    
+    }
+
+            
+void salto(char *str){
+int tam;
+    tam=strlen(str);
+    str[tam-1]='\0';
+}    
+int comprobar_id(alumno *alum, char *id_alum){
+int i=0;
+while(i<nAlumno && strcmp(alum[i].id_alum,id_alum)!=0){i++;}
+  if(i==nAlumno){
+    return 0;
+  }else{
+    return 1;
+   }
 
      
