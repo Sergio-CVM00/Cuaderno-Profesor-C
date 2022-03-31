@@ -13,7 +13,6 @@ int main(){
     cargar_usuarios(&usu);
     cargar_alumnos(&alum);
     cargar_calificaciones(&cali);
-    carg
 
     printf("\nnUsuarios: %i",nUsuarios);
     //llamada a menu principal.

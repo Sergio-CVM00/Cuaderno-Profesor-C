@@ -96,17 +96,50 @@ void cargar_alumnos(alumno **alum);
 //Cabecera: void guardar_usuarios(usuario *usu);
 //Precondicion: fichero Usuarios.txt
 //Postcondicion: guarda los datos de usuarios en el txt.
-void guardar_usuarios(alumno *usu);
+void guardar_alumnos(alumno *alum);
 
 //Cabecera: void cargar_calificaciones(calificaciones **cali);
-//Precondicion: fichero Usuarios.txt
-//Postcondicion: guarda los datos de usuarios en el txt.
+//Precondicion: fichero Calificaciones.txt
+//Postcondicion: guarda los datos de calificaciones en el txt.
 void cargar_calificaciones(calificaciones **cali);
 
 //Cabecera: void guardar_calificaciones(calificaciones *cali);
-//Precondicion: fichero Usuarios.txt
-//Postcondicion: guarda los datos de usuarios en el txt.
+//Precondicion: fichero Calificaciones.txt
+//Postcondicion: guarda los datos de calificaciones en el txt.
 void guardar_calificaciones(calificaciones *cali);
+
+//Cabecera: void cargar_horarios(horario **hor);
+//Precondicion: fichero Horarios.txt
+//Postcondicion: carga los datos de horarios en el sistema.
+void cargar_horarios(horario **hor);
+
+//Cabecera: void guardar_horarios(calificaciones *cali);
+//Precondicion: fichero Horarios.txt
+//Postcondicion: guarda los datos de horarios en el txt.
+void guardar_horarios(horario *hor);
+
+//Cabecera: void cargar_materias(materia **mat);
+//Precondicion: fichero Materias.txt
+//Postcondicion: carga los datos de materias del txt en el sistema.
+void cargar_materias(materia **mat);
+
+//Cabecera: void guardar_materias(materia *mat);
+//Precondicion: fichero Materias.txt
+//Postcondicion: guarda los datos de materias en el txt.
+void guardar_materias(materia *mat);
+
+//Cabecera: void cargar_matriculas(matricula **mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: carga los datos de matriculas.txt en el sistema
+void cargar_matriculas(matricula **mtri);
+
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
+void guardar_matriculas(matricula *mtri);
+
+
+
 
 
 
