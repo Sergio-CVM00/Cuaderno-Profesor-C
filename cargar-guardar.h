@@ -31,7 +31,7 @@ typedef struct{
 
 //ESTRUCTURA ALUMNO
 typedef struct{
-    int id_alum[5];
+    int id_alum;
     char nombre_alum[19];
     char direc_alum[29];
     char local_alum[29];
@@ -43,17 +43,17 @@ typedef struct{
 typedef struct{
     char fecha_calif[8];
     char descrip_calif[5];
-    int id_materia[3];
-    int id_alum[5];
-    int valor_cal[9];
+    int id_materia;
+    int id_alum;
+    int valor_cal;
 }calificaciones;
 
 //ESTRUCTURA HORARIOS
 typedef struct{
-    int id_profesor[2]; //debe coincidir cin un ident de usuario,id_usuario con perfil de profesor en USUARIOS.TXT
-    int dia_clase[5]; //entre el 1 y el 5
-    int hora_clase[5];
-    int id_materia[4];//debe coincidir con el id_materia de una materia (en materias.txt)
+    int id_profesor; //debe coincidir cin un ident de usuario,id_usuario con perfil de profesor en USUARIOS.TXT
+    int dia_clase; //entre el 1 y el 5
+    int hora_clase;
+    int id_materia;//debe coincidir con el id_materia de una materia (en materias.txt)
 }horario;
 
 //ESTRUCTURA MATERIAS
@@ -97,4 +97,17 @@ void cargar_alumnos(alumno **alum);
 //Precondicion: fichero Usuarios.txt
 //Postcondicion: guarda los datos de usuarios en el txt.
 void guardar_usuarios(alumno *usu);
+
+//Cabecera: void cargar_calificaciones(calificaciones **cali);
+//Precondicion: fichero Usuarios.txt
+//Postcondicion: guarda los datos de usuarios en el txt.
+void cargar_calificaciones(calificaciones **cali);
+
+//Cabecera: void guardar_calificaciones(calificaciones *cali);
+//Precondicion: fichero Usuarios.txt
+//Postcondicion: guarda los datos de usuarios en el txt.
+void guardar_calificaciones(calificaciones *cali);
+
+
+
 #endif
