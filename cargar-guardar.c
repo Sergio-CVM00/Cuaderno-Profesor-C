@@ -5,9 +5,7 @@
 #include <math.h>
 #include "cargar-guardar.h"
 
-//
-//USUARIOS 
-//
+//Usuario cargar y guardar
 void cargar_usuarios(usuario **usu){
 
     char linea[160];
