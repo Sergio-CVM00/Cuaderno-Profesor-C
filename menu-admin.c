@@ -14,9 +14,24 @@
 #include "menu-admin.h"
 
 //USUARIOS
+/*
+Dar de alta usuarios
+Dar de baja usuarios
+Listar usuarios
+Modificar usuarios
+*/
 
+void darAlta_Usuarios(usuario **usu){
+    
+}
 
 //HORARIOS
+/*
+añadir horas de clase a un profesor concreto
+eliminarlas
+modificarlas 
+listar horarios de cada profesor
+*/
 
 
 void alumnos_funciones(alumno *vAlumno, int *nAlumno){
