@@ -82,7 +82,19 @@ int nMatricula;
 //Precondicion: fichero Usuarios.txt
 //Postcondicion: carga los datos de usuarios en el sistema.
 void cargar_usuarios(usuario **usu);
-//funciones de guardar
 
+//Cabecera: void guardar_usuarios(usuario *usu);
+//Precondicion: fichero Usuarios.txt
+//Postcondicion: guarda los datos de usuarios en el txt.
+void guardar_usuarios(usuario *usu);
 
+//Cabecera: void cargar_alumnos(alumno **alum)
+//Precondicion: fichero Alumnos.txt
+//Postcondicion: carga los datos de alumnos en el sistema.
+void cargar_alumnos(alumno **alum);
+
+//Cabecera: void guardar_usuarios(usuario *usu);
+//Precondicion: fichero Usuarios.txt
+//Postcondicion: guarda los datos de usuarios en el txt.
+void guardar_usuarios(alumno *usu);
 #endif
