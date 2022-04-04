@@ -24,7 +24,7 @@ typedef struct{
 //ESTRUCTURA MATRICULAS
 typedef struct{
     int id_materia; //debe coinidir con el id de alguna materia
-    char id_alum[5]; //debe coincidir con el id de algun alumno
+    int id_alum; //debe coincidir con el id de algun alumno
 }matricula;
 int nUsuario;
 int nAlumno;
@@ -40,10 +40,24 @@ void cargar_matriculas(matricula **mtri);
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
 void guardar_matriculas(matricula *mtri);
 
-
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
 void MenuAlumno(alumno *alum,alumno **alum);
-dar_alta_alumno(alumno **alum);
+
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
+void dar_alta_alumno(alumno **alum);
+
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
 void eliminar_usuario(alumno **alum, int op);
+
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
 void modificar_alumno(alumno **alum);
 
 
@@ -52,5 +66,5 @@ void salto(char *str);
 int comprobar_id(alumno *alum, char *id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
-void guardar_alumno(alumno *alum)
+void guardar_alumno(alumno *alum);
 #endif
