@@ -4,7 +4,15 @@
 int main(){
     //cargar usuarios del sistema.
     usuario *usu;
+    alumno *alum;
+    calificaciones *cali;
+    horario *hor;
+    materia *mat;
+    matricula *mtri;
+
     cargar_usuarios(&usu);
+    cargar_alumnos(&alum);
+    cargar_calificaciones(&cali);
 
     printf("\nnUsuarios: %i",nUsuarios);
     //llamada a menu principal.

@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "menu-profesor.h"
+#include "profesor.h"""
 
-void MenuProfesor (char *NombreProfesor, alumnos *vAlumnos, horario *vHorarios, calificaciones *vCalificaciones){
+void MenuProfesor ( char* NombreProfesor, alumnos *valumnos , horario *vhorario, calificaciones  *vcalificaciones){
+
     int x;
     printf("\n Bienvenido al  menu profesor, elige una de las siguientes \n");
-do{
+	do{
     printf("1: Listado de alumnos\n");
     printf("2: Horario\n");
     printf("3: Calificaciones\n");
@@ -29,4 +31,71 @@ do{
     system("PAUSE");
 
 return;
+
 }
+
+
+
+
+
+
+void listar_alumnos(){
+char aux;
+FILE *Alumnos;  
+
+Alumnos=fopen("Alumnos.txt","r");
+if (Alumnos == NULL)
+{
+    printf("Error al abrir el fichero");
+    exit(1);
+}
+
+while(aux != EOF) {
+    aux = fgetc(Alumnos);
+    printf("%c",aux);
+
+}
+fclose(Alumnos);
+}
+
+
+
+void listar_horarios(){
+char aux;
+FILE *Horario;  
+
+Horario=fopen("Horarios.txt","r");
+if (Horario == NULL)
+{
+    printf("Error al abrir el fichero");
+    exit(1);
+}
+
+while(aux != EOF) {
+    aux = fgetc(Horario);
+    printf("%c",aux);
+
+}
+fclose(Horario);
+}
+
+
+void listar_calificaciones(){
+char aux;
+FILE *Calificaciones;  
+
+Calificaciones=fopen("Calificaciones.txt","r");
+if (Calificaciones) == NULL)
+{
+    printf("Error al abrir el fichero");
+    exit(1);
+}
+
+while(aux != EOF) {
+    aux = fgetc(Calificacione);
+    printf("%c",aux);
+
+}
+fclose(Calificaciones);
+}
+
