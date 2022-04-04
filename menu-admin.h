@@ -38,15 +38,6 @@ int nAlumno;
 int nMatricula;
 int nMateria;
 
-//Cabecera: void cargar_matriculas(matricula **mtri);
-//Precondicion: fichero Matricula.txt
-//Postcondicion: carga los datos de matriculas.txt en el sistema
-void cargar_matriculas(matricula **mtri);
-
-//Cabecera: void guardar_matriculas(matricula *mtri);
-//Precondicion: fichero Matricula.txt
-//Postcondicion: guarda los datos de matriculas en el fichero txt-
-void guardar_matriculas(matricula *mtri);
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
@@ -61,7 +52,7 @@ void dar_alta_alumno(alumno **alum);
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void eliminar_usuario(alumno **alum, int op);
+void eliminar_alumno(alumno **alum, int op);
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
@@ -78,11 +69,44 @@ void listar_alumno(alumno *alum);
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
 void matricula_alumnos(alumno **alum, alumno **materia, matricula **matricula);
 
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
 void listar_materias_alumno(alumno **alum,materia **mate,matricula **matricula);
-//funciones auxiliares
+
+
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
+void crear_matricula_alumno(alumno **alum,materia **mate,matricula **matri);
+
+
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
+void eliminar_materias_alumno(alumno **alum,materia **mate ,matricula **matri);
+
+
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
+void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri)
+
+
+//MATERIAS
+
+void MenuMaterias(materia *mate, materia **mate);
+
+void dar_alta_materia(materia **mate);
+//funciones auxiliares alumnos
 void salto(char *str);
-int comprobar_id(alumno *alum, int *id_alum);
+int comprobar_id_alumno(alumno *alum, int *id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
 void guardar_alumno(alumno *alum);
+//funciones auxiliares materias
+int comprobar_id_materia(materia *mate, int *id_materia);
+void mostrar_materias(materia *mate);
+void mostrar_materia(materia *mate, int pos);
+void guardar_materia(materia *mate);
 #endif
