@@ -26,9 +26,17 @@ typedef struct{
     int id_materia; //debe coinidir con el id de alguna materia
     int id_alum; //debe coincidir con el id de algun alumno
 }matricula;
+//ESTRUCTURA MATERIAS
+typedef struct{
+    int id_materia;
+    char nombre_materia[49];
+    char abrev_materia[3];
+}materia;
+
 int nUsuario;
 int nAlumno;
 int nMatricula;
+int nMateria;
 
 //Cabecera: void cargar_matriculas(matricula **mtri);
 //Precondicion: fichero Matricula.txt
@@ -60,10 +68,20 @@ void eliminar_usuario(alumno **alum, int op);
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
 void modificar_alumno(alumno **alum);
 
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
+void listar_alumno(alumno *alum);
 
+//Cabecera: void guardar_matriculas(matricula *mtri);
+//Precondicion: fichero Matricula.txt
+//Postcondicion: guarda los datos de matriculas en el fichero txt-
+void matricula_alumnos(alumno **alum, alumno **materia, matricula **matricula);
+
+void listar_materias_alumno(alumno **alum,materia **mate,matricula **matricula);
 //funciones auxiliares
 void salto(char *str);
-int comprobar_id(alumno *alum, char *id_alum);
+int comprobar_id(alumno *alum, int *id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
 void guardar_alumno(alumno *alum);
