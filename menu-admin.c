@@ -210,7 +210,7 @@ void modificar_alumno(alumno **alum)
                 fflush(stdin);
                 scanf("%i", &(*alum)[pos].id_alum);
                 salto(id_alum_);
-                existe = comprobar_id(*jug, id_alum_);
+                existe = comprobar_id_alumno(*mate, id_alum_);
                 if (existe == 1)
                 {
                     printf("Este alumno ya existe\n");
@@ -348,10 +348,6 @@ void crear_matricula_alumno(alumno **alum,materia **mate,matricula **matri){
 
 
 }
-void eliminar_materias_alumno(alumno **alum,materia **mate ,matricula **matri){
-    
-}
-void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri){
 
 
 //MATERIAS
@@ -459,19 +455,19 @@ void eliminar_materia(materia **mate, int op)
     printf("\n            MATERIA ELIMINADO\n");
 }
 
-void modificar_alumno(alumno **alum)
+void modificar_materia(materia **mate)
 {
     int pos, op, existe, a, est;
-    int id_alum_;
+    int id_materia_;
     system("cls");
     do
-    {
-        mostrar_alumno(*alum);
+    { 
+        mostrar_materias(*mate);
         do
         {
-            printf("\nIntroduce el numero del alumno que desea modificar: ");
+            printf("\nIntroduce el numero de la materia que desea modificar: ");
             scanf("%i", &pos);
-        } while (pos < 0 || pos >= nAlumno);
+        } while (pos < 0 || pos >= nMateria);
         do
         {
             printf("Que dato desea modificar: ");
@@ -486,69 +482,52 @@ void modificar_alumno(alumno **alum)
                 existe = 0;
                 printf("Introduce el nuevo id: ");
                 fflush(stdin);
-                scanf("%i", &(*alum)[pos].id_alum);
-                salto(id_alum_);
-                existe = comprobar_id(*jug, id_alum_);
+                scanf("%i", &(*mate)[pos].id_materia);
+                salto(id_materia_);
+                existe = comprobar_id_materia(*mate, id_materia_);
                 if (existe == 1)
                 {
-                    printf("Este alumno ya existe\n");
+                    printf("Esta materia ya existe\n");
                 }
             } while (existe == 1);
-            strcpy((*alum)[pos].id_alum, id_alum_);
+            strcpy((*mate)[pos].id_materia, id_materia_);
             break;
         case 2:
-            printf("Introduce el nuevo nombre completo: ");
+            printf("Introduce el nuevo nombre de la materia: ");
             fflush(stdin);
-            fgets((*alum)[pos].nombre_alum, 19, stdin);
-            salto((*alum)[pos].nombre_alum);
+            fgets((*mate)[pos].nombre_materia,49, stdin);
+            salto((*mate)[pos].nombre_materia);
             break;
         case 3:
-            printf("Introduce la nueva direccion: ");
+            printf("Introduce la nueva abreviatura: ");
             fflush(stdin);
-            fgets((*alum)[pos].direc_alum, 29, stdin);
-            salto((*alum)[pos].direc_alum);
+            fgets((*mate)[pos].abrev_materia, 3, stdin);
+            salto((*mate)[pos].abrev_materia);
             break;
-        case 4:
-            printf("Introduce la nueva localidad: ");
-            fflush(stdin);
-            fgets((*alum)[pos].local_alum, 29, stdin);
-            salto((*alum)[pos].local_alum);
-            break;
-        case 5:
-            printf("Introduce el nuevo curso: ");
-            fflush(stdin);
-            fgets((*alum)[pos].curso, 29, stdin);
-            salto((*alum)[pos].curso);
-            break;
-        case 6:
-            printf("Introduce el nuevo grupo: ");
-            fflush(stdin);
-            fgets((*alum)[pos].grupo, 9, stdin);
-            salto((*alum)[pos].grupo);
-            break;
+        
         }
         system("cls");
-        guardar_alumno(*alum);
+        guardar_materia(*mate);
 
-        mostrar_alumnos(*alum);
+        mostrar_alumnos(*mate);
         printf("\nDesea modificar otro dato (1-SI/2-NO  numero): ");
         scanf("%i", &a);
         system("cls");
     } while (a == 1);
 }
 
-void listar_alumno(alumno *alum)
+void listar_materia(materia *mate)
 {
     int i;
-    printf("Se mostraran todos los alumnos del sistema:\n\n");
+    printf("Se mostraran todos las materias del sistema:\n\n");
     puts("//////////////////////////////////////////////////////////////////////////////");
     
-    printf("\n            LISTA DE ALUMNOS\n\n");
-            printf("1-id || 2-nom_comp || 3-direc_alum || 4-curso || 5-grupo\n");
+    printf("\n            LISTA DE MATERIAS\n\n");
+            printf("1-id || 2-nombre_materia || 3-abreviatura\n");
             int i;
-            for (i = 0; i < nAlumno; i++)
+            for (i = 0; i < nMateria; i++)
             {
-                printf("%i-%i/%s/%s/%s/%s\n", i, alum[pos].id_alum, jug[pos].nombre_usuario, jug[pos].perfil_usuario, jug[pos].usuario, jug[pos].contrasena);
+                printf("%i-%i/%s/%s\n", i, mate[pos].id_materia, mate[pos].nombre_materia, mate[pos].abrev_materia);
 
     puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
             }
@@ -655,6 +634,6 @@ void mostrar_materias(materia *mate)
             int i;
             for (i = 0; i < nMateria; i++)
             {
-                printf("%i-%i/%s/%s/%s\n", i, alum[pos].id_alum, jug[pos].nombre_usuario, jug[pos].perfil_usuario, jug[pos].usuario, jug[pos].contrasena);
+                printf("%i-%i/%s/%s\n", i, mate[pos].id_materia, mate[pos].nombre_materia, jug[pos].abrev_materia);
             }
         }
