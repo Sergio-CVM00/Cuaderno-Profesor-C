@@ -7,7 +7,7 @@
 //USUARIOS
 typedef struct{
     int id_usuario;
-    char nombre_usuario[19];
+    char nombre_usuario[21];
     char perfil_usuario[29]; //administrador o profesor
     char usuario[6];  // con el que accedemos al sistema
     char contrasena[10];

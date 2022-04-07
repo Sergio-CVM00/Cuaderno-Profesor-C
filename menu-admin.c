@@ -35,17 +35,11 @@ void darBaja_Usuarios(usuario **usu, int op)
     }
     else
     {
-        /*
-        id_usuario
-        nombre_usuario
-        perfil
-        usuario
-        contrasena
-        */
         (*usu)[op].id_usuario = (*usu)[NUsuario - 1].id_usuario;
         strcpy((*usu)[op].nombre_usuario, (*usu)[NUsuario - 1].nombre_usuario);
         strcpy((*usu)[op].perfil_usuario, (*usu)[NUsuario - 1].perfil_usuario);
         strcpy((*usu)[op].usuario, (*usu)[NUsuario - 1].usuario);
+        strcpy((*usu)[op].contrasena, (*usu)[NUsuario - 1].contrasena);
         nUsuario--;
     }
 
