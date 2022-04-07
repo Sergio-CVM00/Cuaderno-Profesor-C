@@ -24,25 +24,24 @@ typedef struct{
     int id_usuario;
     char nombre_usuario[19];
     char perfil_usuario[29]; //administrador o profesor
-    char usuario[4]; // con el que accedemos al sistema
-    char contrasena[7];
+    char usuario[6];  // con el que accedemos al sistema
+    char contrasena[10];
 }usuario;
-
 
 //ESTRUCTURA ALUMNO
 typedef struct{
     int id_alum;
-    char nombre_alum[19];
-    char direc_alum[29];
-    char local_alum[29];
-    char curso[29];
-    char grupo[9];
+    char nombre_alum[21];
+    char direc_alum[31];
+    char local_alum[31];
+    char curso[31];
+    char grupo[11];
 }alumno;
 
 //ESTRUCTURA CALIFICACIONES
 typedef struct{
-    char fecha_calif[8];
-    char descrip_calif[5];
+    char fecha_calif[11];
+    char descrip_calif[31];
     int id_materia;
     int id_alum;
     int valor_cal;
@@ -56,11 +55,16 @@ typedef struct{
     int id_materia;//debe coincidir con el id_materia de una materia (en materias.txt)
 }horario;
 
+//ESTRUCTURA MATRICULAS
+typedef struct{
+    int id_materia; //debe coinidir con el id de alguna materia
+    int id_alum; //debe coincidir con el id de algun alumno
+}matricula;
 //ESTRUCTURA MATERIAS
 typedef struct{
     int id_materia;
-    char nombre_materia[49];
-    char abrev_materia[3];
+    char nombre_materia[51];
+    char abrev_materia[4];
 }materia;
 //ESTRUCTURA MATRICULAS
 typedef struct{
