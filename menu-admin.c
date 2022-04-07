@@ -12,6 +12,7 @@
 #include <string.h>
 //#include <ctime>
 #include "menu-admin.h"
+#include "cargar-guardar.h"
 
 // USUARIOS
 /*
@@ -23,7 +24,48 @@ Modificar usuarios
 
 void darAlta_Usuarios(usuario **usu)
 {
+    char nick_[20];
+    int existe,id;
+    system("cls");
 
+    *usu=(usu*)realloc((*usu),(nUsuario+1)*sizeof(usuario));
+        do{
+            existe=0;
+            printf("Introduce tu ID de usuario nuevo: ");
+            fflush(stdin);
+            scanf("%i",&id)
+            existe=comprobar_id_usu(*usu,id);
+            if(existe==1){printf("Este nick ya existe\n");}
+        }while(existe==1);
+        (*usu)[nUsuario].id_usuario = id;
+    
+        printf("Introduce tu nombre completo: ");
+        fflush(stdin);
+        fgets((*usu)[nUsuario].nombre_usuario,21,stdin);
+        salto((*usu)[nUsuario].nombre_usuario);
+        fflush(stdin);
+
+        printf("Introduce un perfil para el usuario: ");
+        fflush(stdin);
+        fgets((*usu)[nUsuario].contrasenia,29,stdin);
+        salto((*usu)[nUsuario].contrasenia);
+        fflush(stdin);
+
+        printf("Introduce el usuario con el que accedera al sistema(Ejemplo:'prof1'): ");
+        fflush(stdin);
+        fgets((*usu)[nUsuario].contrasenia,6,stdin);
+        salto((*usu)[nUsuario].contrasenia);
+        fflush(stdin);
+
+        printf("Introduce una contrasenia: ");
+        fflush(stdin);
+        fgets((*usu)[nUsuario].contrasenia,10,stdin);
+        salto((*usu)[nUsuario].contrasenia);
+        fflush(stdin);
+
+        nUsuario++;
+
+        guardar_usuario(*usu);
 }
 
 void darBaja_Usuarios(usuario **usu, int op)
@@ -46,7 +88,6 @@ void darBaja_Usuarios(usuario **usu, int op)
     guardar_usuario(*jug);
     system("cls");
     printf("\n            USUARIO ELIMINADO\n");
-    //mostrar_usuarios(*jug);
 }
 
 void MenuAlumno(alumno *alum){
@@ -586,6 +627,23 @@ int comprobar_id_materia(materia *mate, int *id_materia)
         i++;
     }
     if (i == nMateria)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+int comprobar_id_usuario(usuario *usu, int *id_usuario)
+{
+    int i = 0;
+    while (i < nUsuario && usu[i].id_usuario != *id_usuario)
+    {
+        i++;
+    }
+    if (i == nUsuario)
     {
         return 0;
     }
