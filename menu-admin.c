@@ -23,6 +23,7 @@ Modificar usuarios
 
 /*void darAlta_Usuarios(usuario **usu)
 {
+
 }
 
 void darBaja_Usuarios(usuario **usu, int op)
@@ -37,6 +38,18 @@ void darBaja_Usuarios(usuario **usu, int op)
         (*usu)[op].id_usuario = (*usu)[NUsuario - 1].id_usuario;
         strcpy((*usu)[op].nom_comp, (*usu)[NUsuario - 1].nom_comp);
         NUsuario--;
+        strcpy((*usu)[op].nick, (*usu)[Njugadores - 1].nick);
+        strcpy((*usu)[op].nom_comp, (*usu)[Njugadores - 1].nom_comp);
+        (*usu)[op].nivel = (*usu)[Njugadores - 1].nivel;
+        (*usu)[op].vida = (*usu)[Njugadores - 1].vida;
+        (*usu)[op].escudo = (*usu)[Njugadores - 1].escudo;
+        strcpy((*usu)[op].estado, (*usu)[Njugadores - 1].estado);
+        (*usu)[op].cartera = (*usu)[Njugadores - 1].cartera;
+        (*usu)[op].p_jugadas = (*usu)[Njugadores - 1].p_jugadas;
+        (*usu)[op].p_ganadas = (*usu)[Njugadores - 1].p_ganadas;
+        strcpy((*usu)[op].perfil, (*usu)[Njugadores - 1].perfil);
+        strcpy((*usu)[op].contrasenia, (*usu)[Njugadores - 1].contrasenia);
+        Njugadores--;
     }
 
     guardar_usuario(*jug);
@@ -259,18 +272,20 @@ void listar_alumno(alumno *alum)
     puts("//////////////////////////////////////////////////////////////////////////////");
 
     printf("\n            LISTA DE ALUMNOS\n\n");
-    printf("1-id || 2-nom_comp || 3-direc_alum || 4-curso || 5-grupo\n");
-    int i;
-    for (i = 0; i < nAlumno; i++)
-    {
-        printf("%i-%i/%s/%s/%s/%s\n", i, alum[pos].id_alum, jug[pos].nombre_usuario, jug[pos].perfil_usuario, jug[pos].usuario, jug[pos].contrasena);
-
-        puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
-    }
+            printf("1-id || 2-nom_comp || 3-direc_alum || 4-curso || 5-grupo\n");
+            int i;
+            for (i = 0; i < nAlumno; i++)
+            {
+                printf("%i-%i/%s/%s/%s/%s\n", i, alum[pos].id_alum, jug[pos].nombre_usuario, jug[pos].perfil_usuario, jug[pos].usuario, jug[pos].contrasena);
+            }
+    puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
 }
+
 void matricula_alumnos(alumno **alum, alumno **materia, matricula **matricula)
 {
-    int menuAnadir;
+   
+int menuAnadir;
+    
 
     do
     {
@@ -304,8 +319,8 @@ void matricula_alumnos(alumno **alum, alumno **materia, matricula **matricula)
         break;
     }
 }
-void listar_materias_alumno(alumno **alum, materia **mate, matricula **matri)
-{
+
+void listar_materias_alumno(alumno **alum,materia **mate,matricula **matricula){
     int id_alum_;
     int existe;
     existe = 0;
