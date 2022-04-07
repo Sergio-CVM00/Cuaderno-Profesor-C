@@ -107,10 +107,10 @@ void MenuAlumno(alumno *alum){
             fflush(stdin);
             char cadena [100];
 			int numero = 0;
-			fgets (cadena, sizeof (cadena), stdin);
-			sscanf(cadena, "%d", &id_alum_);
+			//fgets (cadena, sizeof (cadena), stdin);
+			scanf(cadena, "%i", &id_alum_);
             //fgets(id_alum_, 5, stdin);
-            salto(id_alum_);
+            //salto(id_alum_);
             existe = comprobar_id(*alum, id_alum_);
             if (existe == 1)
             {
@@ -151,7 +151,7 @@ void MenuAlumno(alumno *alum){
 
         nAlumno++;
 
-        guardar_alumno(*alum);
+        guardar_alumno(alum);
     }
 
 
@@ -182,7 +182,7 @@ void eliminar_alumno(alumno **alum, int op)
         }
     }
 
-    guardar_alumno(*alum);
+    guardar_alumno(alum);
     system("cls");
     printf("\n            ALUMNO ELIMINADO\n");
 }
@@ -215,8 +215,8 @@ void modificar_alumno(alumno **alum)
                 printf("Introduce el nuevo id: ");
                 fflush(stdin);
                 scanf("%i", &(*alum)[pos].id_alum);
-                salto(id_alum_);
-                existe = comprobar_id_alumno(*mate, id_alum_);
+                //salto(id_alum_);
+                existe = comprobar_id_alumno(*alum, id_alum_);
                 if (existe == 1)
                 {
                     printf("Este alumno ya existe\n");
@@ -330,16 +330,16 @@ void listar_materias_alumno(alumno **alum,materia **mate,matricula **matricula){
     salto(id_alum_);
     existe = comprobar_id(*alum, id_alum_);
     // PARA COMPROBAR MATRICULA DE ALUMNO
-    if (id_alum_ == (*matricula).id_alum)
-    {
+    //if (id_alum_ == (*matricula).id_alum)
+    //{
         printf("\n            MATRICULA                \n\n");
         printf("1-id || 2-nom_comp || 3-direc_alum || 4-curso || 5-grupo\n");
         int i;
         for (i = 0; i < nMateria; i++)
         {
-                printf("%i-%s/%s\n", i, mate[pos].id_materia, mate[pos].nombre_materia, mate[pos].abrev_materia;
+                printf("%i-i%%s/%s\n", i, mate[i].id_materia, mate[i].nombre_materia, mate[i].abrev_materia);
         }
-    }
+   // }
 }
 
 void crear_matricula_alumno(alumno **alum, materia **mate, matricula **matri)
@@ -446,7 +446,7 @@ void eliminar_materia(materia **mate, int op)
         else
         {
             (*mate)[op].id_materia = (*mate)[nMateria - 1].id_materia;
-            strcpy((*mate)[op].nombre_materia, (*mate)[nMateria - 1].nombre_materia
+            strcpy((*mate)[op].nombre_materia, (*mate)[nMateria - 1].nombre_materia);
             strcpy((*mate)[op].abrev_materia, (*mate)[nMateria - 1].abrev_materia);
             nMateria--;
         }
@@ -525,10 +525,10 @@ void listar_materia(materia *mate)
 
     printf("\n            LISTA DE MATERIAS\n\n");
     printf("1-id || 2-nombre_materia || 3-abreviatura\n");
-    int i;
+   
     for (i = 0; i < nMateria; i++)
     {
-        printf("%i-%i/%s/%s\n", i, mate[pos].id_materia, mate[pos].nombre_materia, mate[pos].abrev_materia);
+        printf("%i-%i/%s/%s\n", i, mate[i].id_materia, mate[i].nombre_materia, mate[i].abrev_materia);
 
         puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
     }
@@ -536,16 +536,16 @@ void listar_materia(materia *mate)
 }
 
 // FUNCIONES AUXILIARES ALUMNOS
-void salto(int *str)
-{
-    int tam;
-    str[tam - 1] = '\0';
+void salto(char *str){
+int tam;
+    tam=strlen(str);
+    str[tam-1]='\0';
 }
 
 int comprobar_id_alumno(alumno *alum, int *id_alum)
 {
     int i = 0;
-    while (i < nAlumno && alum[i].id_alum != id_alum)
+    while (i < nAlumno && alum[i].id_alum != *id_alum)
     {
         i++;
     }
@@ -593,7 +593,7 @@ void mostrar_alumnos(alumno *alum)
 int comprobar_id_materia(materia *mate, int *id_materia)
 {
     int i = 0;
-    while (i < nMateria && mate[i].id_materia != id_materia)
+    while (i < nMateria && mate[i].id_materia != *id_materia)
     {
         i++;
     }
