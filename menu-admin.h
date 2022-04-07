@@ -42,7 +42,7 @@ int nMateria;
 //Cabecera: void MenuAlumno(alumno *alum,alumno **alum);
 //Precondicion: 
 //Postcondicion: usuario escoge 1 de las 5 opciones para tratar la info de un/os alumno/s
-void MenuAlumno(alumno *alum,alumno **alum);
+void MenuAlumno(alumno *alum);
 
 //Cabecera: void dar_alta_alumno(alumno **alum);
 //Precondicion: alumno no dado de alta en el sistema
@@ -90,14 +90,14 @@ void eliminar_materias_alumno(alumno **alum,materia **mate ,matricula **matri);
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri)
+void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri);
 
 
 //MATERIAS
 //Cabecera: void MenuMaterias(materia *mate, materia **mate);
 //Precondicion: 
 //Postcondicion: usuario escoge 1 de las opciones para tratar la info de de una/s materia/s
-void MenuMaterias(materia *mate, materia **mate);
+void MenuMaterias();
 
 //Cabecera: void dar_alta_materia(materia **mate);
 //Precondicion: materia no dada de alta en el sistema
@@ -120,14 +120,14 @@ void modificar_materia(materia **mate);
 void listar_materia(materia *mate);
 
 //funciones auxiliares alumnos
-void salto(char *str);
+void salto(int *str);
 int comprobar_id_alumno(alumno *alum, int *id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
-void guardar_alumno(alumno *alum);
+//void guardar_alumno(alumno *alum);
 //funciones auxiliares materias
 int comprobar_id_materia(materia *mate, int *id_materia);
 void mostrar_materias(materia *mate);
 void mostrar_materia(materia *mate, int pos);
-void guardar_materia(materia *mate);
+//void guardar_materia(materia *mate);
 #endif

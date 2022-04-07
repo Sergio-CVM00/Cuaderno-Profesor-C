@@ -6,7 +6,7 @@
 void registro(usuario **vUsuario,int *nUsuario);
 int log_in(usuario *vUsuario, int nUsuario, char *id_usr);
 
-int menu_principal()
+/*int menu_principal()
 {
   int op;
   char id_usr[2];
@@ -124,5 +124,5 @@ int log_in(usuario *vUsuario, int nUsuario, char *id_usr)
         }while(c=='s');
 return usuario_actual-1;
   }
-
+*/
 
