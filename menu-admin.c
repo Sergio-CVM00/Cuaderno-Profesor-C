@@ -105,10 +105,8 @@ void MenuAlumno(alumno *alum){
             existe = 0;
             pritnf("Introduce tu id de alumno");
             fflush(stdin);
-            char cadena [100];
-			int numero = 0;
 			//fgets (cadena, sizeof (cadena), stdin);
-			scanf(cadena, "%i", &id_alum_);
+			scanf( "%i", &id_alum_);
             //fgets(id_alum_, 5, stdin);
             //salto(id_alum_);
             existe = comprobar_id(*alum, id_alum_);
@@ -121,31 +119,31 @@ void MenuAlumno(alumno *alum){
 
         printf("Introduce el nombre completo del alumno: ");
         fflush(stdin);
-        fgets((*alum)[nAlumno].nombre_alum, 40, stdin);
+        fgets((*alum)[nAlumno].nombre_alum, 21, stdin);
         salto((*alum)[nAlumno].nombre_alum);
         fflush(stdin);
 
         printf("Introduce la direccion del alumno: ");
         fflush(stdin);
-        fgets((*alum)[nAlumno].direc_alum, 29, stdin);
+        fgets((*alum)[nAlumno].direc_alum, 31, stdin);
         salto((*alum)[nAlumno].direc_alum);
         fflush(stdin);
 
         printf("Introduce la localidad del alumno: ");
         fflush(stdin);
-        fgets((*alum)[nAlumno].local_alum, 29, stdin);
+        fgets((*alum)[nAlumno].local_alum, 31, stdin);
         salto((*alum)[nAlumno].local_alum);
         fflush(stdin);
 
         printf("Introduce el curso del alumno: ");
         fflush(stdin);
-        fgets((*alum)[nAlumno].curso, 29, stdin);
+        fgets((*alum)[nAlumno].curso, 31, stdin);
         salto((*alum)[nAlumno].curso);
         fflush(stdin);
 
         printf("Introduce el grupo del alumno: ");
         fflush(stdin);
-        fgets((*alum)[nAlumno].grupo, 9, stdin);
+        fgets((*alum)[nAlumno].grupo, 11, stdin);
         salto((*alum)[nAlumno].grupo);
         fflush(stdin);
 
@@ -214,7 +212,7 @@ void modificar_alumno(alumno **alum)
                 existe = 0;
                 printf("Introduce el nuevo id: ");
                 fflush(stdin);
-                scanf("%i", &(*alum)[pos].id_alum);
+                scanf("%i", &id_alum_);
                 //salto(id_alum_);
                 existe = comprobar_id_alumno(*alum, id_alum_);
                 if (existe == 1)
@@ -227,31 +225,31 @@ void modificar_alumno(alumno **alum)
         case 2:
             printf("Introduce el nuevo nombre completo: ");
             fflush(stdin);
-            fgets((*alum)[pos].nombre_alum, 19, stdin);
+            fgets((*alum)[pos].nombre_alum, 21, stdin);
             salto((*alum)[pos].nombre_alum);
             break;
         case 3:
             printf("Introduce la nueva direccion: ");
             fflush(stdin);
-            fgets((*alum)[pos].direc_alum, 29, stdin);
+            fgets((*alum)[pos].direc_alum, 31, stdin);
             salto((*alum)[pos].direc_alum);
             break;
         case 4:
             printf("Introduce la nueva localidad: ");
             fflush(stdin);
-            fgets((*alum)[pos].local_alum, 29, stdin);
+            fgets((*alum)[pos].local_alum, 31, stdin);
             salto((*alum)[pos].local_alum);
             break;
         case 5:
             printf("Introduce el nuevo curso: ");
             fflush(stdin);
-            fgets((*alum)[pos].curso, 29, stdin);
+            fgets((*alum)[pos].curso, 31, stdin);
             salto((*alum)[pos].curso);
             break;
         case 6:
             printf("Introduce el nuevo grupo: ");
             fflush(stdin);
-            fgets((*alum)[pos].grupo, 9, stdin);
+            fgets((*alum)[pos].grupo, 11, stdin);
             salto((*alum)[pos].grupo);
             break;
         }
@@ -400,8 +398,8 @@ void MenuMaterias()
             existe = 0;
             pritnf("Introduce id de materia");
             fflush(stdin);
-            fgets(int id_materia_, 4, stdin);
-            salto(id_materia_);
+            scanf("%i", &(*mate)[pos].id_alum);
+            //salto(id_materia_);
             existe = comprobar_id(*mate, id_materia_);
             if (existe == 1)
             {
@@ -412,13 +410,13 @@ void MenuMaterias()
 
         printf("Introduce el nombre completo de la materia: ");
         fflush(stdin);
-        fgets((*mate)[nMateria].nombre_materia, 49, stdin);
+        fgets((*mate)[nMateria].nombre_materia,51, stdin);
         salto((*mate)[nMateria].abrev_materia);
         fflush(stdin);
 
         printf("Introduce la abreviatura de la materia: ");
         fflush(stdin);
-        fgets((*mate)[nMateria].abrev_materia, 3, stdin);
+        fgets((*mate)[nMateria].abrev_materia, 4, stdin);
         salto((*mate)[nMateria].abrev_materia);
         fflush(stdin);
 
@@ -483,9 +481,8 @@ void modificar_materia(materia **mate)
             {
                 existe = 0;
                 printf("Introduce el nuevo id: ");
-                fflush(stdin);
-                scanf("%i", &(*mate)[pos].id_materia);
-                salto(id_materia_);
+                scanf("%i", id_materia_);
+                //salto(id_materia_);
                 existe = comprobar_id_materia(*mate, id_materia_);
                 if (existe == 1)
                 {
@@ -497,13 +494,13 @@ void modificar_materia(materia **mate)
         case 2:
             printf("Introduce el nuevo nombre de la materia: ");
             fflush(stdin);
-            fgets((*mate)[pos].nombre_materia, 49, stdin);
+            fgets((*mate)[pos].nombre_materia, 51, stdin);
             salto((*mate)[pos].nombre_materia);
             break;
         case 3:
             printf("Introduce la nueva abreviatura: ");
             fflush(stdin);
-            fgets((*mate)[pos].abrev_materia, 3, stdin);
+            fgets((*mate)[pos].abrev_materia, 4, stdin);
             salto((*mate)[pos].abrev_materia);
             break;
         }

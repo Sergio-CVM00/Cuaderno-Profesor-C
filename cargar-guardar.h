@@ -64,8 +64,8 @@ typedef struct{
 }materia;
 //ESTRUCTURA MATRICULAS
 typedef struct{
-    int id_materia[3]; //debe coinidir con el id de alguna materia
-    char id_alum[5]; //debe coincidir con el id de algun alumno
+    int id_materia; //debe coinidir con el id de alguna materia
+    int id_alum; //debe coincidir con el id de algun alumno
     
 }matricula;
 
