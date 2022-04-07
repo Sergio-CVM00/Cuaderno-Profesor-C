@@ -21,7 +21,7 @@ Listar usuarios
 Modificar usuarios
 */
 
-/*void darAlta_Usuarios(usuario **usu)
+void darAlta_Usuarios(usuario **usu)
 {
 
 }
@@ -35,21 +35,18 @@ void darBaja_Usuarios(usuario **usu, int op)
     }
     else
     {
+        /*
+        id_usuario
+        nombre_usuario
+        perfil
+        usuario
+        contrasena
+        */
         (*usu)[op].id_usuario = (*usu)[NUsuario - 1].id_usuario;
-        strcpy((*usu)[op].nom_comp, (*usu)[NUsuario - 1].nom_comp);
-        NUsuario--;
-        strcpy((*usu)[op].nick, (*usu)[Njugadores - 1].nick);
-        strcpy((*usu)[op].nom_comp, (*usu)[Njugadores - 1].nom_comp);
-        (*usu)[op].nivel = (*usu)[Njugadores - 1].nivel;
-        (*usu)[op].vida = (*usu)[Njugadores - 1].vida;
-        (*usu)[op].escudo = (*usu)[Njugadores - 1].escudo;
-        strcpy((*usu)[op].estado, (*usu)[Njugadores - 1].estado);
-        (*usu)[op].cartera = (*usu)[Njugadores - 1].cartera;
-        (*usu)[op].p_jugadas = (*usu)[Njugadores - 1].p_jugadas;
-        (*usu)[op].p_ganadas = (*usu)[Njugadores - 1].p_ganadas;
-        strcpy((*usu)[op].perfil, (*usu)[Njugadores - 1].perfil);
-        strcpy((*usu)[op].contrasenia, (*usu)[Njugadores - 1].contrasenia);
-        Njugadores--;
+        strcpy((*usu)[op].nombre_usuario, (*usu)[NUsuario - 1].nombre_usuario);
+        strcpy((*usu)[op].perfil_usuario, (*usu)[NUsuario - 1].perfil_usuario);
+        strcpy((*usu)[op].usuario, (*usu)[NUsuario - 1].usuario);
+        nUsuario--;
     }
 
     guardar_usuario(*jug);
@@ -57,7 +54,7 @@ void darBaja_Usuarios(usuario **usu, int op)
     printf("\n            USUARIO ELIMINADO\n");
     //mostrar_usuarios(*jug);
 }
-*/
+
 void MenuAlumno(alumno *alum){
 
     int menuAnadir,op;
