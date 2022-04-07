@@ -62,6 +62,12 @@ typedef struct{
     char nombre_materia[49];
     char abrev_materia[3];
 }materia;
+//ESTRUCTURA MATRICULAS
+typedef struct{
+    int id_materia[3]; //debe coinidir con el id de alguna materia
+    char id_alum[5]; //debe coincidir con el id de algun alumno
+    
+}matricula;
 
 
 
@@ -70,6 +76,7 @@ int nAlumno;
 int nCalificaciones;
 int nHorario;
 int nMateria;
+
 
 
 //funciones de carga
@@ -125,6 +132,9 @@ void cargar_materias(materia **mat);
 void guardar_materias(materia *mat);
 
 
+void cargar_matricula(matricula **mtri);
+
+void guardar_matricula(matricula *mtri);
 
 
 

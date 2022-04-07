@@ -34,7 +34,7 @@ typedef struct{
 }matricula;
 //ESTRUCTURA CALIFICACIONES
 typedef struct{
-    fecha fecha_calif[8];
+    //fecha fecha_calif;
     char descrip_calif[5];
     int id_materia[3];
     int id_alum[5];

@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -41,7 +40,7 @@ void cargar_usuarios(usuario **usu){
                         strcpy((*usu)[nUsuario].contrasena,token);
                         nUsuario++;
                         }
-               }
+              		}
      fclose(f);
     }
 }
@@ -110,12 +109,12 @@ void guardar_alumnos(alumno *alum){
 	int i;
 	f=fopen("Alumnos.txt","w+");
 	for(i=0;i<nAlumno;i++){
-		fprintf(f,"%i-%s-%s-%s-%s-%s\n",hor[i].id_alum,alum[i].nombre_alum,alum[i].direc_alum,alum[i].local_alum,alum[i].curso,alum[i].grupo);
+		fprintf(f,"%i-%s-%s-%s-%s-%s\n",alum[i].id_alum,alum[i].nombre_alum,alum[i].direc_alum,alum[i].local_alum,alum[i].curso,alum[i].grupo);
 	}
     fclose(f);
 }
 
-//CALIFICACIONES cargar y guardar:
+/*//CALIFICACIONES cargar y guardar:
 void cargar_calificaciones(calificaciones **cali){
 
     char linea[160];
@@ -239,24 +238,23 @@ void cargar_materias(materia **mat){
         puts("Error de apertura");
     }else{
                 rewind(f);
-                  *mat=malloc(1*sizeof(horario));
+                  *mat=malloc(1*sizeof(materia));
 
                     while(fgets(linea,160,f)!=NULL){
-                    *mat=(horario*)realloc((*mat),(nMateria+1)*sizeof(horario));
+                    *mat=(materia*)realloc((*mat),(nMateria+1)*sizeof(materia));
 
                      if((*mat)==NULL){
                         puts("No hay memoria suficiente");
                     }
                     else{
                         token=strtok(linea,"-");
-                        (*mat)[nMateria].id_profesor=atoi(token);
-
-                        token=strtok(NULL,"-");
-                        strcpy((*mat)[nMateria].descrip_calif,token);
-
-                        token=strtok(NULL,"\n");
                         (*mat)[nMateria].id_materia=atoi(token);
 
+                        token=strtok(NULL,"-");
+                        strcpy((*mat)[nMateria].nombre_materia,token);
+
+                        token=strtok(NULL,"\n");
+                         strcpy((*mat)[nMateria].abrev_materia,token);
                         nHorario++;
                         }
                }
@@ -292,26 +290,28 @@ void cargar_matricula(matricula **mtri){
                   *mtri=malloc(1*sizeof(horario));
 
                     while(fgets(linea,160,f)!=NULL){
-                    *mtri=(horario*)realloc((*mtri),(nMatricula+1)*sizeof(horario));
+                    *mtri=(matricula*)realloc((*mtri),(nMatricula+1)*sizeof(matricula));
 
                      if((*mtri)==NULL){
                         puts("No hay memoria suficiente");
                     }
                     else{
                         token=strtok(linea,"-");
-                        (*mtri)[nMatricula].id_profesor=atoi(token);
+                        (*mtri)[nMatricula].id_materia=atoi(token);
+                        //strcpy((*mtri)[nMatricula].id_materia,token);
 
                         token=strtok(NULL,"\n");
-                        strcpy((*mtri)[nMatricula].descrip_calif,token);
+                        (*mtri)[nMatricula].id_alum=atoi(token);
+                        //strcpy((*mtri)[nMatricula].id_alum,token);
 
-                        nHorario++;
+                        nMateria++;
                         }
                }
      fclose(f);
     }
 }
 
-void guardar_materias(matricula *mtri){
+void guardar_matricula(matricula *mtri){
 	FILE *f;
 	int i;
 	f=fopen("Matriculas.txt","w+");
@@ -320,3 +320,4 @@ void guardar_materias(matricula *mtri){
 	}
     fclose(f);
 }
+*/
