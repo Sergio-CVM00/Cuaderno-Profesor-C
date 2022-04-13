@@ -24,7 +24,6 @@ Modificar usuarios
 
 void darAlta_Usuarios(usuario **usu)
 {
-    char nick_[20];
     int existe,id;
     system("cls");
 
@@ -64,7 +63,6 @@ void darAlta_Usuarios(usuario **usu)
         fflush(stdin);
 
         nUsuario++;
-
         guardar_usuario(*usu);
 }
 
