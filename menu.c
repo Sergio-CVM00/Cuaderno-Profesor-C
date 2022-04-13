@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "usuario.h"
+#include "menu-admin.h"
 
 void registro(usuario **vUsuario,int *nUsuario);
 int log_in(usuario *vUsuario, int nUsuario, char *id_usr);

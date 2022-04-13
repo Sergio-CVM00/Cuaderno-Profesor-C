@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "menu-profesor.h"
-#include "profesor.h"""
+//#include "profesor.h"
 
-void MenuProfesor ( char* NombreProfesor, alumnos *valumnos , horario *vhorario, calificaciones  *vcalificaciones){
+/*void MenuProfesor ( char* NombreProfesor, alumnos *valumnos , horario *vhorario, calificaciones  *vcalificaciones){
 
     int x;
     printf("\n Bienvenido al  menu profesor, elige una de las siguientes \n");
@@ -98,4 +98,4 @@ while(aux != EOF) {
 }
 fclose(Calificaciones);
 }
-
+*/

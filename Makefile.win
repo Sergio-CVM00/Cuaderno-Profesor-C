@@ -1,15 +1,15 @@
-# Project: CuadernoProfesorC-Project
+# Project: Project1
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = cargar-guardar.o main.o menu.o menu-admin.o menu-profesor.o usuario.o
-LINKOBJ  = cargar-guardar.o main.o menu.o menu-admin.o menu-profesor.o usuario.o
+OBJ      = main.o cargar-guardar.o menu.o menu-admin.o menu-profesor.o
+LINKOBJ  = main.o cargar-guardar.o menu.o menu-admin.o menu-profesor.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = CuadernoProfesorC-Project.exe
+BIN      = Project1.exe
 CXXFLAGS = $(CXXINCS) -std=c99
 CFLAGS   = $(INCS) -std=c99
 RM       = rm.exe -f
@@ -24,11 +24,11 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-cargar-guardar.o: cargar-guardar.c
-	$(CC) -c cargar-guardar.c -o cargar-guardar.o $(CFLAGS)
-
 main.o: main.c
 	$(CC) -c main.c -o main.o $(CFLAGS)
+
+cargar-guardar.o: cargar-guardar.c
+	$(CC) -c cargar-guardar.c -o cargar-guardar.o $(CFLAGS)
 
 menu.o: menu.c
 	$(CC) -c menu.c -o menu.o $(CFLAGS)
@@ -38,6 +38,3 @@ menu-admin.o: menu-admin.c
 
 menu-profesor.o: menu-profesor.c
 	$(CC) -c menu-profesor.c -o menu-profesor.o $(CFLAGS)
-
-usuario.o: usuario.c
-	$(CC) -c usuario.c -o usuario.o $(CFLAGS)

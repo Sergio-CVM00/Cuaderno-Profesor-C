@@ -1,6 +1,6 @@
 [Project]
-FileName=CuadernoProfesorC-Project.dev
-Name=CuadernoProfesorC-Project
+FileName=Project1.dev
+Name=Project1
 Type=1
 Ver=2
 ObjFiles=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=16
+UnitCount=15
 
 [VersionInfo]
 Major=1
@@ -51,6 +51,16 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
+FileName=main.c
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit2]
 FileName=Alumnos.txt
 Folder=
 Compile=0
@@ -59,7 +69,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit2]
+[Unit3]
 FileName=Calificaciones.txt
 Folder=
 Compile=0
@@ -68,7 +78,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit3]
+[Unit4]
 FileName=cargar-guardar.c
 CompileCpp=0
 Folder=
@@ -78,7 +88,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
+[Unit5]
 FileName=cargar-guardar.h
 CompileCpp=0
 Folder=
@@ -88,21 +98,11 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit5]
+[Unit6]
 FileName=Horarios.txt
 Folder=
 Compile=0
 Link=0
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit6]
-FileName=main.c
-CompileCpp=0
-Folder=
-Compile=1
-Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
@@ -176,26 +176,15 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit14]
-FileName=usuario.c
-CompileCpp=0
+FileName=Project1.dev
 Folder=
-Compile=1
-Link=1
+Compile=0
+Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
 [Unit15]
-FileName=usuario.h
-CompileCpp=0
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit16]
 FileName=Usuarios.txt
 Folder=
 Compile=0

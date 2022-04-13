@@ -120,14 +120,14 @@ void modificar_materia(materia **mate);
 void listar_materia(materia *mate);
 
 //funciones auxiliares alumnos
-void salto(int *str);
-int comprobar_id_alumno(alumno *alum, int *id_alum);
+void salto(char *str);
+int comprobar_id_alumno(alumno *alum, int* id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
-//void guardar_alumno(alumno *alum);
+void guardar_alumno(alumno *alum);
 //funciones auxiliares materias
 int comprobar_id_materia(materia *mate, int *id_materia);
 void mostrar_materias(materia *mate);
 void mostrar_materia(materia *mate, int pos);
-//void guardar_materia(materia *mate);
+void guardar_materia(materia *mate);
 #endif
