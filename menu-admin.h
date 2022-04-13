@@ -7,19 +7,20 @@
 //USUARIOS
 typedef struct{
     int id_usuario;
-    char nombre_usuario[19];
+    char nombre_usuario[21];
     char perfil_usuario[29]; //administrador o profesor
-    char usuario[4]; // con el que accedemos al sistema
-    char contrasena[7];
+    char usuario[6];  // con el que accedemos al sistema
+    char contrasena[10];
 }usuario;
+
 //ESTRUCTURA ALUMNO
 typedef struct{
     int id_alum;
-    char nombre_alum[19];
-    char direc_alum[29];
-    char local_alum[29];
-    char curso[29];
-    char grupo[9];
+    char nombre_alum[21];
+    char direc_alum[31];
+    char local_alum[31];
+    char curso[31];
+    char grupo[11];
 }alumno;
 //ESTRUCTURA MATRICULAS
 typedef struct{
@@ -29,8 +30,8 @@ typedef struct{
 //ESTRUCTURA MATERIAS
 typedef struct{
     int id_materia;
-    char nombre_materia[49];
-    char abrev_materia[3];
+    char nombre_materia[51];
+    char abrev_materia[4];
 }materia;
 
 int nUsuario;
@@ -121,13 +122,13 @@ void listar_materia(materia *mate);
 
 //funciones auxiliares alumnos
 void salto(char *str);
-int comprobar_id_alumno(alumno *alum, int* id_alum);
+int comprobar_id_alumno(alumno *alum, int *id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
-void guardar_alumno(alumno *alum);
+//void guardar_alumno(alumno *alum);
 //funciones auxiliares materias
 int comprobar_id_materia(materia *mate, int *id_materia);
 void mostrar_materias(materia *mate);
 void mostrar_materia(materia *mate, int pos);
-void guardar_materia(materia *mate);
+//void guardar_materia(materia *mate);
 #endif
