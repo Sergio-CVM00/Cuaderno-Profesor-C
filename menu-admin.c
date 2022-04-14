@@ -88,6 +88,10 @@ void darBaja_Usuarios(usuario **usu, int op)
     printf("\n            USUARIO ELIMINADO\n");
 }
 
+void listar_usuarios(usuario **usu){
+    
+}
+
 void MenuAlumno(alumno *alum){
 
     int menuAnadir,op;
