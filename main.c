@@ -1,7 +1,11 @@
 #include <stdio.h>
-#include "cargar-guardar.h"
-//#include "menu-admin.h"
 
+#include "menu-admin.h"
+#include "usuario.h"
+#include "alumno.h"
+#include "materia.h"
+#include "horario.h"
+#include "matricula.h"
 
 
 

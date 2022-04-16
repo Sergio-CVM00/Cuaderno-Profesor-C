@@ -1,15 +1,15 @@
-# Project: Project1
+# Project: prueba
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o cargar-guardar.o menu.o menu-admin.o menu-profesor.o
-LINKOBJ  = main.o cargar-guardar.o menu.o menu-admin.o menu-profesor.o
+OBJ      = main.o cargar-guardar.o menu.o menu-admin.o menu-profesor.o alumno.o calificaciones.o horario.o materia.o matricula.o usuario.o
+LINKOBJ  = main.o cargar-guardar.o menu.o menu-admin.o menu-profesor.o alumno.o calificaciones.o horario.o materia.o matricula.o usuario.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = Project1.exe
+BIN      = prueba.exe
 CXXFLAGS = $(CXXINCS) -std=c99
 CFLAGS   = $(INCS) -std=c99
 RM       = rm.exe -f
@@ -38,3 +38,21 @@ menu-admin.o: menu-admin.c
 
 menu-profesor.o: menu-profesor.c
 	$(CC) -c menu-profesor.c -o menu-profesor.o $(CFLAGS)
+
+alumno.o: alumno.c
+	$(CC) -c alumno.c -o alumno.o $(CFLAGS)
+
+calificaciones.o: calificaciones.c
+	$(CC) -c calificaciones.c -o calificaciones.o $(CFLAGS)
+
+horario.o: horario.c
+	$(CC) -c horario.c -o horario.o $(CFLAGS)
+
+materia.o: materia.c
+	$(CC) -c materia.c -o materia.o $(CFLAGS)
+
+matricula.o: matricula.c
+	$(CC) -c matricula.c -o matricula.o $(CFLAGS)
+
+usuario.o: usuario.c
+	$(CC) -c usuario.c -o usuario.o $(CFLAGS)

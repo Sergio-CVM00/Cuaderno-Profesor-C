@@ -13,6 +13,12 @@
 //#include <ctime>
 #include "menu-admin.h"
 #include "cargar-guardar.h"
+#include "usuario.h"
+#include "calificaciones.h"
+#include "alumno.h"
+#include "materia.h"
+#include "horario.h"
+#include "matricula.h"
 
 // USUARIOS
 /*
