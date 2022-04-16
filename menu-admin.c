@@ -310,7 +310,7 @@ void listar_alumno(alumno *alum)
     puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
 }
 
-/*void matricula_alumnos(alumno **alum, alumno **materia, matricula **matricula)
+void matricula_alumnos(alumno **alum, alumno **materia, matricula **mtri)
 {
    
 int menuAnadir;
@@ -332,57 +332,62 @@ int menuAnadir;
 
     case 1:
         puts("Seleccionó listar materias alumno\n");
-        listar_materias_alumno(&alum, &materia, &matricula);
+        listar_materias_alumno(*alum, *mtri);
         break;
     case 2:
         puts("Seleccionó crear matricula alumno\n");
-        crear_matricula_alumno(&alum, &materia, &matricula);
+        //crear_matricula_alumno(&alum, &materia, &mtri);
         break;
     case 3:
         puts("Seleccionó eliminar materia en alguna  matricula \n");
-        eliminar_materias_alumno(&alum, &materia, &matricula);
+        //eliminar_materias_alumno(&alum, &materia, &mtri);
         break;
     case 4:
         puts("Seleccionó modificar materias de  matriculas\n");
-        modificar_materias_alumno(&alum, &materia, &matricula);
+        //modificar_materias_alumno(&alum, &materia, &mtri);
         break;
     }
 }
 
-void listar_materias_alumno(alumno **alum,materia **mate,matricula **matricula){
+void listar_materias_alumno(alumno *alum,matricula *mtri){
     int id_alum_;
     int existe;
+    int matriculado,i,j;
+    int *materias;
     existe = 0;
-    pritnf("Introduce tu id de alumno que sea ver su matricula");
-    fflush(stdin);
-    fgets(id_alum_, 5, stdin);
-    salto(id_alum_);
-    existe = comprobar_id(*alum, id_alum_);
-    // PARA COMPROBAR MATRICULA DE ALUMNO
-    //if (id_alum_ == (*matricula).id_alum)
-    //{
-        printf("\n            MATRICULA                \n\n");
-        printf("1-id || 2-nom_comp || 3-direc_alum || 4-curso || 5-grupo\n");
-        int i;
-        for (i = 0; i < nMateria; i++)
-        {
-                printf("%i-i%/%s/%s\n", i, mate[i].id_materia, mate[i].nombre_materia, mate[i].abrev_materia);
+    do{
+        printf("Introduce tu id de alumno que sea ver su matricula");
+        fflush(stdin);
+        scanf("%i",&id_alum_);
+        //salto(id_alum_);
+        existe = comprobar_id_alumno(&alum, id_alum_);
+
+    }while (existe == 0 );
+    i = 0;
+    j= 0;
+    while( i<nMatricula){
+        if(mtri[i].id_alum == id_alum_){
+            materias[j] = mtri[i].id_materia;
+            j++;
+            
         }
-   // }
+        
+        i++;
+    }
+    for(i = 0;i<=j;i++){
+        printf("%i\n", materias[i]);
+
+    }
+    
+  
+
 }
 
 void crear_matricula_alumno(alumno **alum, materia **mate, matricula **matri)
 {
-    int id_alum_;
-    int existe;
-    existe = 0;
-    pritnf("Introduce tu id de alumno que sea ver su matricula");
-    fflush(stdin);
-    fgets(id_alum_, 5, stdin);
-    salto(id_alum_);
-    existe = comprobar_id(*alum, id_alum_);
+
 }
-*/
+
 // MATERIAS
 void MenuMaterias(materia *mate)
 {

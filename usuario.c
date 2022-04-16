@@ -19,7 +19,6 @@ void cargar_usuarios(usuario **usu){
     }else{
                 rewind(f);
                   *usu=malloc(1*sizeof(usuario));
-
                     while(fgets(linea,160,f)!=NULL){
                     *usu=(usuario*)realloc((*usu),(nUsuario+1)*sizeof(usuario));
 
@@ -40,6 +39,7 @@ void cargar_usuarios(usuario **usu){
                         nUsuario++;
                         }
               		}
+        
      fclose(f);
     }
 }
