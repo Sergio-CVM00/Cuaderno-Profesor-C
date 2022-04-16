@@ -1,5 +1,5 @@
 //Todavia falta unos cuantos errores que pulir //
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,4 +44,4 @@ return existe;
 
 
 }
-
+*/
