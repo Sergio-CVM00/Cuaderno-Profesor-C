@@ -12,7 +12,7 @@
 #include <string.h>
 //#include <ctime>
 #include "menu-admin.h"
-//#include "cargar-guardar.h"
+#include "cargar-guardar.h"
 
 // USUARIOS
 /*
@@ -181,7 +181,7 @@ void MenuAlumno(alumno *alum){
 
         nAlumno++;
 
-        guardar_alumno(*alum);
+        guardar_alumno(alum);
     }
 
 
@@ -210,7 +210,7 @@ void eliminar_alumno(alumno **alum, int op)
         }
     
 
-void MenuAlumno(alumno *alum){
+void MenuAlumno(alumno **alum){
 
     int menuAnadir,op;
     do
@@ -229,14 +229,14 @@ void MenuAlumno(alumno *alum){
 
     case 1:
         puts("Seleccionó dar de alta\n");
-        dar_alta_alumno(&alum);
+        dar_alta_alumno(alum);
         break;
     case 2:
         puts("Seleccionó dar de baja\n");
-        eliminar_alumno(&alum, op);
+        eliminar_alumno(alum, op);
     case 3:
         puts("Seleccionó modificar\n");
-        modificar_alumno(&alum);
+        modificar_alumno(alum);
     case 4:
         puts("Seleccionó listar alumnos");
         listar_alumno(alum);
@@ -573,7 +573,7 @@ void MenuMaterias(materia *mate)
 
         nMateria++;
 
-        guardar_materia(*mate);
+        guardar_materia(mate);
     }
 }
 

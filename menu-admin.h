@@ -4,6 +4,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<math.h>
+
 //USUARIOS
 typedef struct{
     int id_usuario;
