@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "menu-admin.h"
+
 #include "usuario.h"
 #include "alumno.h"
 #include "materia.h"
@@ -13,7 +13,7 @@ int main(){
     //cargar usuarios del sistema.
     usuario *usu;
     alumno *alum;
-    calificaciones *cali;
+    //calificaciones *cali;
     horario *hor;
     materia *mat;
     matricula *mtri;

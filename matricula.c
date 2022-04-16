@@ -17,7 +17,7 @@ void cargar_matricula(matricula **mtri){
         puts("Error de apertura");
     }else{
                 rewind(f);
-                  *mtri=malloc(1*sizeof(horario));
+                  *mtri=malloc(1*sizeof(matricula));
 
                     while(fgets(linea,160,f)!=NULL){
                     *mtri=(matricula*)realloc((*mtri),(nMatricula+1)*sizeof(matricula));
@@ -34,7 +34,7 @@ void cargar_matricula(matricula **mtri){
                         (*mtri)[nMatricula].id_alum=atoi(token);
                         //strcpy((*mtri)[nMatricula].id_alum,token);
 
-                        nMateria++;
+                        nMatricula++;
                         }
                }
      fclose(f);

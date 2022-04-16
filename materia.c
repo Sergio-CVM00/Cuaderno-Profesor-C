@@ -34,7 +34,7 @@ void cargar_materias(materia **mat){
 
                         token=strtok(NULL,"\n");
                          strcpy((*mat)[nMateria].abrev_materia,token);
-                        nHorario++;
+                        nMateria++;
                         }
                }
      fclose(f);
