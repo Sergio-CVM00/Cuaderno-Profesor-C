@@ -5,7 +5,7 @@
 #include "calificaciones.h"
 void cargar_calificaciones(calificaciones **cali){
 
-    char linea[160];
+    char linea[300];
     char *token;
     FILE *f;
 
@@ -19,7 +19,7 @@ void cargar_calificaciones(calificaciones **cali){
                 rewind(f);
                   *cali=malloc(1*sizeof(calificaciones));
 
-                    while(fgets(linea,160,f)!=NULL){
+                    while(fgets(linea,300,f)!=NULL){
                     *cali=(calificaciones*)realloc((*cali),(nCalificaciones+1)*sizeof(calificaciones));
 
                      if((*cali)==NULL){
@@ -46,14 +46,20 @@ void cargar_calificaciones(calificaciones **cali){
                }
      fclose(f);
     }
+    (*cali)[0].valor_cal = 777;
+    strcpy((*cali)[0].descrip_calif, "c es una maravilla");
+    /*pruebas:
+
+        (*cali)[1].id_alum = 999
+    */
 }
 
-void guardar_calificaciones(calificaciones *cali){
+void guardar_calificaciones(calificaciones **cali){
 	FILE *f;
 	int i;
-	f=fopen("Calificaciones.txt","w+");
+	f=fopen("Calificaciones.txt","w");
 	for(i=0;i<nCalificaciones;i++){
-		fprintf(f,"%s-%s-%i-%i-%i\n",cali[i].fecha_calif,cali[i].descrip_calif,cali[i].id_materia,cali[i].id_alum,cali[i].valor_cal);
+		fprintf(f,"%s-%s-%i-%i-%i\n",(*cali)[i].fecha_calif,(*cali)[i].descrip_calif,(*cali)[i].id_materia,(*cali)[i].id_alum,(*cali)[i].valor_cal);
 	}
     fclose(f);
 }

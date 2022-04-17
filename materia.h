@@ -20,6 +20,6 @@ void cargar_materias(materia **mat);
 //Cabecera: void guardar_materias(materia *mat);
 //Precondicion: fichero Materias.txt
 //Postcondicion: guarda los datos de materias en el txt.
-void guardar_materias(materia *mat);
+void guardar_materias(materia **mat);
 
 #endif

@@ -41,12 +41,12 @@ void cargar_materias(materia **mat){
     }
 }
 
-void guardar_materias(materia *mat){
+void guardar_materias(materia **mat){
 	FILE *f;
 	int i;
-	f=fopen("Materias.txt","w+");
+	f=fopen("Materias.txt","w");
 	for(i=0;i<nMateria;i++){
-		fprintf(f,"%i-%s-%s\n",mat[i].id_materia,mat[i].nombre_materia,mat[i].abrev_materia);
+		fprintf(f,"%i-%s-%s\n",(*mat)[i].id_materia,(*mat)[i].nombre_materia,(*mat)[i].abrev_materia);
 	}
     fclose(f);
 }

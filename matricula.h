@@ -8,7 +8,7 @@
 typedef struct{
     int id_materia; //debe coinidir con el id de alguna materia
     int id_alum; //debe coincidir con el id de algun alumno
-    
+
 }matricula;
 int nMatricula;
 
@@ -19,7 +19,7 @@ void cargar_matricula(matricula **mtri);
 //Cabecera: void guardar_matricula(matricula *mtri);
 //Precondicion: fichero Matriculas.txt
 //Postcondicion: guarda los datos de matriculas en el txt.
-void guardar_matricula(matricula *mtri);
+void guardar_matricula(matricula **mtri);
 
 
 #endif

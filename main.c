@@ -13,13 +13,33 @@ int main(){
     materia *mat;
     matricula *mtri;
 
-	printf("hola mundo");
+    //CARGAR
+    cargar_matricula(&mtri); //operativo
+    cargar_alumnos(&alum); //operativo
+    cargar_horarios(&hor); //operativo
+    cargar_materias(&mat); //operativo
+    cargar_calificaciones(&cali); //operativo
+    //cargar_usuarios(&usu); // pendiente de solucionar (maximo 2 usuarios)
+    //printf("\n nUsuario: %i", nUsuario);
 
-	cargar_usuarios(&usu);
-   /* cargar_matricula(&mtri);
-    cargar_calificaciones(&cali);*/
-	
-    printf("\numero de alumnos: %i",nAlumno);
+
+    //GUARDAR
+    /*
+    guardar_matricula(&mtri);
+    guardar_alumnos(&alum);
+    guardar_materias(&mat);
+    guardar_horarios(&hor);
+    guardar_calificaciones(&cali);
+    */
+
+
+    guardar_usuarios(&usu);
+
+
+
+
+
+
     //listar_materias_alumno(alum,mtri);
     //llamada a menu principal.
     return 0;

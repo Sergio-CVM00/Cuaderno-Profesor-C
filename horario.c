@@ -45,12 +45,12 @@ void cargar_horarios(horario **hor){
     }
 }
 
-void guardar_horarios(horario *hor){
+void guardar_horarios(horario **hor){
 	FILE *f;
 	int i;
-	f=fopen("Horarios.txt","w+");
+	f=fopen("Horarios.txt","w");
 	for(i=0;i<nHorario;i++){
-		fprintf(f,"%i-%i-%i-%i\n",hor[i].id_profesor,hor[i].dia_clase,hor[i].hora_clase,hor[i].id_materia);
+		fprintf(f,"%i-%i-%i-%i\n",(*hor)[i].id_profesor,(*hor)[i].dia_clase,(*hor)[i].hora_clase,(*hor)[i].id_materia);
 	}
     fclose(f);
 }

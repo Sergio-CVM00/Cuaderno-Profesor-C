@@ -25,6 +25,6 @@ void cargar_usuarios(usuario **usu);
 //Cabecera: void guardar_usuarios(usuario *usu);
 //Precondicion: fichero Usuarios.txt
 //Postcondicion: guarda los datos de usuarios en el txt.
-void guardar_usuarios(usuario *usu);
+void guardar_usuarios(usuario **usu);
 
 #endif

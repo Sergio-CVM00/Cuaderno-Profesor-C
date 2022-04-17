@@ -22,5 +22,5 @@ void cargar_horarios(horario **hor);
 //Cabecera: void guardar_horarios(calificaciones *cali);
 //Precondicion: fichero Horarios.txt
 //Postcondicion: guarda los datos de horarios en el txt.
-void guardar_horarios(horario *hor);
+void guardar_horarios(horario **hor);
 #endif

@@ -52,12 +52,13 @@ void cargar_alumnos(alumno **alum){
     }
 }
 
-void guardar_alumnos(alumno *alum){
+void guardar_alumnos(alumno **alum){
 	FILE *f;
 	int i;
-	f=fopen("Alumnos.txt","w+");
+	f=fopen("Alumnos.txt","w");+
+	printf("\n nAlumno: %i",nAlumno);
 	for(i=0;i<nAlumno;i++){
-		fprintf(f,"%i-%s-%s-%s-%s-%s\n",alum[i].id_alum,alum[i].nombre_alum,alum[i].direc_alum,alum[i].local_alum,alum[i].curso,alum[i].grupo);
+		fprintf(f,"%i-%s-%s-%s-%s-%s\n",(*alum)[i].id_alum, (*alum)[i].nombre_alum, (*alum)[i].direc_alum, (*alum)[i].local_alum, (*alum)[i].curso,(*alum)[i].grupo);
 	}
     fclose(f);
 }

@@ -28,11 +28,9 @@ void cargar_matricula(matricula **mtri){
                     else{
                         token=strtok(linea,"-");
                         (*mtri)[nMatricula].id_materia=atoi(token);
-                        //strcpy((*mtri)[nMatricula].id_materia,token);
 
                         token=strtok(NULL,"\n");
                         (*mtri)[nMatricula].id_alum=atoi(token);
-                        //strcpy((*mtri)[nMatricula].id_alum,token);
 
                         nMatricula++;
                         }
@@ -41,12 +39,12 @@ void cargar_matricula(matricula **mtri){
     }
 }
 
-void guardar_matricula(matricula *mtri){
+void guardar_matricula(matricula **mtri){
 	FILE *f;
 	int i;
-	f=fopen("Matriculas.txt","w+");
+	f=fopen("Matriculas.txt","w");
 	for(i=0;i<nMatricula;i++){
-		fprintf(f,"%i-%s-%s\n",mtri[i].id_materia,mtri[i].id_alum);
+		fprintf(f,"%i-%i\n",(*mtri)[i].id_materia,(*mtri)[i].id_alum);
 	}
     fclose(f);
 }
