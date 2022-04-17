@@ -21,9 +21,9 @@ int nAlumno;
 //Postcondicion: carga los datos de alumnos en el sistema.
 void cargar_alumnos(alumno **alum);
 
-//Cabecera: void guardar_usuarios(usuario *usu);
-//Precondicion: fichero Usuarios.txt
-//Postcondicion: guarda los datos de usuarios en el txt.
+//Cabecera: void guardar_alumnos(alumno *alum);
+//Precondicion: fichero Alumnos.txt
+//Postcondicion: guarda los datos de alumnos en el txt.
 void guardar_alumnos(alumno *alum);
 
 #endif

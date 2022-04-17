@@ -96,7 +96,7 @@ void listar_materia(materia *mate);
 
 //funciones auxiliares alumnos
 void salto(char *str);
-int comprobar_id_alumno(alumno alum, int id_alum);
+int comprobar_id_alumno(alumno *alum, int id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
 //void guardar_alumno(alumno *alum);

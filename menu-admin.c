@@ -336,7 +336,7 @@ int menuAnadir;
         break;
     case 2:
         puts("SeleccionÃ³ crear matricula alumno\n");
-        //crear_matricula_alumno(&alum, &materia, &mtri);
+        crear_matricula_alumno(*alum, *materia, *mtri);
         break;
     case 3:
         puts("SeleccionÃ³ eliminar materia en alguna  matricula \n");
@@ -360,7 +360,7 @@ void listar_materias_alumno(alumno *alum,matricula *mtri){
         fflush(stdin);
         scanf("%i",&id_alum_);
         //salto(id_alum_);
-        existe = comprobar_id_alumno(&alum, id_alum_);
+        existe = comprobar_id_alumno(alum, id_alum_);
 
     }while (existe == 0 );
     i = 0;
@@ -383,9 +383,28 @@ void listar_materias_alumno(alumno *alum,matricula *mtri){
 
 }
 
-void crear_matricula_alumno(alumno **alum, materia **mate, matricula **matri)
+void crear_matricula_alumno(alumno **alum, materia **mate, matricula **mtri)
 {
+	int id_alum_;
+	int materias = 1;
+	int id_materia_;
+	*mtri=(matricula*)realloc((*mtri),(nMatricula+1)*sizeof(matricula));
+	printf("Introduce id del alumno: ");
+    fflush(stdin);
+   	scanf("%i", &id_alum_);
+   	printf("Cuantas asignaturas deseea añadir al alumno.Si no deseea añadir mas, introduzca 0");
+   	scanf("%i",$materias);
+   	while(materias>=1){
+	   	printf("Introduce id de la materia a asignar al alumno: ");
+	    fflush(stdin);
+	    scanf("%i",&id_materia_);
+	    salto((*alum)[nAlumno].nombre_alum);
+		nMateria++;
 
+        guardar_matricula(*mtri);
+   		
+	   }
+  
 }
 
 // MATERIAS

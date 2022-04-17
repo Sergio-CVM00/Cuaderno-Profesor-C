@@ -14,10 +14,11 @@ int main(){
     matricula *mtri;
 
     cargar_usuarios(&usu);
+    cargar_alumnos(&alum);
    /* cargar_matricula(&mtri);
     cargar_calificaciones(&cali);*/
-
-    printf("\nnUsuario: %i",nUsuario);
+	
+    printf("\numero de alumnos: %i",nAlumno);
     //listar_materias_alumno(alum,mtri);
     //llamada a menu principal.
     return 0;
