@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "cargar-guardar.h"
-//#include "menu-admin.h"
+
+#include "menu-admin.h"
 
 
 
@@ -13,12 +13,16 @@ int main(){
     materia *mat;
     matricula *mtri;
 
-    cargar_usuarios(&usu);
-    /*cargar_alumnos(&alum);
-    cargar_calificaciones(&cali);*/
+	printf("hola mundo");
 
-    printf("\nnUsuario: %i",nUsuario);
+	cargar_usuarios(&usu);
+   /* cargar_matricula(&mtri);
+    cargar_calificaciones(&cali);*/
+	
+    printf("\numero de alumnos: %i",nAlumno);
+    //listar_materias_alumno(alum,mtri);
     //llamada a menu principal.
     return 0;
     //dsgsgr
+
 }

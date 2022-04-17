@@ -15,7 +15,7 @@ En el .h datos-profesor tendremos las estructuras "struct" de los datos necesari
 De esta forma, nos ahorramos llamar a todas las funciones de carga, solo se carga lo que se va a utilizar.
 */
 
-typedef struct{
+/*typedef struct{
     int dia;
     int mes;
     int ano;
@@ -53,4 +53,26 @@ typedef struct{
     int id_materia[3];
     char nombre_materia[49];
     char abrev_materia[3];
-}materia;
+}materia;*/
+
+#ifndef _PROFESOR_H_
+#define _PROFESOR_H_
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+#include "usuario.h"
+#include "calificaciones.h"
+#include "alumno.h"
+#include "materia.h"
+#include "horario.h"
+
+
+
+void MenuProfesor (usuario *usu,alumno *alum  ,horario *hor,calificaciones *cali);
+void ficha_alumno(usuario *usu,alumno *alum,calificaciones *cali,int pos);
+void listar_alumnos();
+void mostrar_alumno(alumno *alum, int pos);
+void mostrar_horario(usuario *usu,horario *hor,materia *mat, int pos);
+void listar_calificaciones(alumno *alum, calificaciones *cali,int pos);
+#endif

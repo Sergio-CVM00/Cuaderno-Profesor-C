@@ -4,45 +4,18 @@
 #include<string.h>
 #include<stdlib.h>
 #include<math.h>
+#include "usuario.h"
+#include "calificaciones.h"
+#include "alumno.h"
+#include "materia.h"
+#include "horario.h"
+#include "matricula.h"
 
-//USUARIOS
-typedef struct{
-    int id_usuario;
-    char nombre_usuario[21];
-    char perfil_usuario[29]; //administrador o profesor
-    char usuario[6];  // con el que accedemos al sistema
-    char contrasena[10];
-}usuario;
 
-//ESTRUCTURA ALUMNO
-typedef struct{
-    int id_alum;
-    char nombre_alum[21];
-    char direc_alum[31];
-    char local_alum[31];
-    char curso[31];
-    char grupo[11];
-}alumno;
-//ESTRUCTURA MATRICULAS
-typedef struct{
-    int id_materia; //debe coinidir con el id de alguna materia
-    int id_alum; //debe coincidir con el id de algun alumno
-}matricula;
-//ESTRUCTURA MATERIAS
-typedef struct{
-    int id_materia;
-    char nombre_materia[51];
-    char abrev_materia[4];
-}materia;
-
-int nUsuario;
-int nAlumno;
-int nMatricula;
-int nMateria;
 
 
 //Cabecera: void MenuAlumno(alumno *alum,alumno **alum);
-//Precondicion: 
+//Precondicion:
 //Postcondicion: usuario escoge 1 de las 5 opciones para tratar la info de un/os alumno/s
 void MenuAlumno(alumno *alum);
 
@@ -71,10 +44,10 @@ void listar_alumno(alumno *alum);
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
 void matricula_alumnos(alumno **alum, alumno **materia, matricula **matricula);
 
-//Cabecera: void guardar_matriculas(matricula *mtri);
+//Cabecera: void listar_materias_alumno(alumno *alum,materia *mate,matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void listar_materias_alumno(alumno **alum,materia **mate,matricula **matricula);
+void listar_materias_alumno(alumno *alum,matricula *mtri);
 
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
@@ -92,12 +65,12 @@ void eliminar_materias_alumno(alumno **alum,materia **mate ,matricula **matri);
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri);
+//void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri);
 
 
 //MATERIAS
 //Cabecera: void MenuMaterias(materia *mate, materia **mate);
-//Precondicion: 
+//Precondicion:
 //Postcondicion: usuario escoge 1 de las opciones para tratar la info de de una/s materia/s
 void MenuMaterias(materia *mate);
 
