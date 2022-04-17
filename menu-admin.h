@@ -15,7 +15,7 @@
 
 
 //Cabecera: void MenuAlumno(alumno *alum,alumno **alum);
-//Precondicion: 
+//Precondicion:
 //Postcondicion: usuario escoge 1 de las 5 opciones para tratar la info de un/os alumno/s
 void MenuAlumno(alumno *alum);
 
@@ -70,7 +70,7 @@ void eliminar_materias_alumno(alumno **alum,materia **mate ,matricula **matri);
 
 //MATERIAS
 //Cabecera: void MenuMaterias(materia *mate, materia **mate);
-//Precondicion: 
+//Precondicion:
 //Postcondicion: usuario escoge 1 de las opciones para tratar la info de de una/s materia/s
 void MenuMaterias(materia *mate);
 
