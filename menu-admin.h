@@ -15,7 +15,7 @@
 
 
 //Cabecera: void MenuAlumno(alumno *alum,alumno **alum);
-//Precondicion: 
+//Precondicion:
 //Postcondicion: usuario escoge 1 de las 5 opciones para tratar la info de un/os alumno/s
 void MenuAlumno(alumno *alum);
 
@@ -70,7 +70,7 @@ void eliminar_materias_alumno(alumno **alum,materia **mate ,matricula **matri);
 
 //MATERIAS
 //Cabecera: void MenuMaterias(materia *mate, materia **mate);
-//Precondicion: 
+//Precondicion:
 //Postcondicion: usuario escoge 1 de las opciones para tratar la info de de una/s materia/s
 void MenuMaterias(materia *mate);
 
@@ -96,7 +96,7 @@ void listar_materia(materia *mate);
 
 //funciones auxiliares alumnos
 void salto(char *str);
-int comprobar_id_alumno(alumno alum, int id_alum);
+int comprobar_id_alumno(alumno *alum, int id_alum);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
 //void guardar_alumno(alumno *alum);

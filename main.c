@@ -13,7 +13,9 @@ int main(){
     materia *mat;
     matricula *mtri;
 
-    cargar_usuarios(&usu);
+	printf("hola mundo");
+
+	cargar_usuarios(&usu);
    /* cargar_matricula(&mtri);
     cargar_calificaciones(&cali);*/
 
@@ -22,5 +24,5 @@ int main(){
     //llamada a menu principal.
     return 0;
     //dsgsgr
-    
+
 }

@@ -22,24 +22,24 @@ void cargar_usuarios(usuario **usu){
                     while(fgets(linea,160,f)!=NULL){
                     *usu=(usuario*)realloc((*usu),(nUsuario+1)*sizeof(usuario));
 
-                     if((*usu)==NULL){
-                        puts("No hay memoria suficiente");
-                    }
-                    else{
-                        token=strtok(linea,"-");
-                        (*usu)[nUsuario].id_usuario=atoi(token);
-                        token=strtok(NULL,"-");
-                        strcpy((*usu)[nUsuario].nombre_usuario,token);
-                        token=strtok(NULL,"-");
-                        strcpy((*usu)[nUsuario].perfil_usuario,token);
-                        token=strtok(NULL,"-");
-                        strcpy((*usu)[nUsuario].usuario,token);
-                        token=strtok(NULL,"\n");
-                        strcpy((*usu)[nUsuario].contrasena,token);
-                        nUsuario++;
+                        if((*usu)==NULL){
+                            puts("No hay memoria suficiente");
+                        }
+                        else{
+                            token=strtok(linea,"-");
+                            (*usu)[nUsuario].id_usuario=atoi(token);
+                            token=strtok(NULL,"-");
+                            strcpy((*usu)[nUsuario].nombre_usuario,token);
+                            token=strtok(NULL,"-");
+                            strcpy((*usu)[nUsuario].perfil_usuario,token);
+                            token=strtok(NULL,"-");
+                            strcpy((*usu)[nUsuario].usuario,token);
+                            token=strtok(NULL,"\n");
+                            strcpy((*usu)[nUsuario].contrasena,token);
+                            nUsuario++;
                         }
               		}
-        
+
      fclose(f);
     }
 }
