@@ -453,29 +453,26 @@ void modificar_materias_alumno(alumno *alum,materia *mate, matricula *mtri){
     int id_materia_;
     system("cls");
    do{
-        mostrar_alumnos(*alum);
+        mostrar_matriculas(*mtri);
         do
         {
-            printf("\nIntroduce el numero del alumno que desea modificar: ");
+            printf("\nIntroduce el numero de la matricula que desea modificar: ");
             scanf("%i", &pos);
-        } while (pos < 0 || pos >= nAlumno);
-            do
+        } while (pos < 0 || pos >= nMatricula);
+        do
+        {
+            printf("Introduce el id de la materia a modificar: ");
+            scanf("%i", id_materia_);
+            //salto(id_materia_);
+            existeM = comprobar_id_materia(mate, id_materia_);
+            existeMatricula = comprobar_matricula(mtri,(*alum)[pos].id_alum,id_materia_);
+            if ( existeMatricula==1)
             {
-                existe = 0;
-                scanf("%i",&id_alum_);
-                printf("Introduce el id de la materia a modificar: ");
-                scanf("%i", id_materia_);
-                //salto(id_materia_);
-                existeM = comprobar_id_materia(mate, id_materia_);
-                existe = comprobar_id_alumno(alum, id_alum_);
-                existeMatricula = comprobar_matricula(mtri,id_alum_,id_materia_);
-                if ( existeMatricula==1)
-                {
-                    printf("Esta matricula ya existe\n");
-                }
+                printf("Esta matricula ya existe\n");
+            }
             } while (existe == 1 && existeM ==1 && existeMatricula==1);
-                (*mtri)[pos].id_materia = id_materia_;
-                break;
+            (*mtri)[pos].id_materia = id_materia_;
+            break;
             
             
             system("cls");
@@ -519,10 +516,8 @@ void MenuMaterias(materia *mate)
         puts("Seleccionó listar alumnos");
         listar_materia(mate);
     case 5:
-        /*Además, para un alumno seleccionado, se permitirá mostrar la lista de materias en las que se encuentra matriculado,
-        realizar cambios de matrícula a otras materias, eliminar matrícula en alguna materia y crear nuevas matrículas. */
         puts("Seleccionó informacion de alumnos(ver ,modificar matriculas)");
-        //matricula_alumnos(&alum, &materia, &matricula);
+        matricula_alumnos(*alum, *materia, *matricula);
     }
 }
 
@@ -598,12 +593,12 @@ void modificar_materia(materia **mate)
     system("cls");
     do
     {
-        mostrar_matriculas(*mtri);
+        mostrar_materias(*mate);
         do
         {
             printf("\nIntroduce el numero de la materia que desea modificar: ");
             scanf("%i", &pos);
-        } while (pos < 0 || pos >= nMatricula);
+        } while (pos < 0 || pos >= nMateria);
         do
         {
             printf("Que dato desea modificar: ");
