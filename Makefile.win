@@ -50,3 +50,6 @@ menu-admin.o: menu-admin.c
 
 menu-profesor.o: menu-profesor.c
 	$(CC) -c menu-profesor.c -o menu-profesor.o $(CFLAGS)
+
+usuario.o: usuario.c
+	$(CC) -c usuario.c -o usuario.o $(CFLAGS)

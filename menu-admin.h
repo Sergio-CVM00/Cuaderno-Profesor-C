@@ -17,7 +17,7 @@
 //Cabecera: void MenuAlumno(alumno *alum,alumno **alum);
 //Precondicion:
 //Postcondicion: usuario escoge 1 de las 5 opciones para tratar la info de un/os alumno/s
-void MenuAlumno(alumno *alum);
+void MenuAlumno(alumno *alum,matricula *mtri,materia *mate);
 
 //Cabecera: void dar_alta_alumno(alumno **alum);
 //Precondicion: alumno no dado de alta en el sistema
@@ -42,31 +42,31 @@ void listar_alumno(alumno *alum);
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void matricula_alumnos(alumno **alum, alumno **materia, matricula **matricula);
+void menu_matricula_alumnos(matricula *mtri,alumno *alum,materia *mate);
 
 //Cabecera: void listar_materias_alumno(alumno *alum,materia *mate,matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void listar_materias_alumno(alumno *alum,matricula *mtri);
+void listar_materias_alumno(matricula *mtri,alumno *alum);
 
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void crear_matricula_alumno(alumno **alum,materia **mate,matricula **matri);
+void crear_matricula_alumno(matricula **mtri,materia **mate,alumno **alum);
 
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void eliminar_materias_alumno(alumno **alum,materia **mate ,matricula **matri);
+void eliminar_materias_alumno( matricula **mtri);
 
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
 //void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri);
-
+void modificar_materias_alumno(matricula **mtri,alumno **alum,materia **mate);
 
 //MATERIAS
 //Cabecera: void MenuMaterias(materia *mate, materia **mate);
@@ -106,5 +106,7 @@ void mostrar_materias(materia *mate);
 void mostrar_materia(materia *mate, int pos);
 //void guardar_materia(materia *mate);
 //func aux de matriculas 
-void comprobar_matricula(matricula *matri,int id_alum,int id_materia);
+int comprobar_matricula(matricula *matri,int id_alum,int id_materia);
+void mostrar_matricula(matricula *mtri, int pos);
+void mostrar_matriculas(matricula *mtri);
 #endif
