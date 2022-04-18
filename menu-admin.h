@@ -105,4 +105,6 @@ int comprobar_id_materia(materia *mate, int id_materia);
 void mostrar_materias(materia *mate);
 void mostrar_materia(materia *mate, int pos);
 //void guardar_materia(materia *mate);
+//func aux de matriculas 
+void comprobar_matricula(matricula *matri,int id_alum,int id_materia);
 #endif
