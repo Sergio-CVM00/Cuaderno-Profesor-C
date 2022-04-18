@@ -19,9 +19,7 @@ int main(){
     cargar_horarios(&hor); //operativo
     cargar_materias(&mat); //operativo
     cargar_calificaciones(&cali); //operativo
-    cargar_usuarios(&usu); // pendiente de solucionar (maximo 2 usuarios)
-    printf("\n nUsuario: %i", nUsuario);
-
+    cargar_usuarios(&usu); //operativo
 
     //GUARDAR
     /*
@@ -30,10 +28,8 @@ int main(){
     guardar_materias(&mat);
     guardar_horarios(&hor);
     guardar_calificaciones(&cali);
-    */
-
-
     guardar_usuarios(&usu);
+    */
 
 
 

@@ -23,12 +23,12 @@ Listar usuarios
 Modificar usuarios
 */
 
-/*void darAlta_Usuarios(usuario **usu)
+void darAlta_Usuarios(usuario **usu)
 {
     int existe,id;
     system("cls");
 
-    //*usu=(usu*)realloc((*usu),(nUsuario+1)*sizeof(usuario));
+    *usu=(usuario*)realloc((*usu),(nUsuario+1)*sizeof(usuario));
     
         do{
             existe=0;
@@ -42,7 +42,7 @@ Modificar usuarios
     
         printf("Introduce tu nombre completo: ");
         fflush(stdin);
-        fgets((*usu)[nUsuario].nombre_usuario,21,stdin);
+        fgets((*usu)[nUsuario].nombre_usuario,19,stdin);
         salto((*usu)[nUsuario].nombre_usuario);
         fflush(stdin);
 
@@ -67,9 +67,9 @@ Modificar usuarios
         nUsuario++;
 
         guardar_usuario(*usu);
-}*/
+}
 
-/*void darBaja_Usuarios(usuario **usu, int op)
+void darBaja_Usuarios(usuario **usu, int op)
 {
 
     if (op == nUsuario - 1)
@@ -86,10 +86,79 @@ Modificar usuarios
         nUsuario--;
     }
 
-    guardar_usuarios(*usu);
+    guardar_usuarios(usu);
     system("cls");
     printf("\n            USUARIO ELIMINADO\n");
-}*/
+}
+
+//LISTAR USUARIOS
+void Listar_usuarios(usuario **usu){
+
+    //Lista todos los usuarios del sistema por pantalla
+    int i;
+    printf("\nUsuarios registrados en el sistema:");
+    for (i = 0; i < nUsuario; i++)
+    {
+        printf("\n%i: %i-%s-%s-%s-%s",(*usu)[i].id_usuario,(*usu)[i].nombre_usuario,(*usu)[i].perfil_usuario,(*usu)[i].usuario,(*usu)[i].contrasena);
+    }
+    
+}
+//MOODIFICAR UN USUARIO
+
+void Modificar_usuarios(usuario **usu){
+    int pos,op,existe,a;
+    int id_aux;
+    system("cls");
+    do{
+        Listar_usuarios(usu);
+        do{
+        printf("\nIntroduce que usuario desea modificar(numero): ");
+        scanf("%i",&pos);
+        }while(pos<0 || pos>=nUsuario);
+
+        do{
+        printf("Que dato desea modificar: ");
+        scanf("%i",&op);
+        }while(op<1 || op>11);
+
+    switch(op){
+        case 1:do{
+            existe=0;
+            printf("Introduce el nuevo id_usuario: ");
+            fflush(stdin);
+            scanf("%i",&id_aux);
+            existe=comprobar_id_usuario(usu,id_aux);
+            if(existe==1){printf("Este id ya existe\n");}
+            }while(existe==1);
+            (*usu)[pos].id_usuario = id_aux ;
+            break;
+        case 2:printf("Introduce el nuevo nombre completo: ");
+            fflush(stdin);
+            fgets((*usu)[pos].nombre_usuario,40,stdin);
+            break;
+        case 3:printf("Introduce el nuevo perfil del usuario: ");
+            fflush(stdin);
+            fgets((*usu)[pos].perfil_usuario,40,stdin);
+            break;
+        case 4:printf("Introduce el nuevo tipo de usuario: ");
+            fflush(stdin);
+            fgets((*usu)[pos].usuario,40,stdin);
+            break;
+        case 5:printf("Introduce la nueva contrasena: ");
+            fflush(stdin);
+            fgets((*usu)[pos].contrasena,40,stdin);
+            break;
+        }
+    system("cls");
+    guardar_usuarios(usu);
+    Listar_usuarios(usu);
+    printf("\nDesea modificar otro dato ( 1-SI / 2-NO  numero): ");
+    scanf("%i",&a);
+    system("cls");
+    }while(a==1);
+}
+
+
 
 void MenuAlumno(alumno *alum,matricula *mtri,materia *mate){
 
