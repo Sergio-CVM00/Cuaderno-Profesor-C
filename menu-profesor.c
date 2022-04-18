@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 //#include "profesor.h"
-/*
+
 void MenuProfesor (usuario *usu,alumno *alum  ,horario *hor,calificaciones *cali);
 void ficha_alumno(usuario *usu,alumno *alum,calificaciones *cali,int pos);
 
