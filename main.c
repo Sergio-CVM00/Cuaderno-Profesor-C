@@ -15,7 +15,7 @@ int main(){
     
 
     //CARGAR
-    //cargar_matricula(&mtri); //operativo
+    cargar_matricula(&mtri); //operativo
     cargar_alumnos(&alum); //operativo
     //cargar_horarios(&hor); //operativo
     cargar_materias(&mate); //operativo
@@ -28,23 +28,17 @@ int main(){
     
     //guardar_matricula(&mtri);
     //guardar_alumnos(&alum);
-    
     //guardar_materias(&mate);
     //guardar_horarios(&hor);
     //guardar_calificaciones(&cali);
-    
-	MenuMaterias(mate); //operativa al 100%
-
-	
     //guardar_usuarios(&usu);
 
 
 	//COMPROBACIONES DE FUNCIONES DE ROBE
 	//MenuAlumno(alum,mtri,mate); //operativa al 100%. 
+	//MenuMaterias(mate); //operativa al 100%
+	menu_matricula_alumnos(mtri,alum,mate);
 	
-	
-	
-	//menu_matricula_alumnos(mtri,alum,mate);//LISTAR NO FUNCUIONA
 
 	
 	

@@ -464,12 +464,13 @@ void crear_matricula_alumno(matricula **mtri,materia **mate,alumno **alum)
 		}while(existeM ==0);
 		do{
 			existeMatricula = comprobar_matricula(*mtri,id_alum_,id_materia_);
-			if(existeMatricula==0){
+			if(existeMatricula==1){
 		    	printf("Matricula existente.Vuelve a introducir los parametros \n");
 		    	break;
+		    	
 			}
 			
-		}while(existeMatricula==0);
+		}while(existeMatricula==1);
 	   	(*mtri)[nMatricula].id_alum = id_alum_;
 		(*mtri)[nMatricula].id_materia = id_materia_;
 		printf("Deseea seguir con este proceso? 1-SI || 2- NO ");
@@ -529,30 +530,30 @@ void modificar_materias_alumno(matricula **mtri,alumno **alum,materia **mate){
             printf("\nIntroduce el numero de la matricula que desea modificar: ");
             scanf("%i", &pos);
         } while (pos < 0 || pos >= nMatricula);
-        do
-        {
-            printf("Introduce el id de la materia a modificar sobre el alumno %i: ",(*mtri)[pos].id_alum);
-            scanf("%i", id_materia_);
-            existeM = comprobar_id_materia(*mate, id_materia_);
-            if(existeM == 1){
-            	printf("Esta materia no existe");
+        do{
+	    	printf("Introduce id de la materia a asignar al alumno %i: ",(*mtri)[pos].id_alum);
+			fflush(stdin);
+			scanf("%i",&id_materia_);
+			existeM = comprobar_id_materia(*mate, id_materia_);
+			if(existeM==0){
+		    	printf("Materia no existe \n");
+		    	break;
 			}
-			existeMatricula = comprobar_matricula(*mtri,(*alum)[pos].id_alum,id_materia_);
-			printf("%i",id_materia_);
-            if ( existeMatricula==0)
-            {
-                printf("Esta matricula ya existe\n");
-            }
-            } while (existeMatricula==0);
-            printf("%i",id_materia_);
-            (*mtri)[pos].id_materia = id_materia_;
-                  
-            system("cls");
-            guardar_matricula(mtri);
-            mostrar_matriculas(*mtri);
-            printf("\nDesea modificar otro dato (1-SI/2-NO  numero): ");
-            scanf("%i", &a);
-            system("cls");
+		}while(existeM ==0);
+		do{
+			existeMatricula = comprobar_matricula(*mtri,id_alum_,id_materia_);
+			if(existeMatricula==1){
+		    	printf("Matricula existente.Vuelve a introducir los parametros \n");
+			}
+			
+		}while(existeMatricula==1);
+        (*mtri)[pos].id_materia = id_materia_;  
+        system("cls");
+        guardar_matricula(mtri);
+        mostrar_matriculas(*mtri);
+        printf("\nDesea modificar otro dato (1-SI/2-NO  numero): ");
+        scanf("%i", &a);
+        system("cls");
     } while (a == 1);
 }
 
