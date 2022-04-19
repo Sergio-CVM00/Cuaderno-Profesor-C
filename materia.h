@@ -8,7 +8,7 @@
 typedef struct{
     int id_materia;
     char nombre_materia[51];
-    char abrev_materia[4];
+    char abrev_materia[5];
 }materia;
 int nMateria;
 

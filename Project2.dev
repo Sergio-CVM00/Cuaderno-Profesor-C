@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=26
+UnitCount=25
 
 [VersionInfo]
 Major=1
@@ -148,25 +148,16 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit11]
-FileName=Makefile.win
-Folder=
-Compile=0
-Link=0
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit12]
 FileName=materia.c
-CompileCpp=0
 Folder=
 Compile=1
 Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=0
 
-[Unit13]
+[Unit12]
 FileName=materia.h
 CompileCpp=0
 Folder=
@@ -176,8 +167,9 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit14]
+[Unit13]
 FileName=Materias.txt
+CompileCpp=0
 Folder=
 Compile=0
 Link=0
@@ -185,17 +177,17 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit15]
+[Unit14]
 FileName=matricula.c
-CompileCpp=0
 Folder=
 Compile=1
 Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=0
 
-[Unit16]
+[Unit15]
 FileName=matricula.h
 CompileCpp=0
 Folder=
@@ -205,8 +197,9 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit17]
+[Unit16]
 FileName=Matriculas.txt
+CompileCpp=0
 Folder=
 Compile=0
 Link=0
@@ -214,17 +207,17 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit18]
+[Unit17]
 FileName=menu.c
-CompileCpp=0
 Folder=
 Compile=1
 Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=0
 
-[Unit19]
+[Unit18]
 FileName=menu-admin.c
 CompileCpp=0
 Folder=
@@ -234,7 +227,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit20]
+[Unit19]
 FileName=menu-admin.h
 CompileCpp=0
 Folder=
@@ -244,7 +237,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit21]
+[Unit20]
 FileName=menu-profesor.c
 CompileCpp=0
 Folder=
@@ -254,7 +247,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit22]
+[Unit21]
 FileName=menu-profesor.h
 CompileCpp=0
 Folder=
@@ -264,7 +257,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit23]
+[Unit22]
 FileName=usuario.c
 CompileCpp=0
 Folder=
@@ -274,7 +267,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit24]
+[Unit23]
 FileName=usuario.h
 CompileCpp=0
 Folder=
@@ -284,8 +277,18 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit25]
+[Unit24]
 FileName=Project2.dev
+CompileCpp=0
+Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit25]
+FileName=Usuarios.txt
 Folder=
 Compile=0
 Link=0
