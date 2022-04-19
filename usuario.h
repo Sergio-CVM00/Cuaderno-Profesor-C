@@ -27,4 +27,13 @@ void cargar_usuarios(usuario **usu);
 //Postcondicion: guarda los datos de usuarios en el txt.
 void guardar_usuarios(usuario **usu);
 
+//Cabecera: int comprobar_usuario(usuario *usu,int id)
+//Precondicion: recibir un id de usuario
+//Postcondicion: 0 usuario no existe -- 1 usuario existe
+int comprobar_usuario(usuario *usu,int id);
+
+//Cabecera: int pos_usuario(usuario *usu, int id)
+//Precondicion: recibir un id de usuario
+//Postcondicion: Devuelve la posicion del usuario en el sistema. (vector estructura)
+int pos_usuario(usuario *usu, int id);
 #endif
