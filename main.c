@@ -39,12 +39,12 @@ int main(){
 
 
 	//COMPROBACIONES DE FUNCIONES DE ROBE
-	MenuAlumno(alum,mtri,mate); //operativa al 100%.
+	MenuAlumno(alum,mtri,mate); //operativa al 100%. 
 	
 	
-	menu_matricula_alumnos(mtri,alum,mate);//LISTAR NO FUNCUIONA
+	//menu_matricula_alumnos(mtri,alum,mate);//LISTAR NO FUNCUIONA
 
-	MenuMaterias(mate);
+	//MenuMaterias(mate);
 	
     return 0;
     //dsgsgr

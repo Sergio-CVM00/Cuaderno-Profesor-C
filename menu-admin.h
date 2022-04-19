@@ -47,7 +47,7 @@ void menu_matricula_alumnos(matricula *mtri,alumno *alum,materia *mate);
 //Cabecera: void listar_materias_alumno(alumno *alum,materia *mate,matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void listar_materias_alumno(matricula *mtri,alumno *alum);
+void listar_materias_alumno(matricula **mtri,alumno *alum);
 
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
@@ -96,12 +96,12 @@ void listar_materia(materia *mate);
 
 //funciones auxiliares alumnos
 void salto(char *str);
-int comprobar_id_alumno(alumno *alum, int id_alum);
+int comprobar_id_alumno(alumno *alum, int id_alum_);
 void mostrar_alumno(alumno *alum,int pos);
 void mostrar_alumnos(alumno *alum);
 //void guardar_alumno(alumno *alum);
 //funciones auxiliares materias
-int comprobar_id_materia(materia *mate, int id_materia);
+int comprobar_id_materia(materia *mate, int id_materia_);
 void mostrar_materias(materia *mate);
 void mostrar_materia(materia *mate, int pos);
 //void guardar_materia(materia *mate);
