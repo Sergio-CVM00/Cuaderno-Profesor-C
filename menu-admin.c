@@ -15,7 +15,7 @@
 
 
 void Menu_Usuarios(usuario **usu){
-    int menuAnadir,op,aux_id;
+    int menuAnadir,aux_id;
     do{
             system("cls");
             printf("\nSeleccione una opcion:\n");
@@ -1070,7 +1070,8 @@ void MenuProfesor (alumno *alum  ,calificaciones *cali){
 			menuListadoAlumnos();
 			break;
 		case 2:
-			//cambiarGrupoMateriaProfesor();	
+			//cambiarGrupoMateriaProfesor();
+			break;
 	}
 }
 
@@ -1088,15 +1089,15 @@ void menuListadoAlumnos ( alumno *alum  ,calificaciones *cali){
     }while(x<1 || x>2);
 	switch(x){
 		case 1:
-			mostrar_alumnos(*alum);
+			mostrar_alumnos(alum);
         	printf("Desea modificar datos de un alumno en concreto introduce 1.Si lo que desea es consultar introduce 2");
         	scanf("%i",&a);
         	if(a==1){
-        		modificar_alumno(*alum);
-					
+        		modificar_alumno(alum);
+
    			}
    			else {
-				mostrar_alumnos(alum);	
+				mostrar_alumnos(alum);
 			}
 			break;
 		case 2:
@@ -1105,10 +1106,10 @@ void menuListadoAlumnos ( alumno *alum  ,calificaciones *cali){
         	scanf("%i",&a);
         	if(a==1){
         		modificar_calificaciones(*cali);
-					
+
    			}
    			else{
-				mostrar_calificaciones(*cali);	
+				mostrar_calificaciones(*cali);
 			}
 			break;
 		case 3:

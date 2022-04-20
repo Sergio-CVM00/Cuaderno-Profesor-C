@@ -84,7 +84,7 @@ void mostrar_alumno(alumno *alum, int pos)
 
     if (pos > 0 && pos < nAlumno)
     {
-        printf("\n%i/%s/%s/%s/%s\n", alum[pos].id_alum, alum[pos].nombre_alum, alum[pos].direc_alum, alum[pos].local_alum, alum[pos].curso,alum[pos].grupo);
+        printf("\n%i/%s/%s/%s/%s/%s\n", alum[pos].id_alum, alum[pos].nombre_alum, alum[pos].direc_alum, alum[pos].local_alum, alum[pos].curso,alum[pos].grupo);
     }
 }
 void mostrar_alumnos(alumno *alum)
