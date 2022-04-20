@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "materia.h"
-void cargar_materias(materia **mat){
+void cargar_materias(materia **mate){
 
     char linea[160];
     char *token;
@@ -16,37 +16,39 @@ void cargar_materias(materia **mat){
     if(f==NULL){
         puts("Error de apertura");
     }else{
+    		
                 rewind(f);
-                  *mat=malloc(1*sizeof(materia));
+                  *mate=malloc(1*sizeof(materia));
 
                     while(fgets(linea,160,f)!=NULL){
-                    *mat=(materia*)realloc((*mat),(nMateria+1)*sizeof(materia));
-
-                     if((*mat)==NULL){
+                    *mate=(materia*)realloc((*mate),(nMateria+1)*sizeof(materia));
+					
+                     if((*mate)==NULL){
                         puts("No hay memoria suficiente");
                     }
                     else{
                         token=strtok(linea,"-");
-                        (*mat)[nMateria].id_materia=atoi(token);
+                        (*mate)[nMateria].id_materia=atoi(token);
 
                         token=strtok(NULL,"-");
-                        strcpy((*mat)[nMateria].nombre_materia,token);
+                        strcpy((*mate)[nMateria].nombre_materia,token);
 
                         token=strtok(NULL,"\n");
-                         strcpy((*mat)[nMateria].abrev_materia,token);
+                        strcpy((*mate)[nMateria].abrev_materia,token);
                         nMateria++;
                         }
                }
      fclose(f);
     }
+    
 }
 
-void guardar_materias(materia **mat){
+void guardar_materias(materia **mate){
 	FILE *f;
 	int i;
 	f=fopen("Materias.txt","w");
 	for(i=0;i<nMateria;i++){
-		fprintf(f,"%i-%s-%s\n",(*mat)[i].id_materia,(*mat)[i].nombre_materia,(*mat)[i].abrev_materia);
+		fprintf(f,"%i-%s-%s\n",(*mate)[i].id_materia,(*mate)[i].nombre_materia,(*mate)[i].abrev_materia);
 	}
     fclose(f);
 }

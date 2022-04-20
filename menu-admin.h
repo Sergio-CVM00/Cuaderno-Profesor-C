@@ -47,7 +47,7 @@ void menu_matricula_alumnos(matricula *mtri,alumno *alum,materia *mate);
 //Cabecera: void listar_materias_alumno(alumno *alum,materia *mate,matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
-void listar_materias_alumno(matricula *mtri,alumno *alum);
+void listar_materias_alumno(matricula *mtri,alumno **alum);
 
 
 //Cabecera: void guardar_matriculas(matricula *mtri);

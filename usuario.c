@@ -26,20 +26,23 @@ void cargar_usuarios(usuario **usu){
                             puts("No hay memoria suficiente");
                         }
                         else{
+                        	
                             token=strtok(linea,"-");
                             (*usu)[nUsuario].id_usuario=atoi(token);
+                
 
                             token=strtok(NULL,"-");
                             strcpy((*usu)[nUsuario].nombre_usuario,token);
-
+			
                             token=strtok(NULL,"-");
                             strcpy((*usu)[nUsuario].perfil_usuario,token);
-
+					
                             token=strtok(NULL,"-");
                             strcpy((*usu)[nUsuario].usuario,token);
-
+						
                             token=strtok(NULL,"\n");
                             strcpy((*usu)[nUsuario].contrasena,token);
+                            
 
                             nUsuario++;
                             //printf("\n nUsuario: %i",nUsuario);

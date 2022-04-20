@@ -87,7 +87,7 @@ void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *ca
 										}
 										char x;
 										char s=s;
-										printf("¿Desea editar la calificacion? s/n\n ");
+										printf("ï¿½Desea editar la calificacion? s/n\n ");
 										scanf("%c",&x);
 										if(x== s)
 										{
