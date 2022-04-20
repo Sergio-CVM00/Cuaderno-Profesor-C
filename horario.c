@@ -54,3 +54,38 @@ void guardar_horarios(horario **hor){
 	}
     fclose(f);
 }
+int comprobar_id_horario(horario *hor, int id_profesor,int id_materia,int dia_clase,int hora_clase)
+{
+    int i = 0;
+    while (i < nHorario && hor[i].id_profesor != id_profesor && hor[i].id_materia != id_materia && hor[i].dia_clase != dia_clase && hor[i].hora_clase != hora_clase)
+    {
+        i++;
+    }
+    if (i == nHorario)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+void mostrar_horario(horario *hor, int pos)
+{
+    printf("1-id_profesor || 2-dia_clase || 3-hora_clase || 4-id_materia\n");
+
+    if (pos > 0 && pos < nHorario)
+    {
+        printf("\n%i/%i/%i/%i\n", hor[pos].id_profesor, hor[pos].dia_clase, hor[pos].hora_clase, hor[pos].id_materia);
+    }
+}
+void mostrar_horarios(horario *hor)
+{
+    printf("\n            LISTA DE HORARIOS\n\n");
+    printf("1-id_profesor || 2-dia_clase || 3-hora_clase || 4-id_materia\n");
+    int i;
+    for (i = 0; i < v; i++)
+    {
+        printf("%i-%i/%s/%s/%s/%s\n", i, hor[pos].id_profesor, hor[pos].dia_clase, hor[pos].hora_clase, hor[pos].id_materia);
+    }
+}

@@ -68,6 +68,36 @@ void eliminar_materias_alumno( matricula **mtri);
 //void modificar_materias_alumno(alumno **alum,materia **mate,matricula **matri);
 void modificar_materias_alumno(matricula **mtri,alumno **alum,materia **mate);
 
+//HORARIOS
+//Cabecera: void MenuMaterias(materia *mate, materia **mate);
+//Precondicion:
+//Postcondicion: usuario escoge 1 de las opciones para tratar la info de de una/s materia/s
+void MenuHorarios(horario *hor,materia *mate);
+
+//Cabecera: void dar_alta_materia(materia **mate);
+//Precondicion: materia no dada de alta en el sistema
+//Postcondicion: da de alta a una materia del fichero Materias.txt
+void anadir_horas_profesor(horario **hor);
+
+//Cabecera: void eliminar_materia(materia **mate, int op);
+//Precondicion: materia dada de alta en el sistema
+//Postcondicion: elimina alumno del fichero Materias.txt
+void eliminar_horario(horario **hor, int op);
+
+//Cabecera: void modificar_materia(materia **mate);
+//Precondicion: materia dada de alta en el sistema
+//Postcondicion: modifica  datos de materias del fichero Materias.txt
+void modificar_horario(horario **hor,materia **mate)
+
+//Cabecera: void listar_alumno(alumno *alum);
+//Precondicion: materias dadas de alta en el sistema
+//Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
+void listar_horarios(horario *hor);
+
+//Cabecera: void listar_alumno(alumno *alum);
+//Precondicion: materias dadas de alta en el sistema
+//Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
+void salto(char *str);
 //MATERIAS
 //Cabecera: void MenuMaterias(materia *mate, materia **mate);
 //Precondicion:
@@ -98,7 +128,6 @@ void listar_materia(materia *mate);
 //Precondicion: materias dadas de alta en el sistema
 //Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
 void salto(char *str);
-
 
 
 #endif
