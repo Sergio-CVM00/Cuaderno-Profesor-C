@@ -19,8 +19,8 @@ int main(){
     cargar_horarios(&hor); //operativo
     cargar_materias(&mate); //operativo
     cargar_calificaciones(&cali); //operativo
-    cargar_usuarios(&usu); // pendiente de solucionar (maximo 2 usuarios)
-    menu_inicio(&usu,&cali, &hor, &alum, &mate, &mtri);
+    //cargar_usuarios(&usu); // pendiente de solucionar (maximo 2 usuarios)
+    menu_inicio(usu,cali, hor,alum,mate,mtri);
 
 
 
@@ -36,7 +36,7 @@ int main(){
 
 }
 
-void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **alum,materia **mat, matricula **mtri){
+void menu_inicio(usuario *usu,calificaciones *cali, horario *hor, alumno *alum,materia *mat, matricula *mtri){
 
         int op ,perfil_,rep,pos=-1,inicio,pos_actual;
         do{
@@ -50,9 +50,9 @@ void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **al
                 } while(op<1 || op>3);
 
                 switch(op){
-                        case 1:iniciar_sesion(*usu);
+                        case 1:iniciar_sesion(&usu);
                         break;
-                        case 2:registrarse(*usu);
+                        case 2:registrarse(&usu);
                         break;
                 }
 
@@ -60,7 +60,7 @@ void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **al
 
         do{
                 inicio=0;
-                if(strcmp((*usu)[pos].perfil_usuario,"ADM")==0){
+                if(strcmp(usu[pos].perfil_usuario,"ADM")==0){
                 perfil_=1;
                 }else{perfil_=0;}
 
@@ -79,11 +79,11 @@ void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **al
                             }while(op<1 && op>5);
 	                        switch(op){
 	                            case 1: pos_actual=pos;
-	                                pos=iniciar_sesion(usu);
+	                                pos=iniciar_sesion(&usu);
 	                                if(pos==-1){pos=pos_actual;}
 	                                    inicio=1;
 	                                    break;
-	                            case 2: MenuProfesor(*usu,alum,hor,cali);
+	                            case 2: MenuProfesor(alum,cali);
 	                                break;
 
                                 default: inicio=2;
@@ -108,11 +108,11 @@ void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **al
 	                                        scanf("%i",&op);
 	                                }while(op<1 && op>2);
 	                                switch(op){
-	                                        case 1: menu_general( usu, cali, hor,  alum, mat, mtri);
+	                                        case 1: menu_general(&usu, &cali, &hor,  &alum, &mat, &mtri);
 	                                                break;
 
 	                                        case 2: pos_actual=pos;
-	                                                pos=iniciar_sesion(usu);
+	                                                pos=iniciar_sesion(&usu);
 	                                                if(pos==-1){pos=pos_actual;}
 	                                                inicio=1;
 	                                                break;

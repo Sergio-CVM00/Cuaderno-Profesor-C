@@ -11,8 +11,8 @@
 #include "horario.h"
 #include "matricula.h"
 
-
-
+void menu_inicio(usuario *usu,calificaciones *cali, horario *hor, alumno *alum,materia *mat, matricula *mtri);
+void menu_general(usuario **usu,calificaciones **cali, horario **hor, alumno **alum,materia **mat, matricula **mtri);
 
 // --------------- USUARIOS-----------------------
 //Cabecera: void darAlta_Usuarios(usuario **usu);
@@ -161,6 +161,8 @@ void listar_materia(materia *mate);
 //Precondicion: materias dadas de alta en el sistema
 //Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
 //void salto(char *str);
+void MenuProfesor (alumno *alum  ,calificaciones *cali);
 
+void menuListadoAlumnos (alumno *alum  ,calificaciones *cali);
 
 #endif

@@ -46,7 +46,7 @@ void Menu_Usuarios(usuario **usu){
                 printf("Introduzca el id_usuario que quiera borrar: ");
                 fflush(stdin);
                 scanf("%i",&aux_id);
-            } while (comprobar_usuario(&usu,aux_id) == 0);
+            } while (comprobar_usuario(*usu,aux_id) == 0);
             darBaja_Usuarios(usu,aux_id);
             break;
         case 3:
@@ -80,13 +80,13 @@ void menu_general(usuario **usu,calificaciones **cali, horario **hor, alumno **a
         Menu_Usuarios(usu);
         break;
     case 2:
-        MenuAlumno(alum,mtri,mat);
+        MenuAlumno(*alum,*mtri,*mat);
         break;
     case 3:
-        MenuMaterias(mat);
+        MenuMaterias(*mat);
         break;
     case 4:
-        MenuHorarios(hor,mat);
+        MenuHorarios(*hor,*mat);
         break;
     }
 }
@@ -848,11 +848,11 @@ void MenuHorarios(horario *hor,materia *mate){
 
     case 1:
         puts("añadir horas de clase a un profesor\n");
-        anadir_horas_profesor(hor);
+        anadir_horas_profesor(&hor);
         break;
     case 2:
         puts("elminar horas de clase a un profesor\n");
-        eliminar_horario(hor);
+        eliminar_horario(&hor);
         break;
     case 3:
         puts("modificar horas de clase a un profesor\n");
@@ -860,7 +860,7 @@ void MenuHorarios(horario *hor,materia *mate){
         break;
     case 4:
         puts("listar horas de clase a un profesors");
-         listar_horarios(hor);
+         listar_horarios(&hor);
         break;
     }
 }
@@ -908,7 +908,7 @@ void anadir_horas_profesor(horario **hor){
 void eliminar_horario(horario **hor)
 {
         int op = 0;
-        mostrar_horarios(hor);
+        mostrar_horarios(*hor);
         do
         {
             printf("\nIntroduce el numero del horario que desea eliminar: ");
@@ -968,7 +968,7 @@ void modificar_horario(horario **hor,materia **mate)
                 fflush(stdin);
                 scanf("%i", &id_profesor_);
                 //salto(id_alum_);
-                existe = comprobar_id_horario(*mate, id_profesor_,(*hor)[pos].id_materia,(*hor)[pos].dia_clase,(*hor)[pos].hora_clase);
+                existe = comprobar_id_horario(*hor, id_profesor_,(*hor)[pos].id_materia,(*hor)[pos].dia_clase,(*hor)[pos].hora_clase);
                 if (existe == 1)
                 {
                     printf("Este horario ya existe\n");
@@ -982,7 +982,7 @@ void modificar_horario(horario **hor,materia **mate)
             printf("Introduce el nuevo dia de clase: ");
             fflush(stdin);
             scanf("%i", &dia_clase_);
-            existe = comprobar_id_horario(*mate, (*hor)[pos].id_profesor,(*hor)[pos].id_materia,dia_clase_,(*hor)[pos].hora_clase);
+            existe = comprobar_id_horario(*hor, (*hor)[pos].id_profesor,(*hor)[pos].id_materia,dia_clase_,(*hor)[pos].hora_clase);
             if(existe==1){
             	printf("Este horario ya existe");
 
@@ -995,7 +995,7 @@ void modificar_horario(horario **hor,materia **mate)
             printf("Introduce la nueva hora de clase: ");
             fflush(stdin);
             scanf("%i", &hora_clase_);
-             existe = comprobar_id_horario(*mate, (*hor)[pos].id_profesor,(*hor)[pos].id_materia,(*hor)[pos].dia_clase,hora_clase_);
+             existe = comprobar_id_horario(*hor, (*hor)[pos].id_profesor,(*hor)[pos].id_materia,(*hor)[pos].dia_clase,hora_clase_);
             if(existe==1){
             	printf("Este horario ya existe");
 
@@ -1015,7 +1015,7 @@ void modificar_horario(horario **hor,materia **mate)
 			}
             }while (existeM == 0);
             do{
-            	existe = comprobar_id_horario(*mate, (*hor)[pos].id_profesor,id_materia_,(*hor)[pos].dia_clase,(*hor)[pos].hora_clase);
+            	existe = comprobar_id_horario(*hor, (*hor)[pos].id_profesor,id_materia_,(*hor)[pos].dia_clase,(*hor)[pos].hora_clase);
             	if(existe==1){
             	printf("Este horario ya existe");
 				}
@@ -1026,7 +1026,7 @@ void modificar_horario(horario **hor,materia **mate)
         system("cls");
         guardar_horarios(hor);
 
-        mostrar_horarios(hor);
+        mostrar_horarios(*hor);
         printf("\nDesea modificar otro dato (1-SI/2-NO  numero): ");
         scanf("%i", &a);
         system("cls");
@@ -1067,7 +1067,7 @@ void MenuProfesor (alumno *alum  ,calificaciones *cali){
     }while(x<1 || x>2);
 	switch(x){
 		case 1:
-			menuListadoAlumnos();
+			menuListadoAlumnos(alum,cali);
 			break;
 		case 2:
 			//cambiarGrupoMateriaProfesor();
@@ -1075,9 +1075,10 @@ void MenuProfesor (alumno *alum  ,calificaciones *cali){
 	}
 }
 
-void menuListadoAlumnos ( alumno *alum  ,calificaciones *cali){
+void menuListadoAlumnos (alumno *alum  ,calificaciones *cali){
     int x;
     int a;
+    int pos;
     printf("\n Bienvenido al  menu profesor, elige una de las siguientes \n");
 	do{
     printf("1: ficha del alumno\n");
@@ -1093,7 +1094,7 @@ void menuListadoAlumnos ( alumno *alum  ,calificaciones *cali){
         	printf("Desea modificar datos de un alumno en concreto introduce 1.Si lo que desea es consultar introduce 2");
         	scanf("%i",&a);
         	if(a==1){
-        		modificar_alumno(alum);
+        		modificar_alumno(&alum);
 
    			}
    			else {
@@ -1101,15 +1102,15 @@ void menuListadoAlumnos ( alumno *alum  ,calificaciones *cali){
 			}
 			break;
 		case 2:
-			mostrar_calificaciones(*cali);
+			mostrar_calificaciones(cali);
         	printf("Desea modificar datos de horarios en concreto introduce 1.Si lo que desea es consultar introduce 2");
         	scanf("%i",&a);
         	if(a==1){
-        		modificar_calificaciones(*cali);
+        		modificar_calificaciones(&cali,pos);
 
    			}
    			else{
-				mostrar_calificaciones(*cali);
+				mostrar_calificaciones(cali);
 			}
 			break;
 		case 3:

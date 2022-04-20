@@ -25,4 +25,8 @@ void cargar_calificaciones(calificaciones **cali);
 //Precondicion: fichero Calificaciones.txt
 //Postcondicion: guarda los datos de calificaciones en el txt.
 void guardar_calificaciones(calificaciones **cali);
+
+void mostrar_calificacion(calificaciones *cali, int pos);
+void mostrar_calificaciones(calificaciones *cali);
+void modificar_calificaciones(calificaciones **cali,int pos);
 #endif

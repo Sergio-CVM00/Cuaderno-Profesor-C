@@ -38,4 +38,6 @@ int comprobar_usuario(usuario *usu,int id);
 int pos_usuario(usuario *usu, int id);
 
 int iniciar_sesion(usuario **usu);
+
+void registrarse(usuario **usu);
 #endif
