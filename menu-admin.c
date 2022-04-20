@@ -35,7 +35,7 @@ void darAlta_Usuarios(usuario **usu)
             printf("Introduce tu ID de usuario nuevo: ");
             fflush(stdin);
             scanf("%i",&id);
-            existe=comprobar_id_usu(*usu,id);
+            existe=comprobar_usuario(*usu,id);
             if(existe==1){printf("Este nick ya existe\n");}
         }while(existe==1);
         (*usu)[nUsuario].id_usuario = id;
@@ -66,7 +66,7 @@ void darAlta_Usuarios(usuario **usu)
 
         nUsuario++;
 
-        guardar_usuario(*usu);
+        guardar_usuarios(usu);
 }
 
 void darBaja_Usuarios(usuario **usu, int op)
@@ -127,7 +127,7 @@ void Modificar_usuarios(usuario **usu){
             printf("Introduce el nuevo id_usuario: ");
             fflush(stdin);
             scanf("%i",&id_aux);
-            existe=comprobar_id_usuario(usu,id_aux);
+            existe=comprobar_usuario(*usu,id_aux);
             if(existe==1){printf("Este id ya existe\n");}
             }while(existe==1);
             (*usu)[pos].id_usuario = id_aux ;

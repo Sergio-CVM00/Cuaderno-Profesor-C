@@ -36,4 +36,6 @@ int comprobar_usuario(usuario *usu,int id);
 //Precondicion: recibir un id de usuario
 //Postcondicion: Devuelve la posicion del usuario en el sistema. (vector estructura)
 int pos_usuario(usuario *usu, int id);
+
+int iniciar_sesion(usuario **usu);
 #endif

@@ -63,7 +63,7 @@ void guardar_usuarios(usuario **usu){
     fclose(f);
 }
 
-void iniciar_sesion(usuario **usu){
+int iniciar_sesion(usuario **usu){
         char pass[20];
         int pos,rep=2,id;
         printf("\n          INICIO SESION\n");
@@ -76,14 +76,14 @@ void iniciar_sesion(usuario **usu){
                         fgets(pass,20,stdin);
                         pos=pos_usuario(*usu,id); //posicion del usuario en el vector del sistema
 
-                                if(comprobar_id_usuario(*usu,id)==0 || strcmp(pass,(*usu)[pos].contrasena)!=0){
+                                if(comprobar_usuario(*usu,id)==0 || strcmp(pass,(*usu)[pos].contrasena)!=0){
                                         printf("\nEl usuario o contrasenia son incorrectos quieres salir (1-Si/2-No): ");
                                         scanf("%i",&rep);
                                 if(rep==1){return -1;}
                                 }
 
                                 system("cls");
-                }while((comprobar_id_usuario(*usu,id)==0 || strcmp(pass,(*usu)[pos].contrasena)!=0) && rep==2);
+                }while((comprobar_usuario(*usu,id)==0 || strcmp(pass,(*usu)[pos].contrasena)!=0) && rep==2);
 
         return pos;
 }
@@ -98,7 +98,7 @@ void registrarse(usuario **usu){
                 printf("Introduce tu nick: ");
                 fflush(stdin);
                 scanf("%i",&id);
-                existe=(comprobar_id_usuario(*usu,id));
+                existe=(comprobar_usuario(*usu,id));
                 if(existe==1){printf("Este nick ya existe\n");}
             }while(existe==1);
             (*usu)[nUsuario].id_usuario = id;
