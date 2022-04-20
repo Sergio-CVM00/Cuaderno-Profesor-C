@@ -23,26 +23,26 @@ Listar usuarios
 Modificar usuarios
 */
 
-/*void darAlta_Usuarios(usuario **usu)
+void darAlta_Usuarios(usuario **usu)
 {
     int existe,id;
     system("cls");
 
-    //*usu=(usu*)realloc((*usu),(nUsuario+1)*sizeof(usuario));
+    *usu=(usuario*)realloc((*usu),(nUsuario+1)*sizeof(usuario));
     
         do{
             existe=0;
             printf("Introduce tu ID de usuario nuevo: ");
             fflush(stdin);
             scanf("%i",&id);
-            existe=comprobar_id_usu(*usu,id);
+            existe=comprobar_usuario(*usu,id);
             if(existe==1){printf("Este nick ya existe\n");}
         }while(existe==1);
         (*usu)[nUsuario].id_usuario = id;
     
         printf("Introduce tu nombre completo: ");
         fflush(stdin);
-        fgets((*usu)[nUsuario].nombre_usuario,21,stdin);
+        fgets((*usu)[nUsuario].nombre_usuario,19,stdin);
         salto((*usu)[nUsuario].nombre_usuario);
         fflush(stdin);
 
@@ -66,10 +66,10 @@ Modificar usuarios
 
         nUsuario++;
 
-        guardar_usuario(*usu);
-}*/
+        guardar_usuarios(usu);
+}
 
-/*void darBaja_Usuarios(usuario **usu, int op)
+void darBaja_Usuarios(usuario **usu, int op)
 {
 
     if (op == nUsuario - 1)
@@ -86,10 +86,10 @@ Modificar usuarios
         nUsuario--;
     }
 
-    guardar_usuarios(*usu);
+    guardar_usuarios(usu);
     system("cls");
     printf("\n            USUARIO ELIMINADO\n");
-}*/
+}
 
 void MenuAlumno(alumno *alum,matricula *mtri,materia *mate){
     int menuAnadir,op;
@@ -706,133 +706,8 @@ int tam;
     str[tam-1]='\0';
 }
 
-int comprobar_id_alumno(alumno *alum, int id_alum_)
-{
-    int i = 0;
-    while (i < nAlumno && alum[i].id_alum != id_alum_)
-    {
-        i++;
-    }
-    if (i == nAlumno)
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
-void mostrar_alumno(alumno *alum, int pos)
-{
-    printf("1-id || 2-nombre_completo || 3-direc_alum || 4-curso || 5-grupo\n");
-
-    if (pos > 0 && pos < nAlumno)
-    {
-        printf("\n%i/%s/%s/%s/%s\n", alum[pos].id_alum, alum[pos].nombre_alum, alum[pos].direc_alum, alum[pos].local_alum, alum[pos].curso,alum[pos].grupo);
-    }
-}
-void mostrar_alumnos(alumno *alum)
-{
-	int i;
-    printf("\n            LISTA DE ALUMNOS\n\n");
-    printf("1-id || 2-nom_comp || 3-direc_alum || 4-localidad || 5-curso || 6-grupo\n");
-    for (i = 0; i < nAlumno; i++)
-    {
-        printf("%i-%i/%s/%s/%s/%s\n", i, alum[i].id_alum, alum[i].nombre_alum, alum[i].direc_alum, alum[i].local_alum, alum[i].curso,alum[i].grupo);
-        puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
-    }
-}
 
 // FUNCIONES AUXILIARES DE MATERIAS
-int comprobar_id_materia(materia *mate, int id_materia_)
-{
-    int i = 0;
-    while (i < nMateria && mate[i].id_materia != id_materia_)
-    {
-        i++;
-    }
-    if (i == nMateria)
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
 
-int comprobar_id_usuario(usuario *usu, int *id_usuario)
-{
-    int i = 0;
-    while (i < nUsuario && usu[i].id_usuario != *id_usuario)
-    {
-        i++;
-    }
-    if (i == nUsuario)
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
-
-
-void mostrar_materia(materia *mate, int pos)
-{
-    printf("1-id || 2-nombre || 3-abreviatura\n");
-
-    if (pos > 0 && pos < nMateria)
-    {
-        printf("\n%i/%s/%s\n", mate[pos].id_materia, mate[pos].nombre_materia, mate[pos].abrev_materia);
-    }
-}
-void mostrar_materias(materia *mate)
-{
-    printf("\n            LISTA DE MATERIAS\n\n");
-    printf("1-id || 2-nombre || 3-abreviatura\n");
-    int i;
-    for (i = 0; i < nMateria; i++)
-    {
-        printf("%i-%i/%s/%s\n", i, mate[i].id_materia, mate[i].nombre_materia, mate[i].abrev_materia);
-        puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
-    }
-}
 //MATRICULAS
-int comprobar_matricula(matricula *matri,int id_alum_,int id_materia_){
-	int i = 0;
-    while (i < nMatricula && matri[i].id_alum != id_alum_ && matri[i].id_materia != id_materia_  )
-    {
-        i++;
-    }
-    if (i == nMatricula)
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-	
-}
-void mostrar_matricula(matricula *mtri, int pos)
-{
-    printf("id_alum || id_materia \n");
 
-    if (pos > 0 && pos < nMatricula)
-    {
-        printf("\n%i/%i\n", mtri[pos].id_alum, mtri[pos].id_materia);
-    }
-}
-void mostrar_matriculas(matricula *mtri)
-{
-    printf("\n            LISTA DE MATRICULAS\n\n");
-    printf("id_alum || id_materia\n");
-    int i;
-    for (i = 0; i < nMatricula; i++)
-    {
-        printf("%i-%i/%i\n", i, mtri[i].id_alum, mtri[i].id_materia);
-        puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
-    }
-}

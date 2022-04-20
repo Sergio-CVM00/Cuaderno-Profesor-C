@@ -94,19 +94,11 @@ void modificar_materia(materia **mate);
 //Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
 void listar_materia(materia *mate);
 
-//funciones auxiliares alumnos
+//Cabecera: void listar_alumno(alumno *alum);
+//Precondicion: materias dadas de alta en el sistema
+//Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
 void salto(char *str);
-int comprobar_id_alumno(alumno *alum, int id_alum_);
-void mostrar_alumno(alumno *alum,int pos);
-void mostrar_alumnos(alumno *alum);
-//void guardar_alumno(alumno *alum);
-//funciones auxiliares materias
-int comprobar_id_materia(materia *mate, int id_materia_);
-void mostrar_materias(materia *mate);
-void mostrar_materia(materia *mate, int pos);
-//void guardar_materia(materia *mate);
-//func aux de matriculas 
-int comprobar_matricula(matricula *matri,int id_alum_,int id_materia_);
-void mostrar_matricula(matricula *mtri, int pos);
-void mostrar_matriculas(matricula *mtri);
+
+
+
 #endif

@@ -52,3 +52,40 @@ void guardar_materias(materia **mate){
 	}
     fclose(f);
 }
+int comprobar_id_materia(materia *mate, int id_materia)
+{
+    int i = 0;
+    while (i < nMateria && mate[i].id_materia != id_materia)
+    {
+        i++;
+    }
+    if (i == nMateria)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+
+void mostrar_materia(materia *mate, int pos)
+{
+    printf("1-id || 2-nombre || 3-abreviatura\n");
+
+    if (pos > 0 && pos < nMateria)
+    {
+        printf("\n%i/%s/%s\n", mate[pos].id_materia, mate[pos].nombre_materia, mate[pos].abrev_materia);
+    }
+}
+void mostrar_materias(materia *mate)
+{
+    printf("\n            LISTA DE MATERIAS\n\n");
+    printf("1-id || 2-nombre || 3-abreviatura\n");
+    int i;
+    for (i = 0; i < nMateria; i++)
+    {
+        printf("%i-%i/%s/%s\n", i, mate[i].id_materia, mate[i].nombre_materia, mate[i].abrev_materia);
+    }
+}

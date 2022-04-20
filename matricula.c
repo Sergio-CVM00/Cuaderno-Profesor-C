@@ -48,3 +48,38 @@ void guardar_matricula(matricula **mtri){
 	}
     fclose(f);
 }
+int comprobar_matricula(matricula *matri,int id_alum,int id_materia){
+	int i = 0;
+    while (i < nMatricula && matri[i].id_alum != id_alum && matri[i].id_materia != id_materia  )
+    {
+        i++;
+    }
+    if (i == nMatricula)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+	
+}
+void mostrar_matricula(matricula *mtri, int pos)
+{
+    printf("1-id_alum || 2-id_materia \n");
+
+    if (pos > 0 && pos < nMatricula)
+    {
+        printf("\n%i/%i\n", mtri[pos].id_alum, mtri[pos].id_materia);
+    }
+}
+void mostrar_matriculas(matricula *mtri)
+{
+    printf("\n            LISTA DE MATRICULAS\n\n");
+    printf("1-id_alum || 2-id_materia\n");
+    int i;
+    for (i = 0; i < nMatricula; i++)
+    {
+        printf("%i-%i/%i\n", i, mtri[i].id_alum, mtri[i].id_materia);
+    }
+}

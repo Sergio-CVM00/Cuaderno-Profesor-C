@@ -2,14 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
-//#include "profesor.h"
-/*
+#include "menu-profesor.h"
+
 void MenuProfesor (usuario *usu,alumno *alum  ,horario *hor,calificaciones *cali);
 void ficha_alumno(usuario *usu,alumno *alum,calificaciones *cali,int pos);
 
 
 
-
+int main ;
 
 
 void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *cali){
@@ -33,7 +33,7 @@ void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *ca
 				{
 					printf("Ingrese su Id :\n");
 					scanf("%i",&pos);
-	
+
 					printf("1-Id  2-dia_clase  3-hora_clase  4-id_materia  5-nombre_materia\n");
 
     				if (pos > 0 && pos < nUsuario)
@@ -60,10 +60,10 @@ void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *ca
 											void mostrar_alumno(alumno *alum, int pos)
 											{
 
-	
+
 												printf("Seleccione el numero del aljmno que quiera ver en cuestion\n");
 												scanf("%i",&pos);
-	
+
 												printf("1-id  2-nombre_completo  3-direc_alum  4-curso  5-grupo\n");
 
     											if (pos > 0 && pos < nAlumno)
@@ -71,31 +71,42 @@ void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *ca
        												 printf("\n%i/%s/%s/%s/%s\n", alum[pos].id_alum, alum[pos].nombre_alum, alum[pos].direc_alum, alum[pos].local_alum, alum[pos].curso,alum[pos].grupo);
   												  }
 											};break;
-		
+
 									case 2:	printf("Calificaciones\n");
 										void listar_calificaciones(alumno *alum, calificaciones *cali,int pos)
 										{
 											printf("Seleccione el numero del alumno que quiera ver en cuestion\n");
 											scanf("%i",&pos);
-	
+
 											printf("1-id  2-nombre_completo  3-calificacion");
 
    											 if (pos > 0 && pos < nAlumno)
    											 {
        											 printf("\n%i/%s/%i\n", alum[pos].id_alum, alum[pos].nombre_alum,cali[pos].valor_cal );
    											 }
-										};break;
+                                                char x;
+                                                char s=s;
+                                                printf("¿Desea editar la calificacion? s/n\n ");
+                                                scanf("%c",&x);
+                                                if(x== s)
+                                                {
+                                                    printf("Introduzca el nuevo valor de la caificacion\n");
+                                                    fflush(stdin);
+                                                    fgets((cali)[pos].valor_cal,8,stdin);
+                                                    }
+                                                    else   return;
+
+   											 }
+
+   										break;
 
 								}
 								system ("PAUSE");
-	
+
 								return ;
 
-	
-	
+
 };break;
-
-
 
     }
 
@@ -111,7 +122,7 @@ return ;
 
 void listar_alumnos(){
 char aux;
-FILE *Alumnos;  
+FILE *Alumnos;
 Alumnos=fopen("Alumnos.txt","r");
 if (Alumnos == NULL)
 {
@@ -127,5 +138,5 @@ while(aux != EOF) {
 fclose(Alumnos);
 }
 
-*/
+
 

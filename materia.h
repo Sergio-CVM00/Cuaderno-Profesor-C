@@ -22,4 +22,19 @@ void cargar_materias(materia **mat);
 //Postcondicion: guarda los datos de materias en el txt.
 void guardar_materias(materia **mat);
 
+//Cabecera: int comprobar_id_materia(materia *mate, int id_materia);
+//Precondicion: estructura de materia y un id de materia.
+//Postcondicion: devuelve 0 si no existe materia.Devuelve 1 si existe materia.
+int comprobar_id_materia(materia *mate, int id_materia);
+
+//Cabecera: void mostrar_materias(materia *mate);
+//Precondicion: estructura de materia.
+//Postcondicion: muestras las materias del sistema enumaradas.
+void mostrar_materias(materia *mate);
+
+//Cabecera: void mostrar_materia(materia *mate, int pos);
+//Precondicion: estructura de materia  y pos para la posicion del vector.
+//Postcondicion:muestra los datos de la materia  pasado por pos.
+void mostrar_materia(materia *mate, int pos);
+
 #endif
