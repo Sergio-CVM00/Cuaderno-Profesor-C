@@ -65,25 +65,31 @@ void guardar_usuarios(usuario **usu){
 
 int iniciar_sesion(usuario **usu){
         char pass[20];
-        int pos,rep=2,id;
+        int pos,existe,rep=2,id;
         printf("\n          INICIO SESION\n");
-                do{
-                        printf("\nIntroduce tu id: ");
-                        fflush(stdin);
-                        scanf("%i",&id);
+	            do{
+	                do{
+	                existe=0;
+	                printf("Introduce tu id: ");
+	                fflush(stdin);
+	                scanf("%i",&id);
+	                existe=(comprobar_usuario(*usu,id));
+	                if(existe==0){printf("Este id no existe\n");}
+	            	}while(existe==0);
                         printf("Introduce la contrasenia: ");
                         fflush(stdin);
                         fgets(pass,20,stdin);
                         pos=pos_usuario(*usu,id); //posicion del usuario en el vector del sistema
 
-                                if(comprobar_usuario(*usu,id)==0 || strcmp(pass,(*usu)[pos].contrasena)!=0){
+                                if(strcmp(pass,(*usu)[pos].contrasena)==0){
+                                		printf("%s",(*usu)[pos].contrasena);
                                         printf("\nEl usuario o contrasenia son incorrectos quieres salir (1-Si/2-No): ");
                                         scanf("%i",&rep);
                                 if(rep==1){return -1;}
                                 }
 
                                 system("cls");
-                }while((comprobar_usuario(*usu,id)==0 || strcmp(pass,(*usu)[pos].contrasena)!=0) && rep==2);
+                }while((strcmp(pass,(*usu)[pos].contrasena)==0) && rep==2);
 
         return pos;
 }
@@ -139,7 +145,7 @@ int pos_usuario(usuario *usu, int id){
 int comprobar_usuario(usuario *usu,int id){
     //0 usuario no existe -- 1 usuario existe
     int i=0;
-    while(i<nUsuario && usu[i].id_usuario == id){i++;}
+    while(i<nUsuario && usu[i].id_usuario != id){i++;}
     if(i==nUsuario){
         return 0;
     }else{

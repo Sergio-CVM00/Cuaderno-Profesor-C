@@ -14,12 +14,13 @@ int main(){
 
 
     //CARGAR
+    cargar_usuarios(&usu);
     cargar_matricula(&mtri); //operativo
     cargar_alumnos(&alum); //operativo
     cargar_horarios(&hor); //operativo
     cargar_materias(&mate); //operativo
     cargar_calificaciones(&cali); //operativo
-    //cargar_usuarios(&usu); // pendiente de solucionar (maximo 2 usuarios)
+     // pendiente de solucionar (maximo 2 usuarios)
     menu_inicio(usu,cali, hor,alum,mate,mtri);
 
 
