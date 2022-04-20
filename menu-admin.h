@@ -14,6 +14,35 @@
 
 
 
+// --------------- USUARIOS-----------------------
+//Cabecera: void darAlta_Usuarios(usuario **usu);
+//Precondicion: recibir struct usuarios
+//Postcondicion: crear un usuario nuevo
+void darAlta_Usuarios(usuario **usu);
+
+//Cabecera: void darBaja_Usuarios(usuario **usu, int op)
+//Precondicion: recibir un id usuario existente.
+//Postcondicion: eliminar un usuario indicado
+void darBaja_Usuarios(usuario **usu, int op);
+
+//Cabecera: void Modificar_usuarios(usuario **usu);
+//Precondicion: .
+//Postcondicion: modifica un usuario existente.
+void Modificar_usuarios(usuario **usu);
+
+//Cabecera: void Listar_usuarios(usuario **usu);
+//Precondicion: .
+//Postcondicion: Muestra por pantalla todos los usuarios del sistema
+void Listar_usuarios(usuario **usu);
+
+//Cabecera: Menu_Usuarios(usuario **usu);
+//Precondicion: .
+//Postcondicion: Menu para gestionar todas las opciones que tiene un admin para usuarios.
+Menu_Usuarios(usuario **usu);
+
+
+
+// --------------- ALUMNOS -----------------------
 //Cabecera: void MenuAlumno(alumno *alum,alumno **alum);
 //Precondicion:
 //Postcondicion: usuario escoge 1 de las 5 opciones para tratar la info de un/os alumno/s
@@ -39,6 +68,9 @@ void modificar_alumno(alumno **alum);
 //Postcondicion: muestra los datos de todos los alumnos  del fichero Alumnos.txt
 void listar_alumno(alumno *alum);
 
+
+
+// --------------- MATRICULAS -----------------------
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
@@ -56,11 +88,12 @@ void listar_materias_alumno(matricula *mtri,alumno **alum);
 void crear_matricula_alumno(matricula **mtri,materia **mate,alumno **alum);
 
 
+
+// --------------- MATERIAS -----------------------
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
 //Postcondicion: guarda los datos de matriculas en el fichero txt-
 void eliminar_materias_alumno( matricula **mtri);
-
 
 //Cabecera: void guardar_matriculas(matricula *mtri);
 //Precondicion: fichero Matricula.txt
@@ -94,6 +127,7 @@ void modificar_materia(materia **mate);
 //Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
 void listar_materia(materia *mate);
 
+// --------------- FUNCIONS AUXILIARES -----------------------
 //Cabecera: void listar_alumno(alumno *alum);
 //Precondicion: materias dadas de alta en el sistema
 //Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
