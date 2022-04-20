@@ -9,7 +9,7 @@ void ficha_alumno(usuario *usu,alumno *alum,calificaciones *cali,int pos);
 
 
 
-
+int main ;
 
 
 void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *cali){
@@ -84,17 +84,21 @@ void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *ca
    											 {
        											 printf("\n%i/%s/%i\n", alum[pos].id_alum, alum[pos].nombre_alum,cali[pos].valor_cal );
    											 }
-										}
-										char x;
-										char s=s;
-										printf("�Desea editar la calificacion? s/n\n ");
-										scanf("%c",&x);
-										if(x== s)
-										{
+                                                char x;
+                                                char s=s;
+                                                printf("¿Desea editar la calificacion? s/n\n ");
+                                                scanf("%c",&x);
+                                                if(x== s)
+                                                {
+                                                    printf("Introduzca el nuevo valor de la caificacion\n");
+                                                    fflush(stdin);
+                                                    fgets((cali)[pos].valor_cal,8,stdin);
+                                                    }
+                                                    else   return;
 
+   											 }
 
-										}
-										else break;
+   										break;
 
 								}
 								system ("PAUSE");
@@ -102,10 +106,7 @@ void MenuProfesor ( usuario *usu, alumno *alum  ,horario *hor,calificaciones *ca
 								return ;
 
 
-
 };break;
-
-
 
     }
 
