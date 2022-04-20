@@ -1,3 +1,3 @@
 1-Matemáticas Aplicadas a las Ciencias Sociales-MCS
 2-Historia del Arte-HAR
-4-parece que funciona-pqf
+4-Metologia de programacion-MP

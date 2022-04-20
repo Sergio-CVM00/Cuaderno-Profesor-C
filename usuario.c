@@ -66,29 +66,41 @@ void guardar_usuarios(usuario **usu){
 int iniciar_sesion(usuario **usu){
         char pass[20];
 
-        int pos,puerta=1,existe,id;
+        int pos,puerta=1,existe,rep=2,id;
         printf("\n          INICIO SESION\n");
+                //do{	
+                	printf("USUARIO ADMIN DE PRUEBA ID =1\n");
+                	printf("USUARIO PROF DE PRUEBA ID =2\n");
+                    do{
+                    existe=0;
+                    printf("Introduce tu id: ");
+                    fflush(stdin);
+                    scanf("%i",&id);
+                    existe=(comprobar_usuario(*usu,id));
+                    if(existe==0){printf("Este id no existe\n");}
+                    }while(existe==0);
 
-	                do{
-	                existe=0;
-	                printf("Introduce tu id: ");
-	                fflush(stdin);
-	                scanf("%i",&id);
-	                existe=(comprobar_usuario(*usu,id));
-	                if(existe==0){printf("Este id no existe\n");}
-	            	}while(existe==0);
-	            	 pos=pos_usuario(*usu,id);
-/*
                         printf("Introduce la contrasenia: ");
                         fflush(stdin);
                         fgets(pass,20,stdin);
-                        //posicion del usuario en el vector del sistema
+                        pos=pos_usuario(*usu,id); //posicion del usuario en el vector del sistema
+						/*
+                        if(strcmp(pass,(*usu)[pos].contrasena)!=0) {
+                            puerta = 0;
+                        }
 
-*/
+                                if(puerta == 0){
+                                       
+                                        printf("\nEl usuario o contrasena son incorrectos quieres salir (1-Si/2-No): ");
+                                        scanf("%i",&rep);
+                                if(rep==1){return -1;}
+                                }
+
+
+                }while(puerta == 0 &&rep==2);*/
         printf("Has iniciado sesion!");
         return pos;
 }
-
 void registrarse(usuario **usu){
     int existe,id;
     system("cls");

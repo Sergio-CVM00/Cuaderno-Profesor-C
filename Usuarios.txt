@@ -1,3 +1,2 @@
-1-Juan Pérez-administrador-admin-1234
-2-Guillermo Gómez-profesor-prof-1234
-9-profprueba-administrador-admin-1234
+1-Juan Pérez-administrador-admin-123456
+2-Guillermo Gómez-profesor-prof1-654123
