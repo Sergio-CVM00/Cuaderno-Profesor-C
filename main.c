@@ -37,7 +37,7 @@ int main(){
 	//COMPROBACIONES DE FUNCIONES DE ROBE
 	//MenuAlumno(alum,mtri,mate); //operativa al 100%. 
 	//MenuMaterias(mate); //operativa al 100%
-	menu_matricula_alumnos(mtri,alum,mate);
+	//menu_matricula_alumnos(mtri,alum,mate); //operativo al 100%
 	
 
 	
