@@ -26,4 +26,19 @@ void cargar_alumnos(alumno **alum);
 //Postcondicion: guarda los datos de usuarios en el txt.
 void guardar_alumnos(alumno **alum);
 
+//Cabecera: void guardar_usuarios(usuario *usu);
+//Precondicion: estrucutra de alumno y un id de alumno
+//Postcondicion: devuelve 0 si no existe.Devuelve 1 si existe.
+int comprobar_id_alumno(alumno *alum, int id_alum);
+
+//Cabecera: void guardar_usuarios(usuario *usu);
+//Precondicion: fichero Usuarios.txt
+//Postcondicion: guarda los datos de usuarios en el txt.
+void mostrar_alumno(alumno *alum,int pos);
+
+//Cabecera: void guardar_usuarios(usuario *usu);
+//Precondicion: fichero Usuarios.txt
+//Postcondicion: guarda los datos de usuarios en el txt.
+void mostrar_alumnos(alumno *alum);
+
 #endif

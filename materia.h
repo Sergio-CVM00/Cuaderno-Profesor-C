@@ -22,4 +22,19 @@ void cargar_materias(materia **mat);
 //Postcondicion: guarda los datos de materias en el txt.
 void guardar_materias(materia **mat);
 
+//Cabecera: void guardar_materias(materia *mat);
+//Precondicion: fichero Materias.txt
+//Postcondicion: guarda los datos de materias en el txt.
+int comprobar_id_materia(materia *mate, int id_materia);
+
+//Cabecera: void guardar_materias(materia *mat);
+//Precondicion: fichero Materias.txt
+//Postcondicion: guarda los datos de materias en el txt.
+void mostrar_materias(materia *mate);
+
+//Cabecera: void guardar_materias(materia *mat);
+//Precondicion: fichero Materias.txt
+//Postcondicion: guarda los datos de materias en el txt.
+void mostrar_materia(materia *mate, int pos);
+
 #endif

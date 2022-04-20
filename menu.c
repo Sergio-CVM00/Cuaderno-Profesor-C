@@ -3,9 +3,13 @@
 #include <stdlib.h>
 #include <math.h>
 #include "usuario.h"
+#include "usuario.h"
+#include "calificaciones.h"
+#include "alumno.h"
+#include "horario.h"
 #define PROF 0
 #define ADM  1
-void menu_inicio(usuario *usu){
+void menu_inicio(usuario *usu,alumno *alum,horario *hor,calificaciones *cali){
 
         int op ,perfil_,rep,pos=-1,inicio,pos_actual;
         do{
@@ -17,10 +21,10 @@ void menu_inicio(usuario *usu){
                         fflush(stdin);
                         system("cls");
                         scanf("%i",&op);
-                } while(op<1 || op>2);
+                } while(op<1 || op>3);
 
                 switch(op){
-                        case 1:iniciar_sesion(*usu);
+                        case 1:iniciar_sesion(usu);
                         break;
                         case 2:registrarse(*usu);
                         break;
@@ -36,7 +40,7 @@ void menu_inicio(usuario *usu){
 
                 switch(perfil_){
                 case PROF:
-                        do{
+                       // do{
                                 printf("1: Cambiar de perfil\n");
                                 printf("2: Abrir menu profesor\n");
                                 printf("3: Salir\n");
@@ -49,7 +53,7 @@ void menu_inicio(usuario *usu){
                                                 if(pos==-1){pos=pos_actual;}
                                                 inicio=1;
                                                 break;
-                                        case 2: MenuProfesor();
+                                        case 2: MenuProfesor(usu,alum,hor,cali);
                                                 break;
 
                                         default: inicio=2;
@@ -94,6 +98,7 @@ void menu_inicio(usuario *usu){
         system("pause");
         system("cls");
 
+//}
 }
 
 

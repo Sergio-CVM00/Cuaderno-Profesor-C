@@ -21,5 +21,19 @@ void cargar_matricula(matricula **mtri);
 //Postcondicion: guarda los datos de matriculas en el txt.
 void guardar_matricula(matricula **mtri);
 
+//Cabecera: void guardar_matricula(matricula *mtri);
+//Precondicion: fichero Matriculas.txt
+//Postcondicion: guarda los datos de matriculas en el txt.
+int comprobar_matricula(matricula *matri,int id_alum,int id_materia);
+
+//Cabecera: void guardar_matricula(matricula *mtri);
+//Precondicion: fichero Matriculas.txt
+//Postcondicion: guarda los datos de matriculas en el txt.
+void mostrar_matricula(matricula *mtri, int pos);
+
+//Cabecera: void guardar_matricula(matricula *mtri);
+//Precondicion: fichero Matriculas.txt
+//Postcondicion: guarda los datos de matriculas en el txt.
+void mostrar_matriculas(matricula *mtri);
 
 #endif
