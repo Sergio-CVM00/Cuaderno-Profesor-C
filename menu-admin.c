@@ -834,11 +834,12 @@ void MenuHorarios(horario *hor,materia *mate){
     int menuAnadir,op;
     do
     {
-        printf("\nSeleccione una opcion:\n");
         printf("1: Dar de alta horario \n");
         printf("2: Dar de baja horario\n");
         printf("3: Modificar horario\n");
         printf("4: Listar horario\n");
+        printf("\nSeleccione una opcion: ");
+
         fflush(stdin);
         scanf("%i", &menuAnadir);
     } while (menuAnadir < 1 || menuAnadir > 4);
@@ -847,11 +848,11 @@ void MenuHorarios(horario *hor,materia *mate){
 
     case 1:
         puts("añadir horas de clase a un profesor\n");
-        anadir_horas_profesor(&hor);
+        anadir_horas_profesor(hor);
         break;
     case 2:
         puts("elminar horas de clase a un profesor\n");
-        eliminar_horario(&hor,op);
+        eliminar_horario(hor);
         break;
     case 3:
         puts("modificar horas de clase a un profesor\n");
@@ -887,10 +888,10 @@ void anadir_horas_profesor(horario **hor){
         scanf( "%i", &id_materia_);
 
         existe = comprobar_id_horario(*hor, id_profesor_,id_materia_,dia_clase_,hora_clase_);
-        if (existe == 1)
-        {
-            printf("Este horario ya existe\n");
-        }
+            if (existe == 1)
+            {
+                printf("Este horario ya existe\n");
+            }
         } while (existe == 1);
 
         (*hor)[nHorario].id_profesor = id_profesor_;
@@ -904,9 +905,10 @@ void anadir_horas_profesor(horario **hor){
 
         guardar_horarios(hor);
     }
-void eliminar_horario(horario **hor, int op)
+void eliminar_horario(horario **hor)
 {
-        mostrar_horarios(*hor);
+        int op = 0;
+        mostrar_horarios(hor);
         do
         {
             printf("\nIntroduce el numero del horario que desea eliminar: ");
@@ -931,6 +933,7 @@ void eliminar_horario(horario **hor, int op)
     system("cls");
     printf("\n            HORARIO ELIMINADO\n");
 }
+
 void modificar_horario(horario **hor,materia **mate)
 {
 
@@ -941,7 +944,8 @@ void modificar_horario(horario **hor,materia **mate)
     system("cls");
     do
     {
-        mostrar_horarios(*hor);
+       // mostrar_horarios(hor);
+
         do
         {
             printf("\nIntroduce el numero del horario que desea modificar: ");
@@ -949,6 +953,7 @@ void modificar_horario(horario **hor,materia **mate)
         } while (pos < 0 || pos >= nHorario);
         do
         {
+            printf("////1-id_profesor || 2-dia_clase || 3-hora_clase || 4-id_materia////\n\n");
             printf("Que dato desea modificar: ");
             scanf("%i", &op);
         } while (op < 1 || op > 4);
@@ -1021,26 +1026,23 @@ void modificar_horario(horario **hor,materia **mate)
         system("cls");
         guardar_horarios(hor);
 
-        mostrar_horarios(*hor);
+        mostrar_horarios(hor);
         printf("\nDesea modificar otro dato (1-SI/2-NO  numero): ");
         scanf("%i", &a);
         system("cls");
     } while (a == 1);
 }
-void listar_horarios(horario *hor)
+void listar_horarios(horario **hor)
 {
     int i;
     printf("Se mostraran todos los horarios del sistema:\n\n");
     puts("//////////////////////////////////////////////////////////////////////////////");
-
     printf("\n            LISTA DE HORARIOS\n\n");
-    printf("////1-id_profesor || 2-dia_clase || 3-hora_clase || 4-id_materia////\n");
+    printf("////1-id_profesor || 2-dia_clase || 3-hora_clase || 4-id_materia////\n\n");
 
     for (i = 0; i < nHorario; i++)
     {
-        printf("%i-%i/%i/%i/%i\n", i, hor[i].id_profesor, hor[i].dia_clase, hor[i].hora_clase, hor[i].id_materia);
-
-        puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
+        printf(" \nHorario %i: %i || %i || %i || %i",i+1, (*hor)[i].id_profesor, (*hor)[i].dia_clase, (*hor)[i].hora_clase, (*hor)[i].id_materia);
     }
 }
 
@@ -1055,4 +1057,6 @@ int tam;
 // FUNCIONES AUXILIARES DE MATERIAS
 
 //MATRICULAS
+
+//FUNCIONES MENU PROFESOR
 

@@ -1,7 +1,3 @@
-003-1-2-0002-1�HCSA
-(El profesor Manuel L�pez imparte clases de Historia del Arte al grupo 1�HCSA los lunes a
-2� hora)
-002-5-3-0001-4�B
-(El profesor Guillermo G�mez imparte clases de Matem�ticas aplicadas a las ciencias sociales
-al grupo 4� B los viernes a 3� hora)
-
+1-1-1-1
+99-2-123-2
+2-2-2-2

@@ -115,7 +115,7 @@ void anadir_horas_profesor(horario **hor);
 //Cabecera: void eliminar_materia(materia **mate, int op);
 //Precondicion: materia dada de alta en el sistema
 //Postcondicion: elimina alumno del fichero Materias.txt
-void eliminar_horario(horario **hor, int op);
+void eliminar_horario(horario **hor);
 
 //Cabecera: void modificar_materia(materia **mate);
 //Precondicion: materia dada de alta en el sistema
@@ -125,7 +125,7 @@ void modificar_horario(horario **hor,materia **mate);
 //Cabecera: void listar_alumno(alumno *alum);
 //Precondicion: materias dadas de alta en el sistema
 //Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
-void listar_horarios(horario *hor);
+void listar_horarios(horario **hor);
 
 //Cabecera: void listar_alumno(alumno *alum);
 //Precondicion: materias dadas de alta en el sistema

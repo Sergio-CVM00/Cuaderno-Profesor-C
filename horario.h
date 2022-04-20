@@ -6,8 +6,8 @@
 #include<math.h>
 //ESTRUCTURA HORARIOS
 typedef struct{
-    int id_profesor; 
-    int dia_clase; 
+    int id_profesor;
+    int dia_clase;
     int hora_clase;
     int id_materia;
 }horario;

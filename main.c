@@ -1,11 +1,8 @@
 #include <stdio.h>
-
 #include "menu-admin.h"
-
-
-
 int main(){
-    //cargar usuarios del sistema.
+
+    //cargar datos del sistema.
     usuario *usu;
     alumno *alum;
     calificaciones *cali;
@@ -24,25 +21,20 @@ int main(){
     //printf("\n nUsuario: %i", nMateria);
 
 
-    //GUARDAR
-
-    //guardar_matricula(&mtri);
-    //guardar_alumnos(&alum);
-    //guardar_materias(&mate);
-    //guardar_horarios(&hor);
-    //guardar_calificaciones(&cali);
-    //guardar_usuarios(&usu);
 
 
-	//COMPROBACIONES DE FUNCIONES DE ROBE
-	//MenuAlumno(alum,mtri,mate); //operativa al 100%.
-	//MenuMaterias(mate); //operativa al 100%
-	//menu_matricula_alumnos(mtri,alum,mate); //operativo al 100%
 
+    /*
+    -----HORARIOS comprobacaciones-----
 
+    listar_horarios(hor); //operativo -- MODIFICADO
+    anadir_horas_profesor(&hor); //operativo --MODIFICADO
+    eliminar_horario(&hor); //operativo --MODIFICADO
+    modificar_horario(&hor,&mate); //operativo --MODIFICADO
+    MenuHorarios(&hor,&mate); //operativo --MODIFICADO
+    */
 
 
     return 0;
-    //dsgsgr
 
 }

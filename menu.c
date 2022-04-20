@@ -2,17 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
-/*
-#include "usuario.h"
-#include "usuario.h"
-#include "calificaciones.h"
-#include "alumno.h"
-#include "horario.h"
-*/
-//#include "menu-profesor.h"
 #include "menu-admin.h"
 #define PROF 0
 #define ADM  1
+/*
 void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **alum,materia **mat, matricula **mtri){
 
         int op ,perfil_,rep,pos=-1,inicio,pos_actual;
@@ -112,5 +105,7 @@ void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **al
 
 //}
 }
+
+*/
 
 
