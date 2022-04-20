@@ -84,8 +84,8 @@ void mostrar_horarios(horario *hor)
     printf("\n            LISTA DE HORARIOS\n\n");
     printf("1-id_profesor || 2-dia_clase || 3-hora_clase || 4-id_materia\n");
     int i;
-    for (i = 0; i < v; i++)
+    for (i = 0; i < nHorario; i++)
     {
-        printf("%i-%i/%s/%s/%s/%s\n", i, hor[pos].id_profesor, hor[pos].dia_clase, hor[pos].hora_clase, hor[pos].id_materia);
+        printf("%i-%i/%s/%s/%s/%s\n", i, hor[i].id_profesor, hor[i].dia_clase, hor[i].hora_clase, hor[i].id_materia);
     }
 }

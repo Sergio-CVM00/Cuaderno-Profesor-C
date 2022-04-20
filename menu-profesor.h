@@ -73,6 +73,6 @@ void MenuProfesor (usuario *usu,alumno *alum  ,horario *hor,calificaciones *cali
 void ficha_alumno(usuario *usu,alumno *alum,calificaciones *cali,int pos);
 void listar_alumnos();
 void mostrar_alumno(alumno *alum, int pos);
-void mostrar_horario(usuario *usu,horario *hor,materia *mat, int pos);
+//void mostrar_horario(usuario *usu,horario *hor,materia *mat, int pos);
 void listar_calificaciones(alumno *alum, calificaciones *cali,int pos);
 #endif

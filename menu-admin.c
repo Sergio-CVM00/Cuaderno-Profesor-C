@@ -14,16 +14,7 @@
 #include "menu-admin.h"
 
 
-
-// USUARIOS
-/*
-Dar de alta usuarios
-Dar de baja usuarios
-Listar usuarios
-Modificar usuarios
-*/
-
-Menu_Usuarios(usuario **usu){
+void Menu_Usuarios(usuario **usu){
     int menuAnadir,op,aux_id;
     do{
             system("cls");
@@ -43,7 +34,7 @@ Menu_Usuarios(usuario **usu){
             puts("MENU ADMIN: ");
             puts("dar de alta\n");
             darAlta_Usuarios(usu);
-            
+
             break;
         case 2:
             puts("dar de baja\n");
@@ -86,7 +77,7 @@ void menu_general(usuario **usu,calificaciones **cali, horario **hor, alumno **a
     switch (op)
     {
     case 1:
-        /* code */
+        Menu_Usuarios(usu);
         break;
     case 2:
         MenuAlumno(alum,mtri,mat);
@@ -95,7 +86,7 @@ void menu_general(usuario **usu,calificaciones **cali, horario **hor, alumno **a
         MenuMaterias(mat);
         break;
     case 4:
-        //menuhorarios
+        MenuHorarios(hor,mat);
         break;
     }
 }
@@ -837,6 +828,8 @@ void listar_materia(materia *mate)
     }
 }
 
+//HORARIOS
+
 void MenuHorarios(horario *hor,materia *mate){
     int menuAnadir,op;
     do
@@ -853,12 +846,12 @@ void MenuHorarios(horario *hor,materia *mate){
     {
 
     case 1:
-        puts("a�adir horas de clase a un profesor\n");
+        puts("añadir horas de clase a un profesor\n");
         anadir_horas_profesor(&hor);
         break;
     case 2:
         puts("elminar horas de clase a un profesor\n");
-        eliminar_horario(&hor, int op);
+        eliminar_horario(&hor,op);
         break;
     case 3:
         puts("modificar horas de clase a un profesor\n");
@@ -870,7 +863,6 @@ void MenuHorarios(horario *hor,materia *mate){
         break;
     }
 }
-
 
 void anadir_horas_profesor(horario **hor){
 
@@ -884,30 +876,30 @@ void anadir_horas_profesor(horario **hor){
         existe = 0;
         printf("Introduce  id de profesor: ");
         scanf( "%i", &id_profesor_);
-        
+
         printf("Introduce  dia de la clase: ");
         scanf( "%i", &dia_clase_);
-        
+
         printf("Introduce  hora de la clase: ");
         scanf( "%i", &hora_clase_);
-        
+
         printf("Introduce  id de materia: ");
         scanf( "%i", &id_materia_);
-        
+
         existe = comprobar_id_horario(*hor, id_profesor_,id_materia_,dia_clase_,hora_clase_);
         if (existe == 1)
         {
             printf("Este horario ya existe\n");
         }
         } while (existe == 1);
-        
+
         (*hor)[nHorario].id_profesor = id_profesor_;
         (*hor)[nHorario].dia_clase = dia_clase_;
         (*hor)[nHorario].hora_clase = hora_clase_;
         (*hor)[nHorario].id_materia = id_materia_;
-        
 
-        
+
+
         nHorario++;
 
         guardar_horarios(hor);
@@ -933,16 +925,16 @@ void eliminar_horario(horario **hor, int op)
            	(*hor)[op].id_materia = (*hor)[nHorario - 1].id_materia;
             nHorario--;
         }
-    
+
 
     guardar_horarios(hor);
     system("cls");
     printf("\n            HORARIO ELIMINADO\n");
 }
 void modificar_horario(horario **hor,materia **mate)
-{	
-	
-    int pos, op, existe, a, est;
+{
+
+    int pos, op, existe, a, est,existeM;
     int id_profesor_;
 	int id_materia_;
 	int hora_clase_,dia_clase_;
@@ -988,7 +980,7 @@ void modificar_horario(horario **hor,materia **mate)
             existe = comprobar_id_horario(*mate, (*hor)[pos].id_profesor,(*hor)[pos].id_materia,dia_clase_,(*hor)[pos].hora_clase);
             if(existe==1){
             	printf("Este horario ya existe");
-            
+
 			}
             } while (existe == 1);
             (*hor)[pos].dia_clase =  dia_clase_;
@@ -1001,10 +993,10 @@ void modificar_horario(horario **hor,materia **mate)
              existe = comprobar_id_horario(*mate, (*hor)[pos].id_profesor,(*hor)[pos].id_materia,(*hor)[pos].dia_clase,hora_clase_);
             if(existe==1){
             	printf("Este horario ya existe");
-        
+
 			}
             } while (existe == 1);
-            (*hor)[pos].hora_clase_ =  hora_clase_;
+            (*hor)[pos].hora_clase =  hora_clase_;
 
             break;
         case 4:
@@ -1022,7 +1014,7 @@ void modificar_horario(horario **hor,materia **mate)
             	if(existe==1){
             	printf("Este horario ya existe");
 				}
-			}while (existe == 1)
+			}while (existe == 1);
             (*hor)[pos].id_materia =  id_materia_;
             break;
         }
@@ -1043,10 +1035,10 @@ void listar_horarios(horario *hor)
 
     printf("\n            LISTA DE HORARIOS\n\n");
     printf("////1-id_profesor || 2-dia_clase || 3-hora_clase || 4-id_materia////\n");
-   
+
     for (i = 0; i < nHorario; i++)
     {
-        printf("%i-%i/%i/%i/%i\n", i, hor[pos].id_profesor, hor[pos].dia_clase, hor[pos].hora_clase, hor[pos].id_materia);
+        printf("%i-%i/%i/%i/%i\n", i, hor[i].id_profesor, hor[i].dia_clase, hor[i].hora_clase, hor[i].id_materia);
 
         puts("////////////////////////////////////////////////////////////////////////////////////////////////////");
     }

@@ -38,7 +38,7 @@ void Listar_usuarios(usuario **usu);
 //Cabecera: Menu_Usuarios(usuario **usu);
 //Precondicion: .
 //Postcondicion: Menu para gestionar todas las opciones que tiene un admin para usuarios.
-Menu_Usuarios(usuario **usu);
+void Menu_Usuarios(usuario **usu);
 
 
 
@@ -120,7 +120,7 @@ void eliminar_horario(horario **hor, int op);
 //Cabecera: void modificar_materia(materia **mate);
 //Precondicion: materia dada de alta en el sistema
 //Postcondicion: modifica  datos de materias del fichero Materias.txt
-void modificar_horario(horario **hor,materia **mate)
+void modificar_horario(horario **hor,materia **mate);
 
 //Cabecera: void listar_alumno(alumno *alum);
 //Precondicion: materias dadas de alta en el sistema
@@ -160,7 +160,7 @@ void listar_materia(materia *mate);
 //Cabecera: void listar_alumno(alumno *alum);
 //Precondicion: materias dadas de alta en el sistema
 //Postcondicion: muestra los datos de todas los materias  del fichero Materias.txt
-void salto(char *str);
+//void salto(char *str);
 
 
 #endif

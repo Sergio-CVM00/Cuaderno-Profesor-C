@@ -2,15 +2,18 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
-/*#include "usuario.h"
+/*
+#include "usuario.h"
 #include "usuario.h"
 #include "calificaciones.h"
 #include "alumno.h"
-#include "horario.h"*/
-#include "menu-profesor.h"
+#include "horario.h"
+*/
+//#include "menu-profesor.h"
+#include "menu-admin.h"
 #define PROF 0
 #define ADM  1
-void menu_inicio(usuario **usu,alumno **alum,horario **hor,calificaciones **cali){
+void menu_inicio(usuario **usu,calificaciones **cali, horario **hor, alumno **alum,materia **mat, matricula **mtri){
 
         int op ,perfil_,rep,pos=-1,inicio,pos_actual;
         do{
@@ -42,7 +45,7 @@ void menu_inicio(usuario **usu,alumno **alum,horario **hor,calificaciones **cali
                 switch(perfil_){
 	                case PROF:
 
-        }while (pos==-1);
+
 
 
                             do{
@@ -83,7 +86,7 @@ void menu_inicio(usuario **usu,alumno **alum,horario **hor,calificaciones **cali
 	                                        scanf("%i",&op);
 	                                }while(op<1 && op>2);
 	                                switch(op){
-	                                        case 1: menu_configuracion_admin();
+	                                        case 1: menu_general( usu, cali, hor,  alum, mat, mtri);
 	                                                break;
 
 	                                        case 2: pos_actual=pos;
