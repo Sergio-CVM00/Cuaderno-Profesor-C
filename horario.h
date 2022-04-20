@@ -6,10 +6,10 @@
 #include<math.h>
 //ESTRUCTURA HORARIOS
 typedef struct{
-    int id_profesor; //debe coincidir cin un ident de usuario,id_usuario con perfil de profesor en USUARIOS.TXT
-    int dia_clase; //entre el 1 y el 5
+    int id_profesor; 
+    int dia_clase; 
     int hora_clase;
-    int id_materia;//debe coincidir con el id_materia de una materia (en materias.txt)
+    int id_materia;
 }horario;
 
 int nHorario;
@@ -23,4 +23,7 @@ void cargar_horarios(horario **hor);
 //Precondicion: fichero Horarios.txt
 //Postcondicion: guarda los datos de horarios en el txt.
 void guardar_horarios(horario **hor);
+int comprobar_id_horario(horario *hor, int id_profesor,int id_materia,int dia_clase,int hora_clase);
+void mostrar_horario(horario *hor, int pos);
+void mostrar_horarios(horario *hor);
 #endif

@@ -7,7 +7,6 @@
 #include "calificaciones.h"
 #include "alumno.h"
 #include "horario.h"*/
-
 #include "menu-profesor.h"
 #define PROF 0
 #define ADM  1
@@ -43,6 +42,7 @@ void menu_inicio(usuario **usu,alumno **alum,horario **hor,calificaciones **cali
                 switch(perfil_){
 	                case PROF:
 
+        }while (pos==-1);
 
 
                             do{
