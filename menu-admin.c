@@ -23,7 +23,6 @@ void Menu_Usuarios(usuario **usu){
             printf("2: Dar de baja usuario\n");
             printf("3: Modificar usuario\n");
             printf("4: Listar usuarios\n");
-            printf("5: volver al menu general de admin\n");
             fflush(stdin);
             scanf("%i", &menuAnadir);
     } while (menuAnadir < 1 || menuAnadir >= 5 );
@@ -73,7 +72,7 @@ void menu_general(usuario **usu,calificaciones **cali, horario **hor, alumno **a
         printf("\n1-USUARIO 2-ALUMNO 3-MATERIA 4-HORARIO  ");
         printf("\nA que menu de admin desea acceder: ");
         scanf("%i",&op);
-    }while (op > 0 && op  < 5);
+    }while (op < 0 && op  > 5);
     switch (op)
     {
     case 1:

@@ -65,9 +65,10 @@ void guardar_usuarios(usuario **usu){
 
 int iniciar_sesion(usuario **usu){
         char pass[20];
-        int pos,existe,rep=2,id;
+
+        int pos,puerta=1,existe,id;
         printf("\n          INICIO SESION\n");
-	            do{
+
 	                do{
 	                existe=0;
 	                printf("Introduce tu id: ");
@@ -76,21 +77,15 @@ int iniciar_sesion(usuario **usu){
 	                existe=(comprobar_usuario(*usu,id));
 	                if(existe==0){printf("Este id no existe\n");}
 	            	}while(existe==0);
+	            	 pos=pos_usuario(*usu,id);
+/*
                         printf("Introduce la contrasenia: ");
                         fflush(stdin);
                         fgets(pass,20,stdin);
-                        pos=pos_usuario(*usu,id); //posicion del usuario en el vector del sistema
+                        //posicion del usuario en el vector del sistema
 
-                                if(strcmp(pass,(*usu)[pos].contrasena)==0){
-                                		printf("%s",(*usu)[pos].contrasena);
-                                        printf("\nEl usuario o contrasenia son incorrectos quieres salir (1-Si/2-No): ");
-                                        scanf("%i",&rep);
-                                if(rep==1){return -1;}
-                                }
-
-                                system("cls");
-                }while((strcmp(pass,(*usu)[pos].contrasena)==0) && rep==2);
-
+*/
+        printf("Has iniciado sesion!");
         return pos;
 }
 
@@ -137,7 +132,7 @@ void registrarse(usuario **usu){
 int pos_usuario(usuario *usu, int id){
     //Devuelve la posicion del usuario en el sistema. (vector estructura)
     int i=0;
-    while(i<nUsuario && usu[i].id_usuario==id){i++;}
+    while(i<nUsuario && usu[i].id_usuario!=id){i++;}
     return i;
 
 }

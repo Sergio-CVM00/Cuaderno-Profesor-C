@@ -42,40 +42,39 @@ void menu_inicio(usuario *usu,calificaciones *cali, horario *hor, alumno *alum,m
         int op ,perfil_,rep,pos=-1,inicio,pos_actual;
         do{
                 do{
-                        printf("1: Iniciar sesion\n");
+                        printf("USUARIO DE PRUEBA AMDIN: ID=9 ");
+                        printf("\nUSUARIO DE PRUEBA PROF: ID=2 ");
+                        printf("\n\n1: Iniciar sesion\n");
                         printf("2: Registrarme\n");
-                        printf("3: Ficha alumno\n");
+                        //printf("3: Ficha alumno\n");
 
                         fflush(stdin);
                         scanf("%i",&op);
                 } while(op<1 || op>3);
 
                 switch(op){
-                        case 1:iniciar_sesion(&usu);
-                        break;
+                        case 1:pos = iniciar_sesion(&usu);
+                            break;
                         case 2:registrarse(&usu);
-                        break;
+                            break;
                 }
 
         }while (pos==-1);
 
         do{
+                system("pause");
+                system("cls");
                 inicio=0;
-                if(strcmp(usu[pos].perfil_usuario,"ADM")==0){
-                perfil_=1;
-                }else{perfil_=0;}
+                if(strcmp(usu[pos].usuario,"admin")==0){perfil_= 1;}
+
+                else{perfil_= 0;}
 
                 switch(perfil_){
 	                case PROF:
-
-
-
-
                             do{
                                 printf("1: Cambiar de perfil\n");
                                 printf("2: Abrir menu profesor\n");
                                 printf("3: Salir\n");
-                                system("cls");
                                 scanf("%i",&op);
                             }while(op<1 && op>5);
 	                        switch(op){
