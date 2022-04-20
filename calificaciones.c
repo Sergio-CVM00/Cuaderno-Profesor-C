@@ -63,3 +63,50 @@ void guardar_calificaciones(calificaciones **cali){
 	}
     fclose(f);
 }
+
+void mostrar_calificacion(calificaciones *cali, int pos)
+{
+    printf("1-fecha_calif || 2-descrip_calif || 3-id_materia || 4-id_alum || 5-valor_cal\n");
+
+    if (pos > 0 && pos < nCalificaciones)
+    {
+        printf("\n%s/%s/%i/%i/%i\n", cali[pos].fecha_calif, cali[pos].descrip_calif, cali[pos].id_materia, cali[pos].id_alum,cali[pos].valor_cal);
+    }
+}
+
+void mostrar_calificaciones(calificaciones *cali)
+{
+    printf("\n            LISTA DE CALIFICACIONES\n\n");
+    printf("1-fecha_calif || 2-descrip_calif || 3-id_materia || 4-id_alum || 5-valor_cal\n");
+    int i;
+    for (i = 0; i < nCalificaciones; i++)
+    {
+        printf("%i-%s/%s/%i/%i/%i\n", i,  cali[i].fecha_calif, cali[i].descrip_calif, cali[i].id_materia, cali[i].id_alum,cali[i].valor_cal);
+    }
+}
+
+void modificar_calificaciones(calificaciones **cali,int pos)
+{
+	int a;
+	int valor_cal_;
+	mostrar_calificaciones(*cali);
+    do
+    {
+        printf("\nIntroduce el numero : ");
+        scanf("%i", &pos);
+    } while (pos < 0 || pos >= nCalificaciones);
+    printf("Desea modificar la calificacion del alumno %i introduzca 1, si no 0 :  ",(*cali)[pos].id_alum);
+    scanf("%i",&a);
+    if(a==1){
+    	printf("Introduce el nuevo valor de la calificacion completo: ");
+    	scanf("%i",&valor_cal_);
+    	(*cali)[pos].valor_cal = valor_cal_; 
+    	
+	}
+	if(a==0){
+		mostrar_calificaciones(*cali);
+	}
+	else{
+		mostrar_calificaciones(*cali);
+	}                                       
+}

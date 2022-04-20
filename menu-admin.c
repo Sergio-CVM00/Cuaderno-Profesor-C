@@ -1054,9 +1054,65 @@ int tam;
 }
 
 
-// FUNCIONES AUXILIARES DE MATERIAS
+//MENU PROFESOR
+void MenuProfesor (alumno *alum  ,calificaciones *cali){
+    int x;
+    printf("\n Bienvenido al  menu profesor, elige una de las siguientes \n");
+	do{
+    printf("1: Lista de alumnos\n");
+    printf("2: Cambiar de grupo\n");
+    fflush(stdin);
+    scanf("%i",&x);
 
-//MATRICULAS
+    }while(x<1 || x>2);
+	switch(x){
+		case 1:
+			menuListadoAlumnos();
+			break;
+		case 2:
+			//cambiarGrupoMateriaProfesor();	
+	}
+}
 
-//FUNCIONES MENU PROFESOR
+void menuListadoAlumnos ( alumno *alum  ,calificaciones *cali){
+    int x;
+    int a;
+    printf("\n Bienvenido al  menu profesor, elige una de las siguientes \n");
+	do{
+    printf("1: ficha del alumno\n");
+    printf("2: Calificaciones del alumno\n");
+    printf("3: volver\n");
+    fflush(stdin);
+    scanf("%i",&x);
 
+    }while(x<1 || x>2);
+	switch(x){
+		case 1:
+			mostrar_alumnos(*alum);
+        	printf("Desea modificar datos de un alumno en concreto introduce 1.Si lo que desea es consultar introduce 2");
+        	scanf("%i",&a);
+        	if(a==1){
+        		modificar_alumno(*alum);
+					
+   			}
+   			else {
+				mostrar_alumnos(alum);	
+			}
+			break;
+		case 2:
+			mostrar_calificaciones(*cali);
+        	printf("Desea modificar datos de horarios en concreto introduce 1.Si lo que desea es consultar introduce 2");
+        	scanf("%i",&a);
+        	if(a==1){
+        		modificar_calificaciones(*cali);
+					
+   			}
+   			else{
+				mostrar_calificaciones(*cali);	
+			}
+			break;
+		case 3:
+			MenuProfesor(alum,cali);
+			break;
+	}
+}
